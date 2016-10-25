@@ -27,7 +27,7 @@
             <nav id="main-menu" class="h-menu">
                <ul>
                   <li><a href="">JOIN/LOGIN</a></li>
-                  <li><a href="mypage.jsp">MY PAGE</a></li>
+                  <li><a href="mypage">MY PAGE</a></li>
                   <li><a href="">ABOUT US</a></li>
                </ul>
             </nav>

@@ -29,8 +29,8 @@
 				<nav id="main-menu" class="h-menu">
 					<ul>
 						<li><a href="">JOIN/LOGIN</a></li>
-						<li><a href="mypage.jsp">MY PAGE</a></li>
-						<li><a href="aboutus.jsp">ABOUT US</a></li>
+						<li><a href="mypage">MY PAGE</a></li>
+						<li><a href="aboutus">ABOUT US</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -43,30 +43,36 @@
 	<!-- --------------------main-------------------- -->
 	<main>
 	<div class="content-container">
-		<a href=""><img src="../images/고해상도풍차.bmp" 
+		<a href="detail?code=1"><img src="../images/고해상도풍차.bmp" 
 			width="300" height="300" /></a> 
-		<a href=""> <img src="../images/고해상도하늘.bmp" 
+		<a href="detail?code=1"> <img src="../images/고해상도하늘.bmp" 
 			width="300" height="300" /></a>
-		<a href=""><img src="../images/고해상도호수.bmp" 
+		<a href="detail?code=1"><img src="../images/고해상도호수.bmp" 
 			width="300" height="300" /></a> 
-		<a href=""><img src="../images/남3.JPG" 
+		<a href="detail?code=1"><img src="../images/남3.JPG" 
 			width="300" height="300" /></a> 
-		<a href=""><img src="../images/제목 없음.bmp" 
+		<a href="detail?code=1"><img src="../images/제목 없음.bmp" 
 			width="300" height="300" /></a> 
-		<a href=""><img src="../images/푸른하늘야경.jpg" 
+		<a href="detail?code=1"><img src="../images/푸른하늘야경.jpg" 
 			width="300" height="300" /></a>
-		<a href=""><img src="../images/8C07.jpg"
+		<a href="detail?code=1"><img src="../images/8C07.jpg"
             width="300" height="300"/></a>
-        <a href=""><img src="../images/002.jpg"
+        <a href="detail?code=1"><img src="../images/002.jpg"
            	width="300" height="300"/></a>
-        <a href=""><img src="../images/01089_toureiffel_1680x1050.jpg"
+        <a href="detail?code=1"><img src="../images/01089_toureiffel_1680x1050.jpg"
            	width="300" height="300"/></a>
-        <a href=""><img src="../images/02.jpg"
+        <a href="detail?code=1"><img src="../images/02.jpg"
            	width="300" height="300"/></a>
-        <a href=""><img src="../images/3.JPG"
+        <a href="detail?code=1"><img src="../images/3.JPG"
            	width="300" height="300"/></a>
-        <a href=""><img src="../images/montrealur.jpg"
+        <a href="detail?code=1"><img src="../images/montrealur.jpg"
            	width="300" height="300"/></a>
+           	<c:forEach var="n" items="${list}">
+				<tr>
+					<td>${n.code}</td>
+					<td><a href="notice-detail?code=${n.code}">${n.photo}</a></td>
+				</tr>
+			</c:forEach>
 	</div>
 	</main>
 	<!-- --------------------footer-------------------- -->
@@ -75,7 +81,7 @@
 			<dl class="soso">
 				<dt class="dt">CREATED BY SOSOHEA</dt>
 			</dl>
-			<button type="button" name="upload" class="upload_button">UPLOAD</button>
+			<button type="button" name="upload"><a href="upload">UPLOAD</a></button>
 		</div>
 	</footer>
 </body>
