@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- NoticeDao 인터페이스 구현하고 싶은 것만 함 -->
+<mapper namespace="soso.dao.NoticeDao">
+	<select id="getN" resultType="soso.entities.Notice">
+		SELECT * FROM POST WHERE CODE = #{code}
+	</select>
+</mapper>
