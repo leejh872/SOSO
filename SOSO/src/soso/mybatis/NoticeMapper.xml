@@ -7,4 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getN" resultType="soso.entities.Notice">
 		SELECT * FROM POST WHERE CODE = #{code}
 	</select>
+	<insert id="insert">
+		<selectKey order="BEFORE" keyProperty="code" resultType="String">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)),0)+1 AS CODE FROM NOTICES
+
+		</selectKey>
+		INSERT INTO NOTICES(PHOTO,STORY)
+		VALUES(#{photo},#{story})
+	</insert>
 </mapper>

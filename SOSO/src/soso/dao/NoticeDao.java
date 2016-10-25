@@ -9,4 +9,6 @@ import soso.model.NoticeModel;
 public interface NoticeDao {
    Notice getN(String code);
    
+
+   
 }

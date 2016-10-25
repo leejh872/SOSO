@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사진 상세보기</title>
 <link href="../css/reset.css" type="text/css" rel="stylesheet" />
-<link href="../css/style.css" type="text/css" rel="stylesheet" />
+<link href="../css/SosoLogin.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
