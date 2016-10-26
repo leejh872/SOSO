@@ -11,6 +11,10 @@ body .hidden {
    display: none;
 }
 
+body .left{
+	float: left;
+}
+
 .content-container{
 	
    height: inherit;
@@ -19,11 +23,24 @@ body .hidden {
    padding-bottom: 100px;
 }
 
-.content-container > table{
+.content-container-detail{
 	
    height: inherit;
-   width: 900px;
+   width: 760px;
    margin : auto;
+   padding-bottom: 100px;
+}
+
+.storysize{
+   height: inherit;
+   width: 380px;
+   margin : auto;
+}
+
+
+#photo{
+	width:380px;
+	height:600px;
 }
 
 #menu{

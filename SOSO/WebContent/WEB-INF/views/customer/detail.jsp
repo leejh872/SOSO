@@ -35,28 +35,34 @@
 	<!-- --------------------main-------------------- -->
 	<main>
 	<h1 class="hidden">사진상세보기</h1>
-	<div class="content-container">
-		<table border="1">
-			<tbody>
-				<tr width="300">
-					<td rowspan="5">${n.photo}</td>
-				</tr>
+	<div class="content-container-detail">
+		<div id="photo" class="left">${n.photo}</div>
+		<div>
+			<table class="storysize">
 
-				<c:forEach var="t" items="${list}">
-					<td>${t.name}</td>
+				<tbody>
+					<c:forEach var="t" items="${list}">
+						<td>${t.name}</td>
 
-				</c:forEach>
-				</tr>
-				<tr>
-					<td>작성일</td>
-					<td colspan="6">${n["regdate"]}</td>
-				</tr>
-				<tr>
-					<td rowspan="10" colspan="7">${n.story}</td>
-				</tr>
-			</tbody>
-		</table>
-		<br />
+					</c:forEach>
+					</tr>
+					<tr>
+						<td>작성일</td>
+						<td colspan="6">${n["regdate"]}</td>
+					</tr>
+					<tr>
+						<td rowspan="10" colspan="7">${n.story}</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+
+		</div>
+		
+	</div>
+	
+	</main>
+	<div class="content-container-detail">
 		<table>
 			<tbody>
 				<tr>
@@ -67,8 +73,7 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
-	</main>
+		</div>
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
 	<dl class="soso">
