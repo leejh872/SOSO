@@ -21,5 +21,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="soso/mybatis/NoticeMapper.xml" />
 		<mapper resource="soso/mybatis/CommentMapper.xml" />
 		<mapper resource="soso/mybatis/TagMapper.xml" />
+		<mapper resource="soso/mybatis/UserMapper.xml" />
 	</mappers>
 </configuration>

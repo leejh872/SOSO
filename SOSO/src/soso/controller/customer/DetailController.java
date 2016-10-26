@@ -27,7 +27,7 @@ public class DetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 사용자 입력
+		// 
 		String _code = request.getParameter("code");
 
 		NoticeDao noticeDao = new MyBatisNoticeDao();
