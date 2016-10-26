@@ -7,64 +7,68 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사진 상세보기</title>
-<link href="../css/reset.css" type="text/css" rel="stylesheet" />
-<link href="../css/SosoLogin.css" type="text/css" rel="stylesheet" />
+<link href="../css/SosoDetail.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
 	<!-- --------------------header-------------------- -->
-	<header> </header>
+	<header>
+	<div class="content-container">
+		<h1>
+			<a href="">SOSOHEA</a>
+		</h1>
+		<section id="menu"> <section>
+		<form id="search">
+			<input value="" /> <input type="submit" value="검색" />
+		</form>
+		</section> <nav id="main-menu" class="h-menu">
+		<ul>
+			<li><a href="">JOIN/LOGIN</a></li>
+			<li><a href="mypage">MY PAGE</a></li>
+			<li><a href="aboutus">ABOUT US</a></li>
+		</ul>
+		</nav> </section>
+	</div>
+	</header>
 	<!-- --------------------aside-------------------- -->
 	<aside> </aside>
 	<!-- --------------------main-------------------- -->
-	<!-- <main> --> 
-	<h1>사진상세보기</h1>
-	<table border="1">
-		<tbody>
-			<tr>
-				<td rowspan="5">${n.photo}</td>
-			</tr>
-			
-			<c:forEach var="t" items="${list}">
+	<main>
+	<h1 class="hidden">사진상세보기</h1>
+	<div class="content-container">
+		<table border="1">
+			<tbody>
+				<tr width="300">
+					<td rowspan="5">${n.photo}</td>
+				</tr>
+
+				<c:forEach var="t" items="${list}">
 					<td>${t.name}</td>
 
-			</c:forEach>
-				<%-- <td>${t.name}</td>
-				<td>${t.name}</td>
-				<td>${t.name}</td>
-				<td>${t.name}</td>
-				<td>${t.name}</td>
-				<td>${t.name}</td>
-				<td>${t.name}</td> --%>
-			</tr>
-			<tr>
-				<td>작성일</td>
-				<td colspan="6">${n["regdate"]}</td>
-			</tr>
-			<tr>
-				<td colspan="7">${n.story}</td>
-			</tr>
-		</tbody>
-	</table>
-	<br/>
-	<h2>댓글</h2>
-	<table border="1">
-		<tbody>
-			<tr>
-				<td>아이디</td>
-				<td>성별</td>
-				<td>내용</td>
-				<td>날짜</td>
-			</tr>
-			<tr>
-				<td>${c.email}</td>
-				<td>성별</td>
-				<td>${c.content}</td>
-				<td>${c.regdate}</td>
-			</tr>
-		</tbody>
-	</table>
-	<!-- </main> -->
+				</c:forEach>
+				</tr>
+				<tr>
+					<td>작성일</td>
+					<td colspan="6">${n["regdate"]}</td>
+				</tr>
+				<tr>
+					<td rowspan="10" colspan="7">${n.story}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<table>
+			<tbody>
+				<tr>
+					<td>${c.email}</td>
+					<td>성별</td>
+					<td>${c.content}</td>
+					<td>${c.regdate}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</main>
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
 	<dl class="soso">
