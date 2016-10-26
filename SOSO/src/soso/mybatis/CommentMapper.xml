@@ -10,8 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" resultType="soso.model.CmtModel">
 		SELECT * FROM
 		(
-		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT.*
-		FROM USER_COMMENT
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT_VIEW.*
+		FROM USER_COMMENT_VIEW
 		WHERE POST_CODE = #{code}
 		) C
 	</select>

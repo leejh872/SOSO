@@ -23,7 +23,7 @@
 		</form>
 		</section> <nav id="main-menu" class="h-menu">
 		<ul>
-			<li><a href="">JOIN/LOGIN</a></li>
+			<li><a href="user">JOIN/LOGIN</a></li>
 			<li><a href="mypage">MY PAGE</a></li>
 			<li><a href="aboutus">ABOUT US</a></li>
 		</ul>
@@ -41,11 +41,12 @@
 			<table id="story">
 
 				<tbody>
-					<c:forEach var="t" items="${list}">
-						<td>${t.name}</td>
+					<!-- <tr> -->
+						<c:forEach var="t" items="${list}">
+							<!-- <td> -->${t.name}<!-- </td> -->
 
-					</c:forEach>
-					</tr>
+						</c:forEach>
+					<!-- </tr> -->
 					<tr>
 						<td colspan="7" style="text-align: right;">${n["regdate"]}</td>
 					</tr>
@@ -78,6 +79,7 @@
 
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
+	<h1 class="hidden">푸터</h1>
 	<dl class="soso">
 		<dt class="dt">CREATED BY SOSOHEA</dt>
 		<dd>CEO: 이지혜</dd>
