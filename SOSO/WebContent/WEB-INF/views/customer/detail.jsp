@@ -15,7 +15,7 @@
 	<header>
 	<div class="content-container">
 		<h1>
-			<a href="">SOSOHEA</a>
+			<a href="notice">SOSOHEA</a>
 		</h1>
 		<section id="menu"> <section>
 		<form id="search">
@@ -38,7 +38,7 @@
 	<div class="content-container-detail">
 		<div id="photo" class="left">${n.photo}</div>
 		<div>
-			<table class="storysize">
+			<table id="story">
 
 				<tbody>
 					<c:forEach var="t" items="${list}">
@@ -58,11 +58,7 @@
 			<br />
 
 		</div>
-		
-	</div>
-	
-	</main>
-	<div class="content-container-detail">
+		<div id="comment" class="left">
 		<table>
 			<tbody>
 				<tr>
@@ -74,6 +70,11 @@
 			</tbody>
 		</table>
 		</div>
+		
+	</div>
+	
+	</main>
+	
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
 	<dl class="soso">

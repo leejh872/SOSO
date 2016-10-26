@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-
+/* 공통 */
 .clearfix {
    overflow: auto;
    zoom: 1;
@@ -23,6 +23,9 @@ body .left{
    padding-bottom: 100px;
 }
 
+
+/* 메인 */
+
 .content-container-detail{
 	
    height: inherit;
@@ -31,18 +34,23 @@ body .left{
    padding-bottom: 100px;
 }
 
-.storysize{
+#photo{
+	width:380px;
+	height:500px;
+}
+
+#story{
    height: inherit;
    width: 380px;
    margin : auto;
 }
 
-
-#photo{
-	width:380px;
-	height:600px;
+#comment{
+	width:760px;
+	height: inherit;
 }
 
+/* 헤더 */
 #menu{
    float:right;
 } 
@@ -82,7 +90,7 @@ body .h-menu > ul > li {
 
 
 
-
+/* 푸터 */
 
 #footer {
    opacity : 0.7;
