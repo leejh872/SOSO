@@ -3,6 +3,7 @@ package soso.entities;
 import java.util.Date;
 
 public class Comment {
+	private String gender;
 	private int code;
 	private String content;
 	private String email;
@@ -10,6 +11,12 @@ public class Comment {
 	private Date regdate;
 	
 	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public int getCode() {
 		return code;
 	}

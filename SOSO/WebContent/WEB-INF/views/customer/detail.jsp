@@ -47,7 +47,7 @@
 					</c:forEach>
 					</tr>
 					<tr>
-						<td colspan="7" style="text-align:right;">${n["regdate"]}</td>
+						<td colspan="7" style="text-align: right;">${n["regdate"]}</td>
 					</tr>
 					<tr>
 						<td colspan="7">${n.story}</td>
@@ -58,22 +58,24 @@
 
 		</div>
 		<div class="left">
-		<table id="comment">
-			<tbody>
-				<tr>
-					<td>성별</td>
-					<td>${c.content}</td>
-					<td>${c.regdate}</td>
-					<td>${c.email}</td>
-				</tr>
-			</tbody>
-		</table>
+			<table id="comment">
+				<tbody>
+					<c:forEach var="c" items="${clist}">
+						<tr>
+							<td>${c.gender}</td>
+							<td>${c.content}</td>
+							<td>${c.regdate}</td>
+							<td>${c.email}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
-		
+
 	</div>
-	
+
 	</main>
-	
+
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
 	<dl class="soso">

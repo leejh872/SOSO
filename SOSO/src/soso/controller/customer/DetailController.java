@@ -19,6 +19,7 @@ import soso.mybatis.MyBatisTagDao;
 import soso.entities.Comment;
 import soso.entities.Notice;
 import soso.entities.Tag;
+import soso.model.CmtModel;
 import soso.model.TagModel;
 
 
@@ -39,10 +40,9 @@ public class DetailController extends HttpServlet {
 		request.setAttribute("n", notice);
 		
 		CommentDao commentDao = new MyBatisCommentDao();
-		Comment comment;
-		
-		comment = commentDao.get(_code);
-		request.setAttribute("c", comment);
+		List<CmtModel> clist = commentDao.getList(_code);
+
+		request.setAttribute("clist", clist);
 		
 		TagDao tagDao = new MyBatisTagDao();
 		List<TagModel> list = tagDao.getList(_code);
