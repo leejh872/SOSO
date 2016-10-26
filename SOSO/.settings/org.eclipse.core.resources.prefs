@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/soso/mybatis/MyBatisNoticeDao.java=UTF-8
+=======
+encoding//WebContent/WEB-INF/views/customer/main.jsp=UTF-8
+>>>>>>> refs/remotes/origin/master

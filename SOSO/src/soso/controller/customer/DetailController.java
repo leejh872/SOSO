@@ -27,7 +27,7 @@ public class DetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// 
+
 		String _code = request.getParameter("code");
 
 		NoticeDao noticeDao = new MyBatisNoticeDao();
@@ -48,7 +48,5 @@ public class DetailController extends HttpServlet {
 		request.setAttribute("list", list);
 
 		request.getRequestDispatcher("/WEB-INF/views/customer/detail.jsp").forward(request, response);
-
 	}
-
 }
