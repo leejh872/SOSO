@@ -28,7 +28,7 @@
 				</section>
 				<nav id="main-menu" class="h-menu">
 					<ul>
-						<li><a href="">JOIN/LOGIN</a></li>
+						<li><a href="user">JOIN/LOGIN</a></li>
 						<li><a href="mypage">MY PAGE</a></li>
 						<li><a href="aboutus">ABOUT US</a></li>
 					</ul>

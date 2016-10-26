@@ -8,16 +8,16 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import soso.dao.CommentDao;
 import soso.dao.NoticeDao;
 import soso.dao.TagDao;
+import soso.dao.UserDao;
 import soso.entities.Comment;
 import soso.entities.Notice;
+import soso.entities.User;
 import soso.entities.Tag;
 import soso.model.NoticeModel;
 import soso.model.TagModel;
 
-public class MyBatisNoticeDao implements NoticeDao, CommentDao, TagDao {
+public class MyBatisNoticeDao implements NoticeDao, CommentDao, TagDao, UserDao {
 
-   // 직접쓰기 가능하지만
-   // 오버로드해서 쓰기위해
 
    SqlSessionFactory ssf;
 
@@ -53,11 +53,24 @@ public class MyBatisNoticeDao implements NoticeDao, CommentDao, TagDao {
       SqlSession session = ssf.openSession();
       TagDao tagDao = session.getMapper(TagDao.class);
 
-      List<TagModel> result = tagDao.getListT(post_code);
-      session.close();
-      
-      return result;
-   }
+
+	      List<TagModel> result = tagDao.getListT(post_code);
+	      session.close();
+	      
+	      return result;
+	   }
+
+	@Override
+	public User getU(String email) {
+		 SqlSession session = ssf.openSession();
+	      UserDao userDao = session.getMapper(UserDao.class);
+	      
+	      User result = userDao.getU(email);
+	      session.close();
+		return result;
+	}
+
+
 
 @Override
 public List<NoticeModel> getList(int page, String field, String query) {
@@ -101,3 +114,5 @@ public int getCount(String field, String query) {
 	return 0;
 }
 }
+
+
