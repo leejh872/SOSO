@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AboutUs Page</title>
 <link href="../css/SosoMain.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -16,7 +16,7 @@
    <!-- --------------------header-------------------- -->
    <header> 
    <div class="content-container">
-      <h1><a href="notice">SOSOHEA</a></h1>
+      <h1><a href="main" class="link">SOSOHEA</a></h1>
          <section id="menu">
             <section>
                   <form id="search">
@@ -26,9 +26,9 @@
               </section>
             <nav id="main-menu" class="h-menu">
                <ul>
-                  <li><a href="">JOIN/LOGIN</a></li>
-                  <li><a href="mypage">MY PAGE</a></li>
-                  <li><a href="">ABOUT US</a></li>
+                  <li><a href="user" class="link">JOIN/LOGIN</a></li>
+                  <li><a href="mypage" class="link">MY PAGE</a></li>
+                  <li><a href="aboutus" class="link">ABOUT US</a></li>
                </ul>
             </nav>
          </section>
@@ -67,7 +67,7 @@
          <dl class="soso">
             <dt class="dt">CREATED BY SOSOHEA</dt>
          </dl>
-         <button type="button" name="upload" class="upload_button">UPLOAD</button>
+         <button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
       </div>
    </footer>
 </body>

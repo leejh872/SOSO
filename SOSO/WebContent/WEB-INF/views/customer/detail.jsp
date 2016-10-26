@@ -15,17 +15,18 @@
 	<header>
 	<div class="content-container">
 		<h1>
-			<a href="notice" class="link">SOSOHEA</a>
+			<a href="main" class="link">SOSOHEA</a>
 		</h1>
 		<section id="menu"> <section>
 		<form id="search">
-			<input value="" /> <input type="submit" value="검색" />
+			<input value="" >
+			<input type="submit" value="검색" />
 		</form>
 		</section> <nav id="main-menu" class="h-menu">
 		<ul>
-			<li><a href="user">JOIN/LOGIN</a></li>
-			<li><a href="mypage">MY PAGE</a></li>
-			<li><a href="aboutus">ABOUT US</a></li>
+			<li><a href="user" class="link">JOIN/LOGIN</a></li>
+			<li><a href="mypage" class="link">MY PAGE</a></li>
+			<li><a href="aboutus" class="link">ABOUT US</a></li>
 		</ul>
 		</nav> </section>
 	</div>
@@ -74,21 +75,16 @@
 		</div>
 
 	</div>
-
 	</main>
 
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
-	<h1 class="hidden">푸터</h1>
-	<dl class="soso">
-		<dt class="dt">CREATED BY SOSOHEA</dt>
-		<dd>CEO: 이지혜</dd>
-
-	</dl>
-
-	<button type="button" name="upload" class="upload_button">UPLOAD</button>
-
+		<h1 class="hidden">푸터</h1>
+		<dl class="soso">
+			<dt class="dt">CREATED BY SOSOHEA</dt>
+		</dl>
+	
+		<button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
 	</footer>
-
 </body>
 </html>
