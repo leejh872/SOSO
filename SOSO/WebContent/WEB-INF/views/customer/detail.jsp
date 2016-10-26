@@ -15,7 +15,7 @@
 	<header>
 	<div class="content-container">
 		<h1>
-			<a href="notice">SOSOHEA</a>
+			<a href="notice" class="link">SOSOHEA</a>
 		</h1>
 		<section id="menu"> <section>
 		<form id="search">

@@ -27,6 +27,11 @@ body .right{
    padding-bottom: 100px;
 }
 
+.link {
+	color: #000;
+	/* 하이퍼링크 밑줄없애기 */
+	text-decoration: none;
+}
 
 /* 메인 */
 

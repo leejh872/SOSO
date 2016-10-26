@@ -8,7 +8,7 @@ public class User {
 	private String pw;
 	private String war_cause;
 	private Date regdate;
-	private int gender;
+	private String gender;
 	private int warning;
 	
 	public String getCellphone() {
@@ -41,10 +41,10 @@ public class User {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public int getWarning() {

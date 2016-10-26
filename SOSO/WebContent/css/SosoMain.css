@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+.link {
+	color: #000;
+	text-decoration: none;
+}
+
 .content-container{
    height: inherit;
    width: 960px;
