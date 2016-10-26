@@ -47,25 +47,24 @@
 					</c:forEach>
 					</tr>
 					<tr>
-						<td>작성일</td>
-						<td colspan="6">${n["regdate"]}</td>
+						<td colspan="7" style="text-align:right;">${n["regdate"]}</td>
 					</tr>
 					<tr>
-						<td rowspan="10" colspan="7">${n.story}</td>
+						<td colspan="7">${n.story}</td>
 					</tr>
 				</tbody>
 			</table>
 			<br />
 
 		</div>
-		<div id="comment" class="left">
-		<table>
+		<div class="left">
+		<table id="comment">
 			<tbody>
 				<tr>
-					<td>${c.email}</td>
 					<td>성별</td>
 					<td>${c.content}</td>
 					<td>${c.regdate}</td>
+					<td>${c.email}</td>
 				</tr>
 			</tbody>
 		</table>
