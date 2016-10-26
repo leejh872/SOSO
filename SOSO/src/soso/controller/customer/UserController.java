@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import soso.dao.UserDao;
 import soso.entities.User;
 import soso.mybatis.MyBatisNoticeDao;
+import soso.mybatis.MyBatisUserDao;
 
 
 
@@ -24,10 +25,10 @@ public class UserController extends HttpServlet {
 			throws ServletException, IOException {
 		String _email = request.getParameter("email");
 
-		UserDao userDao = (UserDao) new MyBatisNoticeDao();
+		UserDao userDao = (UserDao) new MyBatisUserDao();
 		User user;
 
-		user = userDao.getU(_email);
+		user = userDao.get(_email);
 		request.setAttribute("u", user);
 		
 		request.getRequestDispatcher("/WEB-INF/views/customer/login.jsp").forward(request, response);

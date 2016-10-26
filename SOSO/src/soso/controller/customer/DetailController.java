@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import soso.dao.CommentDao;
 import soso.dao.NoticeDao;
 import soso.dao.TagDao;
+import soso.mybatis.MyBatisCommentDao;
 import soso.mybatis.MyBatisNoticeDao;
+import soso.mybatis.MyBatisTagDao;
 import soso.entities.Comment;
 import soso.entities.Notice;
 import soso.entities.Tag;
@@ -33,17 +35,17 @@ public class DetailController extends HttpServlet {
 		NoticeDao noticeDao = new MyBatisNoticeDao();
 		Notice notice;
 
-		notice = noticeDao.getN(_code);
+		notice = noticeDao.get(_code);
 		request.setAttribute("n", notice);
 		
-		CommentDao commentDao = new MyBatisNoticeDao();
+		CommentDao commentDao = new MyBatisCommentDao();
 		Comment comment;
 		
-		comment = commentDao.getC(_code);
+		comment = commentDao.get(_code);
 		request.setAttribute("c", comment);
 		
-		TagDao tagDao = new MyBatisNoticeDao();
-		List<TagModel> list = tagDao.getListT(_code);
+		TagDao tagDao = new MyBatisTagDao();
+		List<TagModel> list = tagDao.getList(_code);
 		
 		request.setAttribute("list", list);
 

@@ -16,7 +16,7 @@
    <!-- --------------------header-------------------- -->
    <header> 
    <div class="content-container">
-      <h1><a href="main.jsp">SOSOHEA</a></h1>
+      <h1><a href="notice">SOSOHEA</a></h1>
          <section id="menu">
             <section>
                   <form id="search">

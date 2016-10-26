@@ -8,6 +8,6 @@ import soso.entities.User;
 import soso.model.NoticeModel;
 
 public interface UserDao {
-   User getU(String email);
+   User get(String email);
    
 }

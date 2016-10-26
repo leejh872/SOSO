@@ -18,7 +18,7 @@
 	<header>
 		<div class="content-container">
 			<h1>
-				<a href="">SOSOHEA</a>
+				<a href="notice">SOSOHEA</a>
 			</h1>
 			<section id="menu">
 				<section>
