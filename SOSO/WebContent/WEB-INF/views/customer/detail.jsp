@@ -42,13 +42,14 @@
 
 				<tbody>
 					<!-- <tr> -->
-						<c:forEach var="t" items="${list}">
-							<!-- <td> -->${t.name}<!-- </td> -->
+					<c:forEach var="t" items="${list}">
+						<!-- <td> -->${t.name}<!-- </td> -->
 
-						</c:forEach>
+					</c:forEach>
 					<!-- </tr> -->
 					<tr>
-						<td colspan="7" style="text-align: right;">${n["regdate"]}</td>
+						<td colspan="7" style="text-align: right;"><fmt:formatDate
+								pattern="yyyy-MM-dd" value="${n.regdate}" /></td>
 					</tr>
 					<tr>
 						<td colspan="7">${n.story}</td>
@@ -65,7 +66,8 @@
 						<tr>
 							<td>${c.gender}</td>
 							<td>${c.content}</td>
-							<td>${c.regdate}</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${c.regdate}" /></td>
 							<td>${c.email}</td>
 						</tr>
 					</c:forEach>
