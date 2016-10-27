@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Upload Page</title>
+<link href="../css/SosoMain.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-<h1>SOSOHEA</h1>
+<div class="content-container">
+<h1 ><a href="main" class="link">SOSOHEA</a></h1>
 	<form action="notice-reg" method="post">
 		<fieldset>
 			<legend></legend>
@@ -32,5 +34,6 @@
 	</form>
 </tbody>
 </table>
+</div>
 </body>
 </html>

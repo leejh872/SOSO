@@ -16,7 +16,7 @@
    <!-- --------------------header-------------------- -->
    <header> 
    <div class="content-container">
-      <h1><a href="notice">SOSOHEA</a></h1>
+      <h1><a href="main" class="link">SOSOHEA</a></h1>
          <section id="menu">
             <section>
                   <form id="search">
@@ -26,9 +26,9 @@
               </section>
             <nav id="main-menu" class="h-menu">
                <ul>
-                  <li><a href="">JOIN/LOGIN</a></li>
-                  <li><a href="">MY PAGE</a></li>
-                  <li><a href="aboutus.jsp">ABOUT US</a></li>
+                  <li><a href="user" class="link">JOIN/LOGIN</a></li>
+                  <li><a href="mypage" class="link">MY PAGE</a></li>
+                  <li><a href="aboutus" class="link">ABOUT US</a></li>
                </ul>
             </nav>
          </section>
@@ -41,7 +41,6 @@
    <!-- --------------------main-------------------- -->
 	<main>
 		<div class="content-container">
-			
 				<a href=""><img src="../images/8C07.jpg" 
 				width="300" height="300" /></a>
 
@@ -69,7 +68,7 @@
          <dl class="soso">
             <dt class="dt">CREATED BY SOSOHEA</dt>
          </dl>
-         <button type="button" name="upload" class="upload_button">UPLOAD</button>
+         <button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
       </div>
    </footer>
 </body>

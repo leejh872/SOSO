@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+<title>Main Page</title>
 <link href="../css/SosoMain.css" type="text/css" rel="stylesheet" />
 </head>
 
@@ -17,20 +17,21 @@
 	<!-- --------------------header-------------------- -->
 	<header>
 		<div class="content-container">
-			<h1>
-				<a href="notice">SOSOHEA</a>
+			<h1 >
+				<a href="main" class="link">SOSOHEA</a>
 			</h1>
 			<section id="menu">
 				<section>
 					<form id="search">
-						<input value="" /> <input type="submit" value="검색" />
+						<input name="q" value=${param.q} > 
+						<input type="submit" value="검색" />
 					</form>
 				</section>
 				<nav id="main-menu" class="h-menu">
 					<ul>
-						<li><a href="user">JOIN/LOGIN</a></li>
-						<li><a href="mypage">MY PAGE</a></li>
-						<li><a href="aboutus">ABOUT US</a></li>
+						<li><a href="user" class="link">JOIN/LOGIN</a></li>
+						<li><a href="mypage" class="link">MY PAGE</a></li>
+						<li><a href="aboutus" class="link">ABOUT US</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -43,6 +44,7 @@
 	<!-- --------------------main-------------------- -->
 	<main>
 	<div class="content-container">
+	<div id="photo" class="left">${n.photo}</div>
 		<a href="detail?code=1"><img src="../images/고해상도풍차.bmp" 
 			width="300" height="300" /></a> 
 		<a href="detail?code=1"> <img src="../images/고해상도하늘.bmp" 
@@ -67,12 +69,6 @@
            	width="300" height="300"/></a>
         <a href="detail?code=1"><img src="../images/montrealur.jpg"
            	width="300" height="300"/></a>
-           	<c:forEach var="n" items="${list}">
-				<tr>
-					<td>${n.code}</td>
-					<td><a href="notice-detail?code=${n.code}">${n.photo}</a></td>
-				</tr>
-			</c:forEach>
 	</div>
 	</main>
 	<!-- --------------------footer-------------------- -->
@@ -81,7 +77,7 @@
 			<dl class="soso">
 				<dt class="dt">CREATED BY SOSOHEA</dt>
 			</dl>
-			<button type="button" name="upload"><a href="upload">UPLOAD</a></button>
+			<button type="button" name="upload" class="upload_button"><a href="upload" class="link">UPLOAD</a></button>
 		</div>
 	</footer>
 </body>
