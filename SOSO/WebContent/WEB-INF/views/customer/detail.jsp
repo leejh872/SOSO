@@ -19,8 +19,7 @@
 		</h1>
 		<section id="menu"> <section>
 		<form id="search">
-			<input value="" >
-			<input type="submit" value="검색" />
+			<input value=""> <input type="submit" value="검색" />
 		</form>
 		</section> <nav id="main-menu" class="h-menu">
 		<ul>
@@ -32,61 +31,110 @@
 	</div>
 	</header>
 	<!-- --------------------aside-------------------- -->
-	<aside> </aside>
+	<aside>
+		<div>
+		<c:if test="${empty pn}">
+            	이전글이 없습니다.
+         </c:if>
+		<c:if test="${not empty pn}">
+			<a href="notice-detail?code=${pn.code}">이전글 :${pn.title}</a>
+		</c:if>
+	</div>
+	</aside>
 	<!-- --------------------main-------------------- -->
 	<main>
 	<h1 class="hidden">사진상세보기</h1>
 	<div class="content-container-detail">
-		<div id="photo" class="left">${n.photo}</div>
-		<div>
-			<table id="story">
+		<a href="">
+			<div id="photo">
+				<div class="text">
+					<table>
+						<thead>
+							<tr>
+								<td>좋아요</td>
+								<td>조회수</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>${n["like"]}</td>
+								<td>${n.hit}</td>
+							</tr>
+						</tbody>
+					</table>
+					<%-- <p>좋아요 조회수<br />${n["like"]}${n.hit}</p>
+				<p>${n.photo}</p> --%>
+				</div>
+			</div>
+			<div>
+		</a>
+		<table id="story">
 
-				<tbody>
-					<!-- <tr> -->
+			<tbody>
+				<tr>
 					<c:forEach var="t" items="${list}">
-						<!-- <td> -->${t.name}<!-- </td> -->
-
+						<td>${t.name}</td>
+						<c:if test="${t.code == 3}">
+				</tr>
+				<tr>
+					</c:if>
 					</c:forEach>
-					<!-- </tr> -->
-					<tr>
-						<td colspan="7" style="text-align: right;"><fmt:formatDate
-								pattern="yyyy-MM-dd" value="${n.regdate}" /></td>
-					</tr>
-					<tr>
-						<td colspan="7">${n.story}</td>
-					</tr>
-				</tbody>
-			</table>
-			<br />
+				</tr>
+				<tr>
+					<td colspan="7"
+						style="text-align: right; padding-top: 5px; padding-bottom: 5px;"><%-- ${n.beforeDate} --%>
+						<fmt:formatDate pattern="yyyy-MM-dd KK:mm:ss" value="${n.regdate}" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7">${n.story}</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
 
-		</div>
-		<div class="left">
-			<table id="comment">
-				<tbody>
-					<c:forEach var="c" items="${clist}">
-						<tr>
-							<td>${c.gender}</td>
-							<td>${c.content}</td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd"
-									value="${c.regdate}" /></td>
-							<td>${c.email}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
+	</div>
+	<div class="left">
+		<table id="comment">
+			<tbody>
+				<c:forEach var="c" items="${clist}">
+					<tr>
+						<td>${c.gender}</td>
+						<td>${c.content}</td>
+						<td><fmt:formatDate pattern="yyyy-MM-dd KK:mm:ss"
+								value="${c.regdate}" /></td>
+						<td>${c.email}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 
 	</div>
 	</main>
+	
+	<!-- --------------------aside-------------------- -->
+	<aside>
+		<div>
+		<%-- <c:if test="${empty nn}">
+            	다음글이 없습니다.
+         </c:if>
+		<c:if test="${not empty nn}">
+			<a href="notice-detail?code=${nn.code}">다음글 :${nn.title}</a>
+		</c:if> --%>
+		</div>
+	</aside>
 
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
-		<h1 class="hidden">푸터</h1>
-		<dl class="soso">
-			<dt class="dt">CREATED BY SOSOHEA</dt>
-		</dl>
-	
-		<button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
+	<h1 class="hidden">푸터</h1>
+	<dl class="soso">
+		<dt class="dt">CREATED BY SOSOHEA</dt>
+	</dl>
+
+	<button type="button" name="upload" class="upload_button">
+		<a href="upload" class="link">UPLOAD</a>
+	</button>
 	</footer>
 </body>
 </html>

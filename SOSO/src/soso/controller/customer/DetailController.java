@@ -35,6 +35,10 @@ public class DetailController extends HttpServlet {
 
 		NoticeDao noticeDao = new MyBatisNoticeDao();
 		Notice notice;
+		
+		noticeDao.hitUp(_code);
+		request.setAttribute("pn", noticeDao.getPrev(_code));
+        request.setAttribute("nn", noticeDao.getNext(_code));
 
 		notice = noticeDao.get(_code);
 		request.setAttribute("n", notice);
