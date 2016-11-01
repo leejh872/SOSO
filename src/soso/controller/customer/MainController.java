@@ -30,8 +30,7 @@ public class MainController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
+		/*AAAAA*/
 		NoticeDao noticeDao = new MyBatisNoticeDao();
 		String email = "test@naver.com";
 		List<NoticeModel> photoList = noticeDao.getPhoto(email);
