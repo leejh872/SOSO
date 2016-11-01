@@ -1,7 +1,6 @@
 package soso.controller.customer;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,14 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import soso.dao.CommentDao;
 import soso.dao.NoticeDao;
 import soso.dao.TagDao;
+import soso.entities.Notice;
+import soso.model.CmtModel;
+import soso.model.TagModel;
 import soso.mybatis.MyBatisCommentDao;
 import soso.mybatis.MyBatisNoticeDao;
 import soso.mybatis.MyBatisTagDao;
-import soso.entities.Comment;
-import soso.entities.Notice;
-import soso.entities.Tag;
-import soso.model.CmtModel;
-import soso.model.TagModel;
 
 
 @WebServlet("/customer/detail")
