@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-/* 공통 */
+/************************** 공통 **************************/
 .clearfix {
 	overflow: auto;
 	zoom: 1;
@@ -86,7 +86,7 @@ body .right {
 	padding-top: 10px;
 }
 
-/* 헤더 */
+/************************** 헤더 **************************/
 #menu {
 	float: right;
 }
@@ -117,6 +117,8 @@ body .h-menu>ul>li {
 	height: 85px;
 }
 
+
+/************************** 어사이드 **************************/
 #aside {
 	display: inline-block;
 	min-height: inherit;
@@ -124,7 +126,16 @@ body .h-menu>ul>li {
 	float: right;
 }
 
-/* 푸터 */
+#laside a {
+	color: #000000;
+	text-decoration: underline;
+}
+#raside a {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/************************** 푸터 ************************/
 #footer {
 	text-align: center;
 	opacity: 0.7;

@@ -32,12 +32,12 @@
 	</header>
 	<!-- --------------------aside-------------------- -->
 	<aside>
-		<div>
+		<div id="laside">
 		<c:if test="${empty pn}">
             	이전글이 없습니다.
          </c:if>
 		<c:if test="${not empty pn}">
-			<a href="notice-detail?code=${pn.code}">이전글 :${pn.title}</a>
+			<a href="notice-detail?code=${pn.code}">이전글</a>
 		</c:if>
 	</div>
 	</aside>
@@ -115,13 +115,13 @@
 	
 	<!-- --------------------aside-------------------- -->
 	<aside>
-		<div>
-		<%-- <c:if test="${empty nn}">
+		<div id="raside">
+		<c:if test="${empty nn}">
             	다음글이 없습니다.
          </c:if>
 		<c:if test="${not empty nn}">
-			<a href="notice-detail?code=${nn.code}">다음글 :${nn.title}</a>
-		</c:if> --%>
+			<a href="notice-detail?code=${nn.code}">다음글</a>
+		</c:if>
 		</div>
 	</aside>
 
