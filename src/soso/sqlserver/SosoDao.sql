@@ -1,4 +1,4 @@
-
+select * from post
 --20161025
 INSERT INTO [USER](CELLPHONE, EMAIL, PW, GENDER) VALUES('010-1111-8888', 'delete@naver.com', '1111', 0);
 

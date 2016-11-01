@@ -90,10 +90,10 @@ public class RegController extends HttpServlet {
 				// 1/1000초 단위로 이름을 붙임
 				String[] ext=uploadedFile.getName().split("[.]");
 				
-				path = "C:/Users/sist120/git/SOSO/SOSO/WebContent/images/";
+				path = "C:/Users/sist120/git/SOSO/SOSO/WebContent/images";
 				fname = "test@naver.com"+code+"."+ext[ext.length-1];
 				
-				File copy=new File("C:/Users/sist120/git/SOSO/SOSO/WebContent/images/"+
+				File copy=new File("C:/Users/sist120/git/SOSO/SOSO/WebContent/images"+
 						"test@naver.com"+code+"."+ext[ext.length-1]);
 				
 				
