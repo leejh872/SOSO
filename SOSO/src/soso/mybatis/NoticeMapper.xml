@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- NoticeDao 인터페이스 구현하고 싶은 것만 함 -->
+<mapper namespace="soso.dao.NoticeDao">
+	<select id="get" resultType="soso.entities.Notice">
+		SELECT * FROM POST WHERE CODE =
+		#{code}
+	</select>
+	<select id="getPrev" resultType="soso.entities.Notice">
+		select top 1 * from POST where code &gt; CAST(#{code} as INT) order by
+		regdate asc
+	</select>
+	<select id="getNext" resultType="soso.entities.Notice">
+		select top 1 * from POST where code &lt; CAST(#{code} as INT) order by
+		regdate desc
+	</select>
+
+	<insert id="insert">
+		<selectKey order="BEFORE" keyProperty="code" resultType="String">
+			SELECT ISNULL(MAX(CAST(CODE AS INT)),0)+1 AS CODE FROM NOTICES
+
+		</selectKey>
+		INSERT INTO NOTICES(PHOTO,STORY)
+		VALUES(#{photo},#{story})
+	</insert>
+	<update id="hitUp">
+		update POST set hit = hit + 1 where code = #{code}
+	</update>
+</mapper>
