@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+/*--------공통--------*/
+.link {			/*하이퍼 링크 밑줄/색깔 지우기*/
+	color: #000;
+	text-decoration: none;
+}
+
+.content-container{		/*양쪽의 여백을 위한 장치*/
+   height: inherit;
+   width: 960px;
+   margin : auto;
+}
+
+/*--------헤더-----------*/
+#menu{			/*헤더 검색창 & 메뉴 오른쪽으로 밀기*/
+   float:right;
+} 
+
+#search{		/*??이거 안하면 메뉴들이 한줄로 안나와요*/
+   float:right;
+}
+
+#main-menu{		/*헤더 메뉴 설정*/
+   display: inline-block;
+   font-family:"맑은 고딕";
+   font-weight: bold;
+   font-size: 12px;
+   color: #000;
+}
+   
+body .h-menu > ul > li {		/*헤더 메뉴 글자간격 & 메뉴 앞 점 없애기*/
+    float: left;
+    padding-left: 15px;
+    list-style: none;
+}
+/*--------비쥬얼--------*/
+#visual{     /*main이 header를 침범 하는 것을 막기 위한 장치*/
+   height: 85px;
+}
+/*--------메인---------*/
+#login-form{
+	border: 0px;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 230px;
+}
+
+#checkbox {
+	float: right;
+}
+
+#login-table {
+	width: 240px;
+}
+main #login-table {
+	border: 0px;
+}
+
+#login-menu {
+	float: right;
+}
+
+.login-button {
+	width: 60px;
+}
+
+.join-button {
+	width: 60px;
+}
+
+
+/*--------어사이드--------*/
+#aside{		/*About Us의 aside*/
+   display: inline-block;
+   min-height: inherit;
+   width: 400px;
+   float: right;
+}
+/*---------푸터----------*/
+#footer {		/*푸터 설정*/
+   text-align:center; /*푸터안의 글씨 가운데 정렬*/
+    opacity : 0.7;	/*배경 투명도*/
+    background: black;
+    width: 100%;
+    height: 50px;
+    position: fixed;	/*고정*/
+    bottom: 0;		/*바닥에 붙어 있게*/
+}
+
+.upload_button{			/*푸터 버튼 설정*/
+   float:right;
+   margin-top:8px;		/*푸터 윗변으로 부터의 위치*/
+   font-size:15px;
+   width: 150px;
+   padding-top: 8px;		/*버튼안에서 글자의 간격*/
+   padding-bottom: 8px;		
+   border-radius: 10px;		/*모서리 굴곡 정도*/
+   border: 3px solid gray;	
+} 
+
+.soso{		/*CREATED BY SOSOHEA*/
+   color:white;
+   list-style:none;
+   display: inline-block;
+}   
+
+.dt{		/*CREATED BY SOSOHEA*/
+   font-style:oblique;
+   font-family: sans-serif;
+   font-size: 20px;
+   font-weight: lighter; ;
+}

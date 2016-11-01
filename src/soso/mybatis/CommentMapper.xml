@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="soso.dao.CommentDao">
+	<select id="get" resultType="soso.entities.Comment">
+		SELECT * FROM COMMENT WHERE
+		POST_CODE = #{code}
+	</select>
+	<select id="getList" resultType="soso.model.CmtModel">
+		SELECT * FROM
+		(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT_VIEW.*
+		FROM USER_COMMENT_VIEW
+		WHERE POST_CODE = #{code}
+		) C
+	</select>
+</mapper>
