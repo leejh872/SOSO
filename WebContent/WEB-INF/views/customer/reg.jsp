@@ -19,9 +19,9 @@
 					<tbody>
 						<tr>
 							<td>ADD IMAGES</td>
-							<!-- name 키값을 전달함 -->
+							<%-- <!-- name 키값을 전달함 -->
 							<td colspan="3"><input type="text" name="photo"
-								value="${n.photo}" /></td>
+								value="${n.photo}" /></td> --%>
 						</tr>
 						<tr>
 							<td>첨부파일</td>

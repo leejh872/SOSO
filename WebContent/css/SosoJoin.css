@@ -21,6 +21,9 @@
    float:right;
 }
 
+#main-menu > ul > li:hover{/*헤더 메뉴 설정, 마우스 오버*/
+	text-decoration: underline;
+}
 #main-menu{		/*헤더 메뉴 설정*/
    display: inline-block;
    font-family:"맑은 고딕";

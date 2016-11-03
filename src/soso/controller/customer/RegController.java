@@ -17,11 +17,11 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import soso.dao.PostDao;
-import soso.dao.NoticeFileDao;
+import soso.dao.PhotoFileDao;
 import soso.entities.Post;
-import soso.entities.NoticeFile;
+import soso.entities.PhotoFile;
 import soso.mybatis.MyBatisPostDao;
-import soso.mybatis.MyBatisNoticeFileDao;
+import soso.mybatis.MyBatisPhotoFileDao;
 
 @WebServlet("/customer/reg")
 public class RegController extends HttpServlet {
@@ -68,11 +68,11 @@ public class RegController extends HttpServlet {
 		// String f1= req.getParameter("file");
 		// String f3=req.getOriginalFileName("file");
 
-		NoticeFileDao noticeFileDao = new MyBatisNoticeFileDao();
+		PhotoFileDao noticeFileDao = new MyBatisPhotoFileDao();
 
 		int i = 1;
 		while (en.hasMoreElements()) {
-			NoticeFile nf = new NoticeFile();
+			PhotoFile nf = new PhotoFile();
 			String name = (String) en.nextElement();
 			String fname = req.getFilesystemName(name);
 			
@@ -90,12 +90,12 @@ public class RegController extends HttpServlet {
 				// 1/1000초 단위로 이름을 붙임
 				String[] ext=uploadedFile.getName().split("[.]");
 				
-				path = "C:/Users/sist120/git/SOSO/SOSO/WebContent/images";
+				path = "C:/Users/sist103/git/SOSO/WebContent/images/";
 				fname = "test@naver.com"+code+"."+ext[ext.length-1];
 				
-				File copy=new File("C:/Users/sist120/git/SOSO/SOSO/WebContent/images"+
+				File copy=new File("C:/Users/sist103/git/SOSO/WebContent/images/"+
 						"test@naver.com"+code+"."+ext[ext.length-1]);
-				
+				/*누나 이거 파일 경로 지정해야 하는데 어딧어 ? 소소 프로젝트 어딧어 ? */
 				
 				FileOutputStream fos=new FileOutputStream(copy);
 				int read=0;
@@ -112,10 +112,10 @@ public class RegController extends HttpServlet {
 				e.printStackTrace();
 			}//end catch
 			
-			nf.setPhotoCode(fname); // 경로명은 안 넣는 게 좋음
+			nf.setPhoto(fname); // 경로명은 안 넣는 게 좋음
 			nf.setSrc(path);
-			nf.setCode(code);
-			nf.setEmail("test@naver.com");
+			nf.setPostCode(code);
+			//nf.setEmail("test@naver.com");
 			// nf.setNoticeCode(noticeDao.getLastCode());
 			System.out.println("nf: " + nf);
 			noticeFileDao.insert(nf);

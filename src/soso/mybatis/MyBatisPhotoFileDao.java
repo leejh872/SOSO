@@ -5,38 +5,38 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import soso.dao.NoticeFileDao;
-import soso.entities.NoticeFile;
+import soso.dao.PhotoFileDao;
+import soso.entities.PhotoFile;
 import soso.mybatis.SessionFactoryBuilder;
 
-public class MyBatisNoticeFileDao implements NoticeFileDao{
+public class MyBatisPhotoFileDao implements PhotoFileDao{
 	private SqlSessionFactory ssf;
 	
-	public MyBatisNoticeFileDao() {
+	public MyBatisPhotoFileDao() {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
 	
 	}
 
 	@Override
-	public List<NoticeFile> getList(String photoCode) {
+	public List<PhotoFile> getList(String photoCode) {
 		SqlSession session = ssf.openSession(); //트랜잭션을 하기위한 도구
-		NoticeFileDao NoticeFileDao = session.getMapper(NoticeFileDao.class);
-		return NoticeFileDao.getList(photoCode);
+		PhotoFileDao photoFileDao = session.getMapper(PhotoFileDao.class);
+		return photoFileDao.getList(photoCode);
 	}
 
 	@Override
-	public int insert(NoticeFile file) {
+	public int insert(PhotoFile file) {
 		SqlSession session = ssf.openSession(); //트랜잭션을 하기위한 도구
-		NoticeFileDao noticeFileDao = session.getMapper(NoticeFileDao.class);
+		PhotoFileDao photoFileDao = session.getMapper(PhotoFileDao.class);
 		
-		int result = noticeFileDao.insert(file);
+		int result = photoFileDao.insert(file);
 		session.commit();
 		session.close();
 		return result;
 	}
 
 	@Override
-	public int update(NoticeFile file) {
+	public int update(PhotoFile file) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

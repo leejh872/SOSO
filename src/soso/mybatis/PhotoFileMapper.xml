@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="soso.dao.NoticeFileDao">
+<mapper namespace="soso.dao.PhotoFileDao">
 
-<select id="getList" resultType="soso.entities.NoticeFile">      
-   SELECT * FROM PHOTOFILES WHERE PHOTO_CODE= #{photocode}
+<select id="getList" resultType="soso.entities.PhotoFile">      
+   SELECT * FROM PHOTOFILES WHERE PHOTO_CODE= #{photoCode}
    </select>
    
    <insert id="insert">
@@ -11,8 +11,9 @@
       SELECT ISNULL(MAX(CAST(CODE AS INT)),0)+1 AS CODE FROM PHOTOFILES
       </selectKey> -->
       
-      INSERT INTO PHOTOFILES(CODE,SRC,PHOTO_CODE,EMAIL)
-      VALUES(#{code},#{src},#{photoCode},#{email})
+      INSERT INTO PHOTOFILE(POST_CODE,SRC,PHOTO)
+      VALUES(#{postCode},#{src},#{photo})
    </insert>
   
 </mapper>
+

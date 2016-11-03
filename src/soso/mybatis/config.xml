@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 		<!-- 쿼리문 읽기 -->
-		<mapper resource="soso/mybatis/NoticeFileMapper.xml"/>
+		<mapper resource="soso/mybatis/PhotoFileMapper.xml"/>
 		<mapper resource="soso/mybatis/PostMapper.xml" />
 		<mapper resource="soso/mybatis/CommentMapper.xml" />
 		<mapper resource="soso/mybatis/TagMapper.xml" />

@@ -45,13 +45,16 @@
 				<label>Welcome</label>
 					<table align="center" id="join-table" >
 						<tr>
+							<option></option>
+						</tr>
+						<tr>
 							<td ><input type="text" name="cellphone" placeholder="ex)+82)010-1234-5678" value = "${j.cellphone}"></td>
 						</tr>
 						<tr>
 							<td ><input type="text" name="email" placeholder="E-mail" value="${j.email}"></td>
 						</tr>
 						<tr>
-							<td><input type="text" name="password" placeholder="Password" value="${j.password}"></td>
+							<td><input type="password" name="password" placeholder="Password" value="${j.password}"></td>
 						</tr>
 					</table>
 					<div id="join-menu">

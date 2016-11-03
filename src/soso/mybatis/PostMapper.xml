@@ -22,8 +22,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getPhoto" resultType = "String" parameterType="String">
-		SELECT PHOTO_CODE FROM PHOTOFILES
-		WHERE EMAIL = #{email}
-		ORDER BY REGDATE DESC
+		
+		SELECT TB2.PHOTO 
+		FROM  POST TB1
+		JOIN  PHOTOFILE TB2
+		  ON  TB1.CODE = TB2.POST_CODE
+		<!-- WHERE TB1.EMAIL = #{email}  email값을 받아서 자신이 올린 파일을 자신한테만 보여지게 하는것?--> 
+		ORDER BY TB2.REGDATE DESC
+  
    </select>
-</mapper>
+   </mapper>

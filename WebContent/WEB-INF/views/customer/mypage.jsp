@@ -1,9 +1,12 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="n" uri="http://www.newlecture.com/jsp/tags/control"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%List photolist =  (List)request.getAttribute("PHOTO_LIST"); %>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,29 +39,19 @@
    </header>
    <!-- --------------------visual-------------------- -->
    <div id="visual">
-         <div class="content-container"></div>
+     
+		
+
+	</div>
     </div>
    <!-- --------------------main-------------------- -->
 	<main>
 		<div class="content-container">
-				<a href=""><img src="../images/8C07.jpg" 
-				width="300" height="300" /></a>
-
-				<a href=""><img src="../images/002.jpg" 
-				width="300" height="300" /></a>
-
-				<a href=""><img
-					src="../images/01089_toureiffel_1680x1050.jpg" 
-					width="300" height="300" /></a>
-
-				<a href=""><img src="../images/02.jpg" 
-				width="300" height="300" /></a>
-
-				<a href=""><img src="../images/3.JPG" 
-				width="300" height="300" /></a>
-
-				<a href=""><img src="../images/montrealur.jpg" 
-				width="300" height="300" /></a>
+				
+	<div id="photo" class="left">${n.photo}</div>
+	<%for (int i = 0 ; i < photolist.size() ; i ++) { %>
+			<a href="detail?code=1"><img src= "../images/<%=photolist.get(i) %>" width="300" height="300"/></a> 
+		<%}%>
 
 		</div>
 	</main>
