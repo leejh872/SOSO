@@ -2,7 +2,7 @@ package soso.entities;
 
 import java.util.Date;
 
-public class Notice {
+public class Post {
 	private int code;
 	private String email;
 	private String story;

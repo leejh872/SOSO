@@ -1,6 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/master
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding//src/soso/mybatis/MyBatisNoticeDao.java=UTF-8
-=======
 encoding//WebContent/WEB-INF/views/customer/main.jsp=UTF-8
->>>>>>> refs/remotes/origin/master
+encoding//src/soso/mybatis/MyBatisPostDao.java=UTF-8
+encoding/<project>=UTF-8

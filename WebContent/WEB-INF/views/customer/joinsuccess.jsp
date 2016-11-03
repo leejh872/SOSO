@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Page</title>
-<link href="../css/SosoLogin.css" type="text/css" rel="stylesheet" />
+<title>Join Page</title>
+<link href="../css/SosoJoin.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<header>
@@ -38,33 +38,12 @@
 		<div class="content-container"></div>
 	</div>
 	<!-- --------------------main-------------------- -->
-	<main>
-		<div class="content-container">
-			<form>
-				<fieldset id="login-form">
-					<table align="center" id="login-table" >
-						<tr>
-							<td ><input type="text" name="id" placeholder="ID"><a href="" class="link">Forgot?</a></td>
-						</tr>
-						<tr>
-							<td><input type="text" name="password" placeholder="PW"><a href="" class="link">Forgot?</a></td>
-						</tr>
-					</table>
-					<div id="login-menu">
-						<div id="checkbox"><input type="checkbox">Stay Logged In</div>
+	가입완료됨!
 						<div>
-							<a href="main" class="link">
-							<button type="button" name="login" class=" login-button">Login</button>
-							</a>
-							<a href="join" class="link">
-							<button type="button" name="join" class=" join-button">Join</button>
+							<a href ="main" class="link">
+							<button type="button" name="main" class="link">main</button>
 							</a>
 						</div>
-					</div>
-				</fieldset>
-			</form>
-		</div>
-	</main>
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
 		<div class="content-container">

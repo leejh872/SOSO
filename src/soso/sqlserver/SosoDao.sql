@@ -28,18 +28,18 @@ DELETE FROM POST;
 DELETE FROM COMMENT;
 DELETE FROM TAG;
 
--- INSERT INTO [���̺��] ([�÷���]) VALUES ([��]) 
+-- INSERT INTO [테이블명] ([컬럼명]) VALUES ([값]) 
 INSERT INTO [USER](CELLPHONE, EMAIL, PW, GENDER) VALUES('010-1111-8888', 'delete@naver.com', '1111', 'M');
 INSERT INTO [USER](CELLPHONE, EMAIL, PW, GENDER) VALUES('010-1234-5678', 'test@naver.com', '1234', 'W');
-INSERT INTO POST(PHOTO, STORY,CODE EMAIL, ) VALUES('����', '���躸�� ��忡 ���Դµ�,������ �ʹ� ����.����� �׳� �𷧹ٴ��̾��ٸ� �� �ܲ����� �ٵ� ����!', 'test@naver.com', 1);
-INSERT INTO COMMENT(CODE, CONTENT, EMAIL, POST_CODE) VALUES(1, '���� ���� �þ��!�� �������� �� �� �� �ſ���!', 'test@naver.com', 1);
-INSERT INTO COMMENT(CODE, CONTENT, EMAIL, POST_CODE) VALUES(2, '������ :)', 'test@naver.com', 1);
+INSERT INTO POST(STORY, EMAIL, CODE) VALUES('시험보고 운동장에 나왔는데,날씨가 너무 좋다.운동장이 그냥 모랫바닥이었다면 더 꿀꿀했을 텐데 다행!', 'test@naver.com', 1);
+INSERT INTO COMMENT(CODE, CONTENT, EMAIL, POST_CODE) VALUES(1, '저도 오늘 봤어요!ㅠ 다음에는 더 잘 볼 거예요!', 'test@naver.com', 1);
+INSERT INTO COMMENT(CODE, CONTENT, EMAIL, POST_CODE) VALUES(2, '힘내요 :)', 'test@naver.com', 1);
 INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(1, '#GREEN', 1);
 INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(2, '#TOEIC', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(3, '#���', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(4, '#����', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(5, '#�ʷϻ�', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(6, '#��ŭ��', 1);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(3, '#운동장', 1);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(4, '#망했', 1);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(5, '#초록색', 1);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(6, '#상큼해', 1);
 INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(8, '#?', 1);
 
 --USER COMMENT VIEW

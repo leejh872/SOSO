@@ -30,7 +30,7 @@
 				</section>
 				<nav id="main-menu" class="h-menu">
 					<ul>
-						<li><a href="user" class="link">JOIN/LOGIN</a></li>
+						<li><a href="login" class="link">JOIN/LOGIN</a></li>
 						<li><a href="mypage" class="link">MY PAGE</a></li>
 						<li><a href="aboutus" class="link">ABOUT US</a></li>
 					</ul>

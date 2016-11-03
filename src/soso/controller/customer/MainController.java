@@ -1,7 +1,6 @@
 package soso.controller.customer;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,19 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import soso.dao.CommentDao;
-import soso.dao.NoticeDao;
-import soso.dao.NoticeFileDao;
-import soso.dao.TagDao;
-import soso.entities.Notice;
-import soso.entities.NoticeFile;
-import soso.mybatis.MyBatisCommentDao;
-import soso.mybatis.MyBatisNoticeDao;
-import soso.mybatis.MyBatisNoticeFileDao;
-import soso.mybatis.MyBatisTagDao;
-import soso.model.CmtModel;
-import soso.model.NoticeModel;
-import soso.model.TagModel;
+import soso.dao.PostDao;
+import soso.mybatis.MyBatisPostDao;
+import soso.model.PostModel;
 
 @WebServlet("/customer/main")
 public class MainController extends HttpServlet {
@@ -31,9 +20,9 @@ public class MainController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		/*AAAAA*/
-		NoticeDao noticeDao = new MyBatisNoticeDao();
+		PostDao postDao = new MyBatisPostDao();
 		String email = "test@naver.com";
-		List<NoticeModel> photoList = noticeDao.getPhoto(email);
+		List<PostModel> photoList = postDao.getPhoto(email);
 		
 		for(int i = 0 ; i < photoList.size(); i++){
 			System.out.println( "photoInfo.get: "+ photoList.get(i));

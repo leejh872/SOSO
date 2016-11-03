@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import soso.dao.NoticeDao;
+import soso.dao.PostDao;
 import soso.dao.NoticeFileDao;
-import soso.entities.Notice;
+import soso.entities.Post;
 import soso.entities.NoticeFile;
-import soso.mybatis.MyBatisNoticeDao;
+import soso.mybatis.MyBatisPostDao;
 import soso.mybatis.MyBatisNoticeFileDao;
 
 @WebServlet("/customer/reg")
@@ -48,12 +48,12 @@ public class RegController extends HttpServlet {
 		String photo = request.getParameter("photo");
 		String email = request.getParameter("email");
 
-		NoticeDao noticeDao = new MyBatisNoticeDao();
+		PostDao noticeDao = new MyBatisPostDao();
 		
 		int code = noticeDao.getCode();
 		System.out.println("code: " + code);
 		
-		Notice n = new Notice();
+		Post n = new Post();
 		System.out.println("story: " + story);
 		System.out.println("photo: " + photo);
 		System.out.println("email: " + email);

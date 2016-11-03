@@ -1,8 +1,8 @@
 package soso.model;
 
-import soso.entities.Notice;
+import soso.entities.Post;
 
-public class NoticeModel extends Notice {
+public class PostModel extends Post {
 
 	private int cmtCnt;
 

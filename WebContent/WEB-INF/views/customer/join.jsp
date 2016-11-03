@@ -7,8 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Page</title>
-<link href="../css/SosoLogin.css" type="text/css" rel="stylesheet" />
+<title>Join Page</title>
+<link href="../css/SosoJoin.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<header>
@@ -40,24 +40,27 @@
 	<!-- --------------------main-------------------- -->
 	<main>
 		<div class="content-container">
-			<form>
-				<fieldset id="login-form">
-					<table align="center" id="login-table" >
+			<form action="join" method="post">
+				<fieldset id="join-form">
+				<label>Welcome</label>
+					<table align="center" id="join-table" >
 						<tr>
-							<td ><input type="text" name="id" placeholder="ID"><a href="" class="link">Forgot?</a></td>
+							<td ><input type="text" name="cellphone" placeholder="ex)+82)010-1234-5678" value = "${j.cellphone}"></td>
 						</tr>
 						<tr>
-							<td><input type="text" name="password" placeholder="PW"><a href="" class="link">Forgot?</a></td>
+							<td ><input type="text" name="email" placeholder="E-mail" value="${j.email}"></td>
+						</tr>
+						<tr>
+							<td><input type="text" name="password" placeholder="Password" value="${j.password}"></td>
 						</tr>
 					</table>
-					<div id="login-menu">
-						<div id="checkbox"><input type="checkbox">Stay Logged In</div>
+					<div id="join-menu">
+						<div id="radio"><input type="radio" name="gender" value="M">M</div>
+						<div id="radio"><input type="radio" name="gender" value="W">W</div>
 						<div>
-							<a href="main" class="link">
-							<button type="button" name="login" class=" login-button">Login</button>
-							</a>
-							<a href="join" class="link">
-							<button type="button" name="join" class=" join-button">Join</button>
+							<a href ="joinsuccess" class="link">
+							<!-- <button type="button" name="join" class=" join-button">Join</button> -->
+							<input type="submit" value="join"  class=" join-button"/>
 							</a>
 						</div>
 					</div>

@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import soso.dao.CommentDao;
-import soso.dao.NoticeDao;
+import soso.dao.PostDao;
 import soso.dao.TagDao;
-import soso.entities.Notice;
+import soso.entities.Post;
 import soso.model.CmtModel;
 import soso.model.TagModel;
 import soso.mybatis.MyBatisCommentDao;
-import soso.mybatis.MyBatisNoticeDao;
+import soso.mybatis.MyBatisPostDao;
 import soso.mybatis.MyBatisTagDao;
 
 
@@ -30,11 +30,11 @@ public class DetailController extends HttpServlet {
 
 		String _code = request.getParameter("code");
 
-		NoticeDao noticeDao = new MyBatisNoticeDao();
-		Notice notice;
+		PostDao postDao = new MyBatisPostDao();
+		Post post;
 
-		notice = noticeDao.get(_code);
-		request.setAttribute("n", notice);
+		post = postDao.get(_code);
+		request.setAttribute("n", post);
 		
 		CommentDao commentDao = new MyBatisCommentDao();
 		List<CmtModel> clist = commentDao.getList(_code);

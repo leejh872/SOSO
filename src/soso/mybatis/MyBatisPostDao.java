@@ -6,58 +6,56 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.CommentDao;
-import soso.dao.NoticeDao;
+import soso.dao.PostDao;
 import soso.dao.TagDao;
-import soso.dao.UserDao;
 import soso.entities.Comment;
-import soso.entities.Notice;
-import soso.entities.User;
+import soso.entities.Post;
 import soso.entities.Tag;
-import soso.model.NoticeModel;
+import soso.model.PostModel;
 import soso.model.TagModel;
 
-public class MyBatisNoticeDao implements NoticeDao {
+public class MyBatisPostDao implements PostDao {
 
 	SqlSessionFactory ssf;
 
-	public MyBatisNoticeDao() {
+	public MyBatisPostDao() {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
 		
 	}
 
 	@Override
-	public Notice get(String code) {
+	public Post get(String code) {
 		SqlSession session = ssf.openSession();
-		NoticeDao noticeDao = session.getMapper(NoticeDao.class);
+		PostDao noticeDao = session.getMapper(PostDao.class);
 
-		Notice result = noticeDao.get(code);
+		Post result = noticeDao.get(code);
 		session.close();
 
 		return result;
 	}
 
 	@Override
-	public List<NoticeModel> getList(int page, String field, String query) {
+	public List<PostModel> getList(int page, String field, String query) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<NoticeModel> getList(int page) {
+	public List<PostModel> getList(int page) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<NoticeModel> getList() {
+	public List<PostModel> getList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insert(Notice notice) {
+	public int insert(Post notice) {
 	      SqlSession session = ssf.openSession();
-	      NoticeDao noticeDao = session.getMapper(NoticeDao.class);
+	      PostDao noticeDao = session.getMapper(PostDao.class);
 	      
 	      int result = noticeDao.insert(notice);
 	      
@@ -67,7 +65,7 @@ public class MyBatisNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public int update(Notice notice) {
+	public int update(Post notice) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -87,7 +85,7 @@ public class MyBatisNoticeDao implements NoticeDao {
 	@Override
 	public int getCode() {
 		SqlSession session = ssf.openSession();
-		NoticeDao noticeDao = session.getMapper(NoticeDao.class);
+		PostDao noticeDao = session.getMapper(PostDao.class);
 
 		int result = noticeDao.getCode();
 		session.close();
@@ -96,11 +94,11 @@ public class MyBatisNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public List<NoticeModel> getPhoto(String email) {
+	public List<PostModel> getPhoto(String email) {
 		SqlSession session = ssf.openSession();
-		NoticeDao noticeDao = session.getMapper(NoticeDao.class);
+		PostDao noticeDao = session.getMapper(PostDao.class);
 
-		List<NoticeModel> result = noticeDao.getPhoto(email);
+		List<PostModel> result = noticeDao.getPhoto(email);
 		session.close();
 
 		return result;
