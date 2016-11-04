@@ -19,8 +19,7 @@
 		</h1>
 		<section id="menu"> <section>
 		<form id="search">
-			<input value="" >
-			<input type="submit" value="검색" />
+			<input value=""> <input type="submit" value="검색" />
 		</form>
 		</section> <nav id="main-menu" class="h-menu">
 		<ul>
@@ -37,29 +36,47 @@
 	<main>
 	<h1 class="hidden">사진상세보기</h1>
 	<div class="content-container-detail">
-		<div id="photo" class="left">${n.photo}</div>
+		<a href="detail">
+			<div id="photo">
+				<div class="text">
+					<table>
+						<tr>
+							<td>조회수</td>
+							<td>좋아요</td>
+						</tr>
+						<tr>
+							<td>${p.hit}</td>
+							<td>${pl}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</a>
 		<div>
 			<table id="story">
-
 				<tbody>
-					<!-- <tr> -->
-						<c:forEach var="t" items="${list}">
-							<!-- <td> -->${t.name}<!-- </td> -->
-
-						</c:forEach>
-					<!-- </tr> -->
 					<tr>
-						<td colspan="7" style="text-align: right;">${n["regdate"]}</td>
+						<c:forEach var="t" items="${list}">
+							<td>${t.name}</td>
+							<c:if test="${t.code == 3}">
 					</tr>
 					<tr>
-						<td colspan="7">${n.story}</td>
+						</c:if>
+						</c:forEach>
+					</tr>
+					<tr>
+						<td colspan="7" style="text-align: right;"><fmt:formatDate
+								pattern="yyyy-MM-dd hh:mm:ss" value="${p.regdate}" /></td>
+					</tr>
+					<tr>
+						<td colspan="7">${p.story}</td>
 					</tr>
 				</tbody>
 			</table>
 			<br />
 
 		</div>
-		<div class="left">
+		<div>
 			<table id="comment">
 				<tbody>
 					<c:forEach var="c" items="${clist}">
@@ -79,12 +96,14 @@
 
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
-		<h1 class="hidden">푸터</h1>
-		<dl class="soso">
-			<dt class="dt">CREATED BY SOSOHEA</dt>
-		</dl>
-	
-		<button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
+	<h1 class="hidden">푸터</h1>
+	<dl class="soso">
+		<dt class="dt">CREATED BY SOSOHEA</dt>
+	</dl>
+
+	<button type="button" name="upload" class="upload_button">
+		<a href="upload" class="link">UPLOAD</a>
+	</button>
 	</footer>
 </body>
 </html>

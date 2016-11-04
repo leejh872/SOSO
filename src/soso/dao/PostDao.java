@@ -9,15 +9,13 @@ import soso.model.PostModel;
 public interface PostDao {
 	Post get(String code);
 
-	List<PostModel> getList(int page, String field, String query);
-	List<PostModel> getList(int page);
-	List<PostModel> getList();
-
-	int insert(Post notice);
-	int update(Post notice);
+	int insert(Post post);
+	int update(Post post);
 	int delete(String code);
 	int getCount(String field, String query);
 	int getCode();
+	int hitUp(String code);
+	
 	List<PostModel> getPhoto(String email);
 	//String getLastCode();
 

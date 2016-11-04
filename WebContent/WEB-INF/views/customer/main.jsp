@@ -59,7 +59,7 @@
 			<dl class="soso">
 				<dt class="dt">CREATED BY SOSOHEA</dt>
 			</dl>
-			<button type="button" name="upload" class="upload_button"><a href="upload" class="link">UPLOAD</a></button>
+			<button type="button" name="upload" class="upload_button"><a href="reg" class="link">UPLOAD</a></button>
 		</div>
 	</footer>
 </body>

@@ -7,8 +7,8 @@ public class Post {
 	private String email;
 	private String story;
 	private Date regdate;
-	private int like;
 	private int hit;
+	private int temp_del;
 	
 	
 	public int getCode() {
@@ -35,11 +35,11 @@ public class Post {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getLike() {
-		return like;
+	public int getTemp_del() {
+		return temp_del;
 	}
-	public void setLike(int like) {
-		this.like = like;
+	public void setTemp_del(int temp_del) {
+		this.temp_del = temp_del;
 	}
 	public int getHit() {
 		return hit;

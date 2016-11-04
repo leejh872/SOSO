@@ -90,10 +90,10 @@ public class RegController extends HttpServlet {
 				// 1/1000초 단위로 이름을 붙임
 				String[] ext=uploadedFile.getName().split("[.]");
 				
-				path = "C:/Users/sist103/git/SOSO/WebContent/images/";
+				path = "C:/Users/sist/git/SOSO/WebContent/images/";
 				fname = "test@naver.com"+code+"."+ext[ext.length-1];
 				
-				File copy=new File("C:/Users/sist103/git/SOSO/WebContent/images/"+
+				File copy=new File("C:/Users/sist/git/SOSO/WebContent/images/"+
 						"test@naver.com"+code+"."+ext[ext.length-1]);
 				/*누나 이거 파일 경로 지정해야 하는데 어딧어 ? 소소 프로젝트 어딧어 ? */
 				

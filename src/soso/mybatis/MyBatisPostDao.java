@@ -26,38 +26,20 @@ public class MyBatisPostDao implements PostDao {
 	@Override
 	public Post get(String code) {
 		SqlSession session = ssf.openSession();
-		PostDao noticeDao = session.getMapper(PostDao.class);
+		PostDao postDao = session.getMapper(PostDao.class);
 
-		Post result = noticeDao.get(code);
+		Post result = postDao.get(code);
 		session.close();
 
 		return result;
 	}
 
 	@Override
-	public List<PostModel> getList(int page, String field, String query) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<PostModel> getList(int page) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<PostModel> getList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int insert(Post notice) {
+	public int insert(Post post) {
 	      SqlSession session = ssf.openSession();
-	      PostDao noticeDao = session.getMapper(PostDao.class);
+	      PostDao postDao = session.getMapper(PostDao.class);
 	      
-	      int result = noticeDao.insert(notice);
+	      int result = postDao.insert(post);
 	      
 	      session.commit();
 	      session.close();
@@ -65,7 +47,7 @@ public class MyBatisPostDao implements PostDao {
 	}
 
 	@Override
-	public int update(Post notice) {
+	public int update(Post post) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -85,9 +67,9 @@ public class MyBatisPostDao implements PostDao {
 	@Override
 	public int getCode() {
 		SqlSession session = ssf.openSession();
-		PostDao noticeDao = session.getMapper(PostDao.class);
+		PostDao postDao = session.getMapper(PostDao.class);
 
-		int result = noticeDao.getCode();
+		int result = postDao.getCode();
 		session.close();
 
 		return result;
@@ -96,9 +78,22 @@ public class MyBatisPostDao implements PostDao {
 	@Override
 	public List<PostModel> getPhoto(String email) {
 		SqlSession session = ssf.openSession();
-		PostDao noticeDao = session.getMapper(PostDao.class);
+		PostDao postDao = session.getMapper(PostDao.class);
 
-		List<PostModel> result = noticeDao.getPhoto(email);
+		List<PostModel> result = postDao.getPhoto(email);
+		session.close();
+
+		return result;
+	}
+
+	@Override
+	public int hitUp(String code) {
+		SqlSession session = ssf.openSession(); 
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		int result = postDao.hitUp(code);
+
+		session.commit();
 		session.close();
 
 		return result;

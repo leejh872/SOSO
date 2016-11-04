@@ -17,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			   #{email},
 			   #{story})
 	</insert>
+	<update id="hitUp">
+		update POST set hit = hit + 1 where code = #{code}
+	</update>
+	
 	<select id = "getCode" resultType = "int">
 		SELECT CONVERT(INT, ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
 	</select>
@@ -27,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM  POST TB1
 		JOIN  PHOTOFILE TB2
 		  ON  TB1.CODE = TB2.POST_CODE
-		<!-- WHERE TB1.EMAIL = #{email}  email값을 받아서 자신이 올린 파일을 자신한테만 보여지게 하는것?--> 
+		WHERE TB1.EMAIL = #{email}  <!-- email값을 받아서 자신이 올린 파일을 자신한테만 보여지게 하는것?--> 
 		ORDER BY TB2.REGDATE DESC
   
    </select>
