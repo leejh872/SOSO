@@ -12,15 +12,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import soso.dao.PostDao;
+import soso.dao.JoinDao;
 import soso.dao.PhotoFileDao;
 import soso.entities.Post;
+import soso.entities.Join;
 import soso.entities.PhotoFile;
 import soso.mybatis.MyBatisPostDao;
+import soso.mybatis.MyBatisJoinDao;
 import soso.mybatis.MyBatisPhotoFileDao;
 
 @WebServlet("/customer/reg")
@@ -36,6 +40,15 @@ public class RegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email") == null){
+			session.setAttribute("email", request.getParameter("email"));
+		}else{
+			//로그인 페이지 리다이렉트
+			//response.sendRedirect("");
+		}
+		
+
 		ServletContext ctx = request.getServletContext();
 		String path = ctx
 				.getRealPath("/customer/upload"); /* 물리경로 내가 업로드할 파일 경로 */
@@ -47,8 +60,9 @@ public class RegController extends HttpServlet {
 		String story = request.getParameter("story");
 		String photo = request.getParameter("photo");
 		String email = request.getParameter("email");
-
+		
 		PostDao noticeDao = new MyBatisPostDao();
+		
 		
 		int code = noticeDao.getCode();
 		System.out.println("code: " + code);
@@ -57,8 +71,9 @@ public class RegController extends HttpServlet {
 		System.out.println("story: " + story);
 		System.out.println("photo: " + photo);
 		System.out.println("email: " + email);
-		n.setStory("gogo");// 담아주기위한 코드
-		n.setEmail("test@naver.com");
+				
+		n.setStory(story);// 담아주기위한 코드
+		n.setEmail(email);
 		n.setCode(code);
 		noticeDao.insert(n);
 

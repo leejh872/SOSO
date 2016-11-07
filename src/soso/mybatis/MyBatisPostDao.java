@@ -75,16 +75,6 @@ public class MyBatisPostDao implements PostDao {
 		return result;
 	}
 
-	@Override
-	public List<PostModel> getPhoto(String email) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
-
-		List<PostModel> result = postDao.getPhoto(email);
-		session.close();
-
-		return result;
-	}
 
 	@Override
 	public int hitUp(String code) {
@@ -98,6 +88,30 @@ public class MyBatisPostDao implements PostDao {
 
 		return result;
 	}
+	
+	@Override
+	public List<PostModel> getPhoto() {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		List<PostModel> result = postDao.getPhoto();
+		session.close();
+		
+		return result;
+	}
+
+	@Override
+	public List<PostModel> getMyPhoto(String email) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		List<PostModel> result = postDao.getMyPhoto(email);
+		session.close();
+		
+		return result;
+	}
+
+
 
 	/*@Override
 	public String getLastCode() {
