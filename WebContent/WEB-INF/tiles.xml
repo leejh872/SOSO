@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<!--   <definition name="customer.notice-detail" template="/WEB-INF/views/customer/inc/layout.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/views/customer/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/views/customer/inc/aside.jsp" />
+    <put-attribute name="main" value="/WEB-INF/views/customer/notice-detail.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+  </definition> -->
+  <!-- 페이지에 따라서 customer 자리에 joinus가 올수 도 있고 notice-detail 페이지가 notice 페이지가 될 수 도있어서 
+  아래 소스를 반복해서 쓰지 않도록 아래와 같이 범용적으로 쓸 수 있도록 바꿔줌 *은 2개 까지만 가능-->
+   <definition name="*.*" template="/WEB-INF/views/{1}/inc/layout.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="css" value="{2}.css"/>
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+    <put-attribute name="visual" value="/WEB-INF/views/{1}/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/views/{1}/inc/aside.jsp" />
+    <put-attribute name="main" value="/WEB-INF/views/{1}/{2}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+  </definition>
+</tiles-definitions>
+<!-- 여기는 요청시 레이아웃에 파편들을 넣어주기 위한 지시서 역할을 함 -->
+<!-- 위의 메인은 우리했던것에서 notice-detail -->
+<!-- 위에서  value의 경료를 잘못설정해주면 404에러나니까 정확하게 해주기! -->
+
