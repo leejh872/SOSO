@@ -71,23 +71,32 @@ body .right {
 }
 
 #story {
-	height : inherit;
+	height : 450px;
 	width: 380px;
 	/* height: 450px; */
 	float: right;
 }
 
-#story > tbody > tr {
+#story table > tbody > tr {
 	padding-bottom: 10px;
+	
+	height: 15px;
 	text-indent: 5px;
 }
 
 #comment {
+	float: left;
 	margin: auto;
-	width: 760px;
-	height: inherit;
+	width: 760;
+	height: 100%;
 }
-
+#ctable{
+	float: left;
+	margin: auto;
+}
+#ctable > tr{
+	margin-top: 10px;
+}
 /* 헤더 */
 #menu {
 	float: right;

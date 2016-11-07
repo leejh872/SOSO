@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Comment {
 	private String gender;
-	private int code;
+	private String code;
 	private String content;
-	private String email;
-	private int post_code;
+	private String writer_email;
+	private String post_code;
 	private Date regdate;
 	
 	
@@ -17,28 +17,29 @@ public class Comment {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
+	
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getEmail() {
-		return email;
+	public String getWriter_email() {
+		return writer_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setWriter_email(String writer_email) {
+		this.writer_email = writer_email;
 	}
-	public int getPost_code() {
+	public String getPost_code() {
 		return post_code;
 	}
-	public void setPost_code(int post_code) {
+	public void setPost_code(String post_code) {
 		this.post_code = post_code;
 	}
 	public Date getRegdate() {

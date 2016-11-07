@@ -42,4 +42,17 @@ public class MyBatisCommentDao implements CommentDao {
 		return result;
 	}
 
+	@Override
+	public int insert(Comment comment) {
+		SqlSession session = ssf.openSession();
+		CommentDao cmtDao = session.getMapper(CommentDao.class);
+
+		int result = cmtDao.insert(comment);
+		
+		session.commit();
+		session.close();
+
+		return result;
+	}
+
 }

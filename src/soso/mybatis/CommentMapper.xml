@@ -15,4 +15,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE POST_CODE = #{code}
 		) C
 	</select>
+	
+	<insert id="insert" parameterType="soso.entities.Comment">
+	<!-- 사전에 실행하도록 하는 selectKey -->
+	<!-- code가 parmaterType보다 먼저 실행 -->
+	<selectKey order="BEFORE" keyProperty="code" resultType="String">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM COMMENT
+	</selectKey>
+		INSERT INTO COMMENT(CODE, CONTENT, WRITER_EMAIL, POST_CODE) 
+		VALUES(#{code}, #{content}, #{writer_email}, #{post_code});
+	</insert>
 </mapper>
