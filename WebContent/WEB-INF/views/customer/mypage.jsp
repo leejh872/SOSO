@@ -5,7 +5,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%List photolist =  (List)request.getAttribute("PHOTO_LIST"); %>	
+<%List myphotolist =  (List)request.getAttribute("MYPHOTO_LIST"); %>	
 
 <!DOCTYPE html>
 <html>
@@ -48,9 +48,9 @@
 	<main>
 		<div class="content-container">
 				
-	<div id="photo" class="left">${n.photo}</div>
-	<%for (int i = 0 ; i < photolist.size() ; i ++) { %>
-			<a href="detail?code=1"><img src= "../images/<%=photolist.get(i) %>" width="300" height="300"/></a> 
+	<div id="myphoto" class="left">${n.myphoto}</div>
+	<%for (int i = 0 ; i < myphotolist.size() ; i ++) { %>
+			<a href="detail?code=1"><img src= "../images/<%=myphotolist.get(i) %>" width="300" height="300"/></a> 
 		<%}%>
 
 		</div>
@@ -61,7 +61,7 @@
          <dl class="soso">
             <dt class="dt">CREATED BY SOSOHEA</dt>
          </dl>
-         <button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
+         <button type="button" name="upload" class="upload_button" ><a href="reg" class="link">UPLOAD</a></button>
       </div>
    </footer>
 </body>

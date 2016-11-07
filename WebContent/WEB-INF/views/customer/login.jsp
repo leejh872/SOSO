@@ -40,11 +40,11 @@
 	<!-- --------------------main-------------------- -->
 	<main>
 		<div class="content-container">
-			<form>
+			<form action="../customer/main">
 				<fieldset id="login-form">
 					<table align="center" id="login-table" >
 						<tr>
-							<td ><input type="text" name="id" placeholder="ID"><a href="" class="link">Forgot?</a></td>
+							<td ><input type="text" name="email" placeholder="ID"><a href="" class="link">asdasdasdadasdasds?</a></td>
 						</tr>
 						<tr>
 							<td><input type="text" name="password" placeholder="PW"><a href="" class="link">Forgot?</a></td>
@@ -53,9 +53,7 @@
 					<div id="login-menu">
 						<div id="checkbox"><input type="checkbox">Stay Logged In</div>
 						<div>
-							<a href="main" class="link">
-							<button type="button" name="login" class=" login-button">Login</button>
-							</a>
+							<button type="submit" name="login" class=" login-button">Login</button>
 							<a href="join" class="link">
 							<button type="button" name="join" class=" join-button">Join</button>
 							</a>

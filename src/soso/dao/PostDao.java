@@ -16,7 +16,12 @@ public interface PostDao {
 	int getCode();
 	int hitUp(String code);
 	
-	List<PostModel> getPhoto(String email);
+	
+	
+	List<PostModel> getMyPhoto(String email);
+	List<PostModel> getPhoto();
 	//String getLastCode();
+
+	
 
 }

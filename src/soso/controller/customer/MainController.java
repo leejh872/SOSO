@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import soso.dao.PostDao;
 import soso.mybatis.MyBatisPostDao;
@@ -19,15 +20,24 @@ public class MainController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*AAAAA*/
+		
+		/*다른 페이지에 session.getAttribute("email") 할것*/
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email") == null){
+			session.setAttribute("email", request.getParameter("email"));
+		}else{
+			//로그인 페이지 리다이렉트
+			//response.sendRedirect("");
+		}
+		
 		PostDao postDao = new MyBatisPostDao();
-		String email = "test@naver.com";
-		List<PostModel> photoList = postDao.getPhoto(email);
+		String email = (String) session.getAttribute("email");
+		System.out.println("email: " + email);
+		List<PostModel> photoList = postDao.getPhoto();
 		
 		for(int i = 0 ; i < photoList.size(); i++){
 			System.out.println( "photoInfo.get: "+ photoList.get(i));
 		}
-		
 		request.setAttribute("PHOTO_LIST", photoList);
 //		String q = request.getParameter("q");
 //	

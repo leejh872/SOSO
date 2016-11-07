@@ -29,7 +29,7 @@
 							<!--이름이 똑같으면 배열로 간대요.  -->
 						</tr>
 						<tr>
-							<td><textarea name="story" rows="20" cols="60">${n.story}</textarea></td>
+							<td><textarea name="story" rows="20" cols="60"></textarea></td>
 						</tr>
 					</tbody>
 				</table>
