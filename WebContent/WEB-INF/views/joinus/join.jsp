@@ -9,8 +9,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Join Page</title>
 <link href="../css/SosoJoin.css" type="text/css" rel="stylesheet" />
+<!-- <script src="../js/modernizr-custom.js"/> -->
 </head>
 <body>
+	<!-- --------------------header-------------------- -->
 	<header>
 		<div class="content-container">
 			<h1>
@@ -39,6 +41,13 @@
 	</div>
 	<!-- --------------------main-------------------- -->
 	<main>
+		<div style = "color:skyblue" ><!-- 에러 메세지 뿌리기 -->
+			<c:if test = "${not empty errorMsg}">
+				<div>
+				${errorMsg}
+				</div>
+			</c:if>
+		</div>
 		<div class="content-container">
 			<form action="join" method="post">
 				<fieldset id="join-form">
@@ -48,22 +57,29 @@
 							<option></option>
 						</tr>
 						<tr>
-							<td ><input type="text" name="cellphone" placeholder="ex)+82)010-1234-5678" value = "${j.cellphone}"></td>
+							<td>
+							<input type="text" name="email" placeholder="E-mail" value="${email}">
+							<input type="submit" name="btn" value="중복확인"/>
+							<span>${duplicateResult}</span>
+							</td>
 						</tr>
 						<tr>
-							<td ><input type="text" name="email" placeholder="E-mail" value="${j.email}"></td>
+							<td>
+							<input type="password" name="password" placeholder="Password" value="${password}">
+							</td>
 						</tr>
 						<tr>
-							<td><input type="password" name="password" placeholder="Password" value="${j.password}"></td>
+							<td>
+							<input type="text" name="cellphone" placeholder="ex)010-1234-5678" value = "${cellphone}">
+							</td>
 						</tr>
 					</table>
 					<div id="join-menu">
-						<div id="radio"><input type="radio" name="gender" value="M">M</div>
-						<div id="radio"><input type="radio" name="gender" value="W">W</div>
+						<div id="radio"><input type="radio" name="gender" value="M"/>M</div>
+						<div id="radio"><input type="radio" name="gender" value="W"/>W</div>
 						<div>
 							<a href ="joinsuccess" class="link">
-							<!-- <button type="button" name="join" class=" join-button">Join</button> -->
-							<input type="submit" value="join"  class=" join-button"/>
+							<input type="submit" name="btn" value="join"  class=" join-button"/>
 							</a>
 						</div>
 					</div>
@@ -78,7 +94,7 @@
 				<dt class="dt">CREATED BY SOSOHEA</dt>
 			</dl>
 		
-			<button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
+			<button type="button" name="upload" class="upload_button" ><a href="reg" class="link">UPLOAD</a></button>
 	</div>
 	</footer>
 </body>

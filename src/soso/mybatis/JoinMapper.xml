@@ -4,6 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- NoticeDao 인터페이스 구현하고 싶은 것만 함 -->
 <mapper namespace="soso.dao.JoinDao">
+	<select id="get" resultType="soso.entities.Join"> 
+		<!-- 값을넘겨 받을 때는 #을 사용 -->
+		SELECT * FROM [USER] WHERE EMAIL = #{email}		
+	</select>
+	
 	<insert id="insert" parameterType="soso.entities.Join">
 		INSERT INTO [USER](CELLPHONE, EMAIL, PW, GENDER)
 			VALUES(#{cellphone}, #{email}, #{pw}, #{gender})

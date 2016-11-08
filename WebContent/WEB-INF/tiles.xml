@@ -13,6 +13,23 @@
   </definition> -->
   <!-- 페이지에 따라서 customer 자리에 joinus가 올수 도 있고 notice-detail 페이지가 notice 페이지가 될 수 도있어서 
   아래 소스를 반복해서 쓰지 않도록 아래와 같이 범용적으로 쓸 수 있도록 바꿔줌 *은 2개 까지만 가능-->
+  
+   <definition name="root.*" template="/WEB-INF/views/inc/layout.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="css" value="{1}.css"/>
+    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+    <put-attribute name="main" value="/WEB-INF/views/{1}.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+  </definition>
+  
+   <definition name="admin.*.*" template="/WEB-INF/views/admin/{1}/inc/layout.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="css" value="{2}.css"/>
+    <put-attribute name="visual" value="/WEB-INF/views/admin/{1}/inc/visual.jsp" />
+    <put-attribute name="aside" value="/WEB-INF/views/admin/{1}/inc/aside.jsp" />
+    <put-attribute name="main" value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+  </definition>
+  
    <definition name="*.*" template="/WEB-INF/views/{1}/inc/layout.jsp">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="css" value="{2}.css"/>

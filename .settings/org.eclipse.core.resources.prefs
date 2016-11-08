@@ -3,6 +3,7 @@
 >>>>>>>=refs/remotes/origin/master
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/customer/main.jsp=UTF-8
+encoding//WebContent/WEB-INF/web.xml=UTF-8
 encoding//src/soso/mybatis/MyBatisLikeDao.java=UTF-8
 encoding//src/soso/mybatis/MyBatisPostDao.java=UTF-8
 encoding/<project>=UTF-8
