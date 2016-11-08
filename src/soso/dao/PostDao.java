@@ -4,7 +4,6 @@ import java.util.List;
 
 import soso.entities.Comment;
 import soso.entities.Post;
-import soso.model.PostModel;
 
 public interface PostDao {
 	Post get(String code);
@@ -17,11 +16,8 @@ public interface PostDao {
 	int hitUp(String code);
 	
 	
-	
-	List<PostModel> getMyPhoto(String email);
-	List<PostModel> getPhoto();
+	List<Post> getMyPhoto(String email);
+	List<Post> getPhoto();
 	//String getLastCode();
-
 	
-
 }

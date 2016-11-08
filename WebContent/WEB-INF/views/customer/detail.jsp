@@ -36,7 +36,7 @@
 	<main>
 	<h1 class="hidden">사진상세보기</h1>
 	<div class="content-container-detail">
-		<a href="detail">
+		<a href="detail?code="${p.code}">
 			<div id="photo">
 				<div class="text">
 					<table>
@@ -52,8 +52,8 @@
 				</div>
 			</div>
 		</a>
-		<div>
-			<table id="story">
+		<div id="story">
+			<table>
 				<tbody>
 					<tr>
 						<c:forEach var="t" items="${list}">
@@ -76,19 +76,32 @@
 			<br />
 
 		</div>
-		<div>
-			<table id="comment">
-				<tbody>
-					<c:forEach var="c" items="${clist}">
-						<tr>
-							<td>${c.gender}</td>
-							<td>${c.content}</td>
-							<td>${c.regdate}</td>
-							<td>${c.email}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+		<div class="comment">
+			<form action="detail" method="post">
+				<fieldset>
+					<table class="ctable">
+						<thead>
+							<tr>
+								<input type="hidden" name="c_code" value="${p.code}" />
+								<td colspan="3"><textarea name="content" rows="1" cols="90"></textarea></td>
+								<td><input type="submit" value="등록" /></td>
+
+							</tr>
+						</thead>
+
+						<tbody>
+							<c:forEach var="c" items="${clist}">
+								<tr>
+									<td>${c.gender}</td>
+									<td>${c.content}</td>
+									<td>${c.regdate}</td>
+									<td>${c.writer_email}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</fieldset>
+			</form>
 		</div>
 
 	</div>
