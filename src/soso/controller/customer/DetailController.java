@@ -16,8 +16,7 @@ import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.Comment;
 import soso.entities.Post;
-import soso.model.CmtModel;
-import soso.model.TagModel;
+import soso.entities.Tag;
 import soso.mybatis.MyBatisCommentDao;
 import soso.mybatis.MyBatisLikeDao;
 import soso.mybatis.MyBatisPostDao;
@@ -52,8 +51,8 @@ public class DetailController extends HttpServlet {
 		//POST에 값 담기, POST의 LIKE값 조회, CmtModel에 값 담기, TagModel에 값 담기
 		Post post = postDao.get(_code);
 		int post_like = likeDao.getPostLike(_code);
-		List<CmtModel> clist = commentDao.getList(_code);
-		List<TagModel> list = tagDao.getList(_code);
+		List<Comment> clist = commentDao.getList(_code);
+		List<Tag> list = tagDao.getList(_code);
 		
 		//request저장소에 값 넣어주기
 		request.setAttribute("p", post);

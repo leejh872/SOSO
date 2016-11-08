@@ -8,8 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import soso.dao.CommentDao;
 import soso.dao.TagDao;
 import soso.entities.Comment;
-import soso.model.CmtModel;
-import soso.model.TagModel;
 
 public class MyBatisCommentDao implements CommentDao {
 
@@ -32,11 +30,11 @@ public class MyBatisCommentDao implements CommentDao {
 	}
 
 	@Override
-	public List<CmtModel> getList(String post_code) {
+	public List<Comment> getList(String post_code) {
 		SqlSession session = ssf.openSession();
 		CommentDao cmtDao = session.getMapper(CommentDao.class);
 
-		List<CmtModel> result = cmtDao.getList(post_code);
+		List<Comment> result = cmtDao.getList(post_code);
 		session.close();
 
 		return result;

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import soso.dao.PostDao;
-import soso.model.PostModel;
+import soso.entities.Post;
 import soso.mybatis.MyBatisPostDao;
 
 @WebServlet("/customer/mypage")
@@ -26,7 +26,7 @@ public class MyPageController extends HttpServlet{
 		PostDao postDao = new MyBatisPostDao();
 		//String email = request.getParameter("email");
 		System.out.println("myemail: " + email);
-		List<PostModel> myphotoList = postDao.getMyPhoto(email);//마이폐이찌 포토
+		List<Post> myphotoList = postDao.getMyPhoto(email);//마이폐이찌 포토
 		
 		for(int i = 0 ; i < myphotoList.size(); i++){
 			System.out.println( "myphotoInfo.get: "+ myphotoList.get(i));

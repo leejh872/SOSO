@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import soso.dao.PostDao;
+import soso.entities.Post;
 import soso.mybatis.MyBatisPostDao;
-import soso.model.PostModel;
 
 @WebServlet("/customer/main")
 public class MainController extends HttpServlet {
@@ -33,7 +33,7 @@ public class MainController extends HttpServlet {
 		PostDao postDao = new MyBatisPostDao();
 		String email = (String) session.getAttribute("email");
 		System.out.println("email: " + email);
-		List<PostModel> photoList = postDao.getPhoto();
+		List<Post> photoList = postDao.getPhoto();
 		
 		for(int i = 0 ; i < photoList.size(); i++){
 			System.out.println( "photoInfo.get: "+ photoList.get(i));

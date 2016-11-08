@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- <select id="getT" resultType="entities.Tag>
 		SELECT * FROM TAG WHERE POST_CODE = #{code}
 	</select> -->
-	<select id="getList" resultType="soso.model.TagModel">
+	<select id="getList" resultType="soso.dao.TagDao">
 		SELECT * FROM TAG WHERE POST_CODE = #{code}
 	</select>
 </mapper>

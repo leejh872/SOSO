@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.TagDao;
-import soso.model.TagModel;
+import soso.entities.Tag;
 
 public class MyBatisTagDao implements TagDao {
 
@@ -17,11 +17,11 @@ public class MyBatisTagDao implements TagDao {
 	}
 
 	@Override
-	public List<TagModel> getList(String post_code) {
+	public List<Tag> getList(String post_code) {
 		SqlSession session = ssf.openSession();
 		TagDao tagDao = session.getMapper(TagDao.class);
 
-		List<TagModel> result = tagDao.getList(post_code);
+		List<Tag> result = tagDao.getList(post_code);
 		session.close();
 
 		return result;

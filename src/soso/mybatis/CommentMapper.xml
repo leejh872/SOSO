@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM COMMENT WHERE
 		POST_CODE = #{code}
 	</select>
-	<select id="getList" resultType="soso.model.CmtModel">
+	<select id="getList" resultType="soso.entities.Comment">
 		SELECT * FROM
 		(
 		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT_VIEW.*

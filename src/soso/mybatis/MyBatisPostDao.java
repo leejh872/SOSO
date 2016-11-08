@@ -11,8 +11,6 @@ import soso.dao.TagDao;
 import soso.entities.Comment;
 import soso.entities.Post;
 import soso.entities.Tag;
-import soso.model.PostModel;
-import soso.model.TagModel;
 
 public class MyBatisPostDao implements PostDao {
 
@@ -90,22 +88,22 @@ public class MyBatisPostDao implements PostDao {
 	}
 	
 	@Override
-	public List<PostModel> getPhoto() {
+	public List<Post> getPhoto() {
 		SqlSession session = ssf.openSession();
 		PostDao postDao = session.getMapper(PostDao.class);
 		
-		List<PostModel> result = postDao.getPhoto();
+		List<Post> result = postDao.getPhoto();
 		session.close();
 		
 		return result;
 	}
 
 	@Override
-	public List<PostModel> getMyPhoto(String email) {
+	public List<Post> getMyPhoto(String email) {
 		SqlSession session = ssf.openSession();
 		PostDao postDao = session.getMapper(PostDao.class);
 		
-		List<PostModel> result = postDao.getMyPhoto(email);
+		List<Post> result = postDao.getMyPhoto(email);
 		session.close();
 		
 		return result;
