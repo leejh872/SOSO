@@ -7,6 +7,8 @@ import soso.entities.Post;
 
 public interface PostDao {
 	Post get(String code);
+	Post getPrev(String code);
+	Post getNext(String code);
 
 	int insert(Post post);
 	int update(Post post);

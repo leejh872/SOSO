@@ -129,10 +129,15 @@ body .h-menu>ul>li {
 }
 
 #aside {
-	display: inline-block;
 	min-height: inherit;
-	width: 400px;
-	float: right;
+}
+#aside .prev {
+	position: absolute;
+	float: left;
+}
+#aside .next {
+	width: inherit;
+	position: absolute;
 }
 
 /* 푸터 */

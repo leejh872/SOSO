@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT_VIEW.*
 		FROM USER_COMMENT_VIEW
 		WHERE POST_CODE = #{code}
-		) C
+		) C ORDER BY REGDATE ASC
 	</select>
 	
 	<insert id="insert" parameterType="soso.entities.Comment">
@@ -25,4 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO COMMENT(CODE, CONTENT, WRITER_EMAIL, POST_CODE) 
 		VALUES(#{code}, #{content}, #{writer_email}, #{post_code});
 	</insert>
+	<delete id="delete">
+		DELETE COMMENT WHERE CODE = #{code}
+	</delete>
 </mapper>

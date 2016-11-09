@@ -10,5 +10,6 @@ public interface CommentDao {
    List<Comment> getList(String post_code);
    
    int insert(Comment comment);
+   int delete(String code);
    
 }

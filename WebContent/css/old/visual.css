@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+/*--------비쥬얼--------*/
+#visual{     /*main이 header를 침범 하는 것을 막기 위한 장치*/
+   height: 85px;
+}

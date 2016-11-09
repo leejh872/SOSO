@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+/*--------메인---------*/
+#join-form{
+	border: 0px;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 230px;
+}
+
+#radio {
+	float: left;
+	width: 58px;
+}
+
+#join-table {
+	width: 240px;
+}
+main #join-table {
+	border: 0px;
+}
+
+#join-menu {
+	
+}
+
+.join-button {
+	width: 60px;
+}
+

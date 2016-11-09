@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+/*---------푸터----------*/
+#footer {		/*푸터 설정*/
+   text-align:center; /*푸터안의 글씨 가운데 정렬*/
+    opacity : 0.7;	/*배경 투명도*/
+    background: black;
+    width: 100%;
+    height: 50px;
+    position: fixed;	/*고정*/
+    bottom: 0;		/*바닥에 붙어 있게*/
+}
+
+.upload_button{			/*푸터 버튼 설정*/
+   float:right;
+   margin-top:8px;		/*푸터 윗변으로 부터의 위치*/
+   font-size:15px;
+   width: 150px;
+   padding-top: 8px;		/*버튼안에서 글자의 간격*/
+   padding-bottom: 8px;		
+   border-radius: 10px;		/*모서리 굴곡 정도*/
+   border: 3px solid gray;	
+} 
+
+.soso{		/*CREATED BY SOSOHEA*/
+   color:white;
+   list-style:none;
+   display: inline-block;
+}   
+
+.dt{		/*CREATED BY SOSOHEA*/
+   font-style:oblique;
+   font-family: sans-serif;
+   font-size: 20px;
+   font-weight: lighter; ;
+}

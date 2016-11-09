@@ -109,6 +109,28 @@ public class MyBatisPostDao implements PostDao {
 		return result;
 	}
 
+	@Override
+	public Post getPrev(String code) {
+		SqlSession session = ssf.openSession(); //
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		Post post = postDao.getPrev(code);
+		session.close();
+
+		return post;
+	}
+
+	@Override
+	public Post getNext(String code) {
+		SqlSession session = ssf.openSession(); //
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		Post post = postDao.getNext(code);
+		session.close();
+
+		return post;
+	}
+
 
 
 	/*@Override

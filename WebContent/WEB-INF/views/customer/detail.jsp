@@ -2,41 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>사진 상세보기</title>
-<link href="../css/SosoDetail.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
 
-	<!-- --------------------header-------------------- -->
-	<header>
-	<div class="content-container">
-		<h1>
-			<a href="main" class="link">SOSOHEA</a>
-		</h1>
-		<section id="menu"> <section>
-		<form id="search">
-			<input value=""> <input type="submit" value="검색" />
-		</form>
-		</section> <nav id="main-menu" class="h-menu">
-		<ul>
-			<li><a href="user" class="link">JOIN/LOGIN</a></li>
-			<li><a href="mypage" class="link">MY PAGE</a></li>
-			<li><a href="aboutus" class="link">ABOUT US</a></li>
-		</ul>
-		</nav> </section>
-	</div>
-	</header>
-	<!-- --------------------aside-------------------- -->
-	<aside> </aside>
-	<!-- --------------------main-------------------- -->
 	<main>
 	<h1 class="hidden">사진상세보기</h1>
 	<div class="content-container-detail">
-		<a href="detail?code="${p.code}">
+		<a href="detail?code=${p.code}">
 			<div id="photo">
 				<div class="text">
 					<table>
@@ -83,7 +53,7 @@
 						<thead>
 							<tr>
 								<input type="hidden" name="c_code" value="${p.code}" />
-								<td colspan="3"><textarea name="content" rows="1" cols="90"></textarea></td>
+								<td colspan="4"><textarea name="content" rows="1" cols="90"></textarea></td>
 								<td><input type="submit" value="등록" /></td>
 
 							</tr>
@@ -94,8 +64,10 @@
 								<tr>
 									<td>${c.gender}</td>
 									<td>${c.content}</td>
-									<td>${c.regdate}</td>
+									<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
+											value="${c.regdate}" /></td>
 									<td>${c.writer_email}</td>
+									<td><a href="detail-del?code=${c.code}">삭제</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -107,16 +79,4 @@
 	</div>
 	</main>
 
-	<!-- --------------------footer-------------------- -->
-	<footer id="footer">
-	<h1 class="hidden">푸터</h1>
-	<dl class="soso">
-		<dt class="dt">CREATED BY SOSOHEA</dt>
-	</dl>
-
-	<button type="button" name="upload" class="upload_button">
-		<a href="upload" class="link">UPLOAD</a>
-	</button>
-	</footer>
-</body>
-</html>
+	

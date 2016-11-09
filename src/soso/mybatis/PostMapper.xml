@@ -7,42 +7,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get" resultType="soso.entities.Post">
 		SELECT * FROM POST WHERE CODE = #{code}
 	</select>
-	<insert id="insert" >
-<!-- 		<selectKey order="BEFORE" keyProperty="code" resultType="String">
-		SELECT CONVERT(INT, ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
+	<select id="getPrev" resultType="soso.entities.Post">
+		select top 1 * from POST where code &lt; CAST(#{code} as INT) order by regdate desc
+	</select>
+	<select id="getNext" resultType="soso.entities.Post">
+		select top 1 * from POST where code &gt; CAST(#{code} as INT) order by regdate asc
+	</select>
 
-		</selectKey> -->
+	<insert id="insert">
+		<!-- <selectKey order="BEFORE" keyProperty="code" resultType="String"> 
+			SELECT CONVERT(INT, ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST 
+			</selectKey> -->
 		INSERT INTO POST(CODE,EMAIL,STORY)
 		VALUES(#{code},
-			   #{email},
-			   #{story})
+		#{email},
+		#{story})
 	</insert>
 	<update id="hitUp">
 		update POST set hit = hit + 1 where code = #{code}
 	</update>
-	
-	<select id = "getCode" resultType = "int">
-		SELECT CONVERT(INT, ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
+
+	<select id="getCode" resultType="int">
+		SELECT CONVERT(INT,
+		ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
 	</select>
-	
-	<select id="getMyPhoto" resultType = "String" parameterType="String">
-		
-		SELECT TB2.PHOTO 
-		FROM  POST TB1
-		JOIN  PHOTOFILE TB2
-		  ON  TB1.CODE = TB2.POST_CODE
-		 WHERE TB1.EMAIL = #{email}   <!-- email값을 받아서 자신이 올린 파일을 자신한테만 보여지게 하는것?--> 
+
+	<select id="getMyPhoto" resultType="String" parameterType="String">
+
+		SELECT TB2.PHOTO
+		FROM POST TB1
+		JOIN PHOTOFILE TB2
+		ON TB1.CODE = TB2.POST_CODE
+		WHERE TB1.EMAIL = #{email}   <!-- email값을 받아서 자신이 올린 파일을 자신한테만 보여지게 하는것? -->
 		ORDER BY TB2.REGDATE DESC
-  
-   </select>
-   
-   	<select id="getPhoto" resultType = "String">
-		
-		SELECT TB2.PHOTO 
-		FROM  POST TB1
-		JOIN  PHOTOFILE TB2
-		  ON  TB1.CODE = TB2.POST_CODE
+
+	</select>
+
+	<select id="getPhoto" resultType="String">
+
+		SELECT TB2.PHOTO
+		FROM POST TB1
+		JOIN PHOTOFILE TB2
+		ON TB1.CODE = TB2.POST_CODE
 		ORDER BY TB2.REGDATE DESC
-  
-   </select>
-   </mapper>
+
+	</select>
+</mapper>

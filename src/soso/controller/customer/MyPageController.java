@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
 import soso.dao.PostDao;
 import soso.entities.Post;
 import soso.mybatis.MyBatisPostDao;
@@ -33,6 +36,11 @@ public class MyPageController extends HttpServlet{
 		}
 		
 		request.setAttribute("MYPHOTO_LIST", myphotoList);
-		request.getRequestDispatcher("/WEB-INF/views/customer/mypage.jsp").forward(request, response);
+		
+		TilesContainer container = TilesAccess.getContainer(
+		        request.getSession().getServletContext());
+		container.render("customer.mypage", request, response);
+		container.endContext(request, response);
+		
 	}
 }

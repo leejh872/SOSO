@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+/*--------메인---------*/
+#login-form{
+	border: 0px;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	width: 230px;
+}
+
+#checkbox {
+	float: right;
+}
+
+#login-table {
+	width: 240px;
+}
+main #login-table {
+	border: 0px;
+}
+
+#login-menu {
+	float: right;
+}
+
+.login-button {
+	width: 60px;
+}
+
+.join-button {
+	width: 60px;
+}

@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -32,8 +35,11 @@ public class RegController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		request.getRequestDispatcher("/WEB-INF/views/customer/reg.jsp").forward(request, response);
+		
+		TilesContainer container = TilesAccess.getContainer(
+		        request.getSession().getServletContext());
+		container.render("customer.reg.", request, response);
+		container.endContext(request, response);
 	}
 
 	@Override

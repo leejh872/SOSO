@@ -10,11 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
 import soso.dao.PostDao;
 import soso.entities.Post;
 import soso.mybatis.MyBatisPostDao;
 
-@WebServlet("/customer/main")
+@WebServlet("/main")
 public class MainController extends HttpServlet {
 
 	@Override
@@ -67,6 +70,9 @@ public class MainController extends HttpServlet {
 //		
 //		request.setAttribute("list", list);
 
-		request.getRequestDispatcher("/WEB-INF/views/customer/main.jsp").forward(request, response);
+		TilesContainer container = TilesAccess.getContainer(
+		        request.getSession().getServletContext());
+		container.render("root.main", request, response);
+		container.endContext(request, response);
 	}
 }

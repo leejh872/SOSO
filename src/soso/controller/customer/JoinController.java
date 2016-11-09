@@ -11,20 +11,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
 import soso.dao.JoinDao;
 import soso.entities.Join;
 import soso.mybatis.MyBatisJoinDao;
 import soso.mybatis.MyBatisJoinDao;
 
 
-@WebServlet("/customer/join")
+@WebServlet("/joinus/join")
 public class JoinController extends HttpServlet{
 
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
 			System.out.println("doget()");
-			request.getRequestDispatcher("/WEB-INF/views/customer/join.jsp").forward(request, response);
+			
+			TilesContainer container = TilesAccess.getContainer(
+			        request.getSession().getServletContext());
+			container.render("joinus.join", request, response);
+			container.endContext(request, response);
 		}
 		
 		@Override

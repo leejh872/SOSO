@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+/* 메인 */
+.content-container-detail {
+	border: 1px solid red;
+	height: inherit;
+	width: 760px;
+	margin: auto;
+	padding-bottom: 100px;
+}
+
+/*사진*/
+
+#photo {
+	width: 380px;
+	height: 450px;
+	background: url(이미지주소) no-repeat;
+	float: left;
+}
+
+#photo:hover .text {
+	opacity: 0.6;
+	text-align: center;
+	color: #ffffff;
+}
+
+.text {
+	border: 1px solid black;
+	width: 380px;
+	height: 450px;
+	background: #000000;
+	opacity: 0;
+	text-indent: 30px;
+}
+
+.text > table {
+	padding-top: 42%;
+	margin: auto;
+}
+
+#story {
+	height : 450px;
+	width: 380px;
+	/* height: 450px; */
+	float: right;
+}
+
+#story table > tbody > tr {
+	padding-bottom: 10px;
+	
+	height: 15px;
+	text-indent: 5px;
+}
+
+#comment {
+	float: left;
+	margin: auto;
+	width: 760;
+	height: 100%;
+}
+#ctable{
+	float: left;
+	margin: auto;
+}
+#ctable > tr{
+	margin-top: 10px;
+}

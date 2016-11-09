@@ -8,12 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/customer/aboutus")
+import org.apache.tiles.TilesContainer;
+import org.apache.tiles.access.TilesAccess;
+
+@WebServlet("/aboutus")
 public class AboutUsController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		request.getRequestDispatcher("/WEB-INF/views/customer/aboutus.jsp").forward(request, response);
+		
+		TilesContainer container = TilesAccess.getContainer(
+		        request.getSession().getServletContext());
+		container.render("root.aboutus", request, response);
+		container.endContext(request, response);
 	}
 }
