@@ -59,7 +59,7 @@ public class JoinController extends HttpServlet{
 				//---------------------------------------------
 				boolean hasMidChecked = false;
 				
-				//쿠키에 중복을 확인한적이 있는지를 검사//getCookie 가 없어서 통째로 쿠키를 받아서 순회하면서 해당 키값을 찾아야함
+				//쿠키에 중복을 확인한적이 있는지를 검사
 				Cookie[] cookies = request.getCookies();
 				if(cookies != null)
 					for(Cookie cookie : cookies)

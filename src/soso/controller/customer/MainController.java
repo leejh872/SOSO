@@ -32,12 +32,12 @@ public class MainController extends HttpServlet {
 		
 		PostDao postDao = new MyBatisPostDao();
 		String email = (String) session.getAttribute("email");
-		System.out.println("email: " + email);
+	/*	System.out.println("email: " + email);*/
 		List<Post> photoList = postDao.getPhoto();
 		
-		for(int i = 0 ; i < photoList.size(); i++){
+		/*for(int i = 0 ; i < photoList.size(); i++){
 			System.out.println( "photoInfo.get: "+ photoList.get(i));
-		}
+		}*/
 		request.setAttribute("PHOTO_LIST", photoList);
 //		String q = request.getParameter("q");
 //	

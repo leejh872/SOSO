@@ -12,26 +12,28 @@
 </head>
 <body>
 	<header>
-		<div class="content-container">
-			<h1>
-				<a href="main" class="link">SOSOHEA</a>
-			</h1>
-			<section id="menu"> 
-				<section>
-					<form id="search">
-						<input name="q" value=${param.q} > 
-						<input type="submit" value="검색" />
-					</form>
-				</section> 
-				<nav id="main-menu" class="h-menu">
-					<ul>
-						<li><a href="login" class="link">JOIN/LOGIN</a></li>
-						<li><a href="mypage" class="link">MY PAGE</a></li>
-						<li><a href="aboutus" class="link">ABOUT US</a></li>
-					</ul>
-				</nav> 
-			</section>
-		</div>
+	<div class="content-container">
+		<h1>
+			<a href="main" class="link">SOSOHEA</a>
+		</h1>
+		<section id="menu"> <section>
+		<form id="search">
+			<input name="q" value=${param.q} > <input type="submit"
+				value="검색" />
+		</form>
+		</section> <nav id="main-menu" class="h-menu">
+		<ul>
+			<c:if test="${empty sessionScope.email}">
+				<li><a href="login" class="link">JOIN/LOGIN</a></li>
+			</c:if>
+			<c:if test="${empty sessionScope.email}">
+				<li><a href="logout" class="link">JOIN/LOGOUT</a></li>
+			</c:if>
+			<li><a href="mypage" class="link">MY PAGE</a></li>
+			<li><a href="aboutus" class="link">ABOUT US</a></li>
+		</ul>
+		</nav> </section>
+	</div>
 	</header>
 	<!-- --------------------visual-------------------- -->
 	<div id="visual">
@@ -39,38 +41,46 @@
 	</div>
 	<!-- --------------------main-------------------- -->
 	<main>
-		<div class="content-container">
-			<form action="../customer/main">
-				<fieldset id="login-form">
-					<table align="center" id="login-table" >
-						<tr>
-							<td ><input type="text" name="email" placeholder="ID"><a href="" class="link">asdasdasdadasdasds?</a></td>
-						</tr>
-						<tr>
-							<td><input type="text" name="password" placeholder="PW"><a href="" class="link">Forgot?</a></td>
-						</tr>
-					</table>
-					<div id="login-menu">
-						<div id="checkbox"><input type="checkbox">Stay Logged In</div>
-						<div>
-							<button type="submit" name="login" class=" login-button">Login</button>
-							<a href="join" class="link">
-							<button type="button" name="join" class=" join-button">Join</button>
-							</a>
-						</div>
+
+	<div class="content-container">
+		<c:if test="${not empty msg}">
+		${msg}
+		</c:if>
+		<form method="post">
+			<fieldset id="login-form">
+				<table align="center" id="login-table">
+					<tr>
+						<td><input type="text" name="email" placeholder="ID" />
+						<a href="" class="link"></a></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="password" placeholder="PW" /><a
+							href="" class="link"></a></td>
+					</tr>
+				</table>
+				<div id="login-menu">
+					<!-- <div id="checkbox"><input type="checkbox">Stay Logged In</div> -->
+					<div>
+						<a href ="join">
+						<button type="button" name="join" class=" join-button">Join</button>
+						</a>
+						<button type="submit" name="login" class=" login-button">Login</button>
 					</div>
-				</fieldset>
-			</form>
-		</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
 	</main>
 	<!-- --------------------footer-------------------- -->
 	<footer id="footer">
-		<div class="content-container">
-			<dl class="soso">
-				<dt class="dt">CREATED BY SOSOHEA</dt>
-			</dl>
-		
-			<button type="button" name="upload" class="upload_button" ><a href="upload" class="link">UPLOAD</a></button>
+	<div class="content-container">
+		<dl class="soso">
+			<dt class="dt">CREATED BY SOSOHEA</dt>
+		</dl>
+
+		<button type="button" name="upload" class="upload_button">
+			<a href="upload" class="link">UPLOAD</a>
+		</button>
 	</div>
 	</footer>
 </body>
