@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 /*--------메인---------*/
-#join-form{
+#login-form{
 	border: 0px;
 	position: absolute;
 	top: 40%;
@@ -9,23 +9,25 @@
 	width: 230px;
 }
 
-#radio {
-	float: left;
-	width: 58px;
+#checkbox {
+	float: right;
 }
 
-#join-table {
+#login-table {
 	width: 240px;
 }
-main #join-table {
+main #login-table {
 	border: 0px;
 }
 
-#join-menu {
-	
+#login-menu {
+	float: right;
+}
+
+.login-button {
+	width: 60px;
 }
 
 .join-button {
 	width: 60px;
 }
-

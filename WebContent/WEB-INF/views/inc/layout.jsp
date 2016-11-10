@@ -14,11 +14,10 @@
 <!-- css가져오기 -->
 <link href="css/layout.css" type="text/css" rel="stylesheet" />
 <link href="css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
-<%-- <tiles:getAsString name="css" /> --%>
 
-<%-- <script src="../js/modernizr-custom.js" type="text/javascript">
+<script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");
-</script> --%>
+</script>
 
 <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,37 +29,26 @@ Latest compiled and minified JavaScript
 <body>
 
 
-	<!-- ------------------------------------------------------<헤더>----------------------------------------------------------------------- -->
-
 	<!-- header 부분 -->
-	<%-- <jsp:include page="../inc/header.jsp"></jsp:include> --%>
-	<!-- tiles 방법 -->
-	<!-- 레이아웃.xml속성을 가져와서 넣다 -->
 	<tiles:insertAttribute name="header" />
 
-	<!-- -------------------------------------------------------<visual>------------------------------------------------------------------- -->
-	
 	<!-- visual 부분 -->
-	<%-- <jsp:include page="inc/visual.jsp"></jsp:include> --%>
 	<%-- <tiles:insertAttribute name="visual" /> --%>
 
-	<!-- -------------------------------------------------------<body>------------------------------------------------------------------- -->
+	<!-- body 부분 -->
 	<div id="body">
 		<div class="content-container clearfix">
 
-			<!-- -------------------------------------------------------aside------------------------------------------------------------------- -->
-			<%-- <jsp:include page="inc/aside.jsp"></jsp:include> --%>
+			<!-- aside 부분 -->
 			<%-- <tiles:insertAttribute name="aside" /> --%>
-			<!-- -------------------------------------------------------메인------------------------------------------------------------------- -->
+
 				<!-- main, content 부분 -->
 				<tiles:insertAttribute name="main" />
 
 		</div>
 	</div>
 
-	<!-- -------------------------------------------------------<footer>------------------------------------------------------------------- -->
 	<!-- footer 부분 -->
-	<%-- <jsp:include page="../inc/footer.jsp"></jsp:include> --%>
 	<tiles:insertAttribute name="footer" />
 
 </body>

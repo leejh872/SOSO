@@ -12,13 +12,12 @@
 <title>가입</title>
 
 <!-- css가져오기 -->
-<link href="../css/layout.css" type="text/css" rel="stylesheet" />
-<link href="../css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
-<%-- <tiles:getAsString name="css" /> --%>
+<link href="css/layout.css" type="text/css" rel="stylesheet" />
+<link href="css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
 
-<%-- <script src="../js/modernizr-custom.js" type="text/javascript">
+<script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");
-</script> --%>
+</script>
 
 <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,39 +29,26 @@ Latest compiled and minified JavaScript
 </head>
 <body>
 
-	<!-- 이미지를 넣어줄때는 상대경로를 사용한다!. alt는 대체한다는뜻(뉴렉처 온라인 제목을 이미지로 대체함.원래있던 제목을 지우지는말것)  -->
-
-	<!-- ------------------------------------------------------<헤더>----------------------------------------------------------------------- -->
-
 	<!-- header 부분 -->
-	<%-- <jsp:include page="../inc/header.jsp"></jsp:include> --%>
-	<!-- tiles 방법 -->
-	<!-- 레이아웃.xml속성을 가져와서 넣다 -->
 	<tiles:insertAttribute name="header" />
 
-	<!-- -------------------------------------------------------<visual>------------------------------------------------------------------- -->
-	
 	<!-- visual 부분 -->
-	<%-- <jsp:include page="inc/visual.jsp"></jsp:include> --%>
 	<%-- <tiles:insertAttribute name="visual" /> --%>
 
-	<!-- -------------------------------------------------------<body>------------------------------------------------------------------- -->
+	<!-- body 부분 -->
 	<div id="body">
 		<div class="content-container clearfix">
 
-			<!-- -------------------------------------------------------aside------------------------------------------------------------------- -->
-			<%-- <jsp:include page="inc/aside.jsp"></jsp:include> --%>
+			<!-- aside 부분 -->
 			<%-- <tiles:insertAttribute name="aside" /> --%>
-			<!-- -------------------------------------------------------메인------------------------------------------------------------------- -->
+			
 				<!-- main, content 부분 -->
 				<tiles:insertAttribute name="main" />
 
 		</div>
 	</div>
 
-	<!-- -------------------------------------------------------<footer>------------------------------------------------------------------- -->
 	<!-- footer 부분 -->
-	<%-- <jsp:include page="../inc/footer.jsp"></jsp:include> --%>
 	<tiles:insertAttribute name="footer" />
 
 </body>

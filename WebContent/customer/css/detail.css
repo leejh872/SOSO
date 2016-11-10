@@ -1,12 +1,21 @@
 @CHARSET "UTF-8";
 
+
 /* 메인 */
 .content-container-detail {
+	font-family: "서울남산체", "서울남산 장체", "sans-serif";
+	font-weight: lighter;
+	font-size: 17px;
+	
 	border: 1px solid red;
 	height: inherit;
 	width: 760px;
 	margin: auto;
 	padding-bottom: 100px;
+}
+.content-container-detail h1 {
+	/* visibility: hidden; */
+	display: none;
 }
 
 /*사진*/
@@ -45,20 +54,25 @@
 	float: right;
 }
 
-#story table > tbody > tr {
-	padding-bottom: 10px;
+#story table {
 	
-	height: 15px;
-	text-indent: 5px;
+}
+
+#story table > tbody > tr {
+	
+}
+#story table > tbody > tr > td {
+	padding: 5px;
 }
 
 #comment {
 	float: left;
 	margin: auto;
-	width: 760;
+	width: 760px;
 	height: 100%;
 }
 #ctable{
+	width: 760px;
 	float: left;
 	margin: auto;
 }
