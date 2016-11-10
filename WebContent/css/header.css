@@ -4,6 +4,9 @@
 #header {
 	height: 150px;
 }
+#header h1 {
+	font-size: 40px;
+}
 
 /*--------메뉴-----------*/
 #menu{			/*헤더 검색창 & 메뉴 오른쪽으로 밀기*/

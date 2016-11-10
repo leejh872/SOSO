@@ -1,4 +1,4 @@
-package soso.controller.customer;
+package soso.controller.joinus;
 
 import java.io.IOException;
 import java.util.Date;
