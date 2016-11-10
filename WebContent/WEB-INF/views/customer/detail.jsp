@@ -6,7 +6,7 @@
 <main>
 <div class="content-container-detail">
 	<h1 class="hidden">사진상세보기</h1>
-	<a href="detail?code=${p.code}">
+	<a href="detail-like?pcode=${p.code}">
 		<div id="photo">
 			<div class="text">
 				<table>
@@ -67,7 +67,7 @@
 								<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
 										value="${c.regdate}" /></td>
 								<td>${c.writer_email}</td>
-								<td><a href="detail-del?code=${c.code}">삭제</a></td>
+								<td><a href="detail-cmt-del?ccode=${c.code}">삭제</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

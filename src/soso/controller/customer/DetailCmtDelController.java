@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import soso.dao.CommentDao;
+import soso.entities.Comment;
 import soso.mybatis.MyBatisCommentDao;
 
-@WebServlet("/customer/detail-del")
-public class DetailDelController extends HttpServlet {
+@WebServlet("/customer/detail-cmt-del")
+public class DetailCmtDelController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,17 +26,22 @@ public class DetailDelController extends HttpServlet {
 		// 로그인이 되어있지 않다면
 		if (email == null || email.equals("")) {
 			System.out.println("로그인 안됨");
-			response.sendRedirect("main");
+			response.sendRedirect("detail");
 
 			// 로그인이 되어 있다면
 		} else {
 			
-			//자신의 댓글이 맞다면
-
-			String code = request.getParameter("code");
-
+			
+			//자신의 댓글이 맞아야 삭제
+			String code = request.getParameter("ccode");
+			System.out.println("ccode : " + code);
+				
 			CommentDao cmtDao = new MyBatisCommentDao();
-			cmtDao.delete(code);
+			
+			System.out.println("ccccc"+code);
+			//code, email값이 일치하면 삭제
+			cmtDao.delete(code, email);
+			/*cmtDao.delete("4", email);*/
 
 			response.sendRedirect("detail");
 		}

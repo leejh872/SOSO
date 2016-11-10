@@ -26,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{code}, #{content}, #{writer_email}, #{post_code});
 	</insert>
 	<delete id="delete">
-		DELETE COMMENT WHERE CODE = #{code}
+		DELETE COMMENT WHERE CODE = ${param1} AND WRITER_EMAIL = '${param2}'
 	</delete>
+	
 </mapper>

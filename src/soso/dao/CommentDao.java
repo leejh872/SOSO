@@ -10,6 +10,7 @@ public interface CommentDao {
    List<Comment> getList(String post_code);
    
    int insert(Comment comment);
-   int delete(String code);
+   int delete(String code, String writer_email);
+   /*int delete(String code, String writer_email);*/
    
 }

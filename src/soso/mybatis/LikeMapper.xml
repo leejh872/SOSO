@@ -12,7 +12,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="updateLike">
-   	UPDATE [LIKE] SET IS_LIKE = #{is_like} WHERE POST_CODE = #{post_code} AND USER_EMAIL = #{email};
+	UPDATE [LIKE] SET IS_LIKE = ${param1} WHERE POST_CODE = ${param2} AND USER_EMAIL = '${param3}';
+   	<!-- UPDATE [LIKE] SET IS_LIKE = #{is_like} WHERE POST_CODE = #{post_code} AND USER_EMAIL = #{email}; -->
    </update>
 	
    </mapper>

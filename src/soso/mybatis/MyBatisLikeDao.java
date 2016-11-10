@@ -44,6 +44,27 @@ public class MyBatisLikeDao implements LikeDao {
 	public int updateLike(int is_like, String post_code, String user_email) {
 		SqlSession session = ssf.openSession();
 		LikeDao likeDao = session.getMapper(LikeDao.class);
+		
+		System.out.println("is_like : " + is_like);
+		System.out.println("post_code : " + post_code);
+		System.out.println("email : " + user_email);
+		
+		int result = likeDao.updateLike(is_like, post_code, user_email);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+
+	/*@Override
+	public int updateLike(int is_like, String post_code, String user_email) {
+		SqlSession session = ssf.openSession();
+		LikeDao likeDao = session.getMapper(LikeDao.class);
+		
+		System.out.println("is_like : " + is_like);
+		System.out.println("post_code : " + post_code);
+		System.out.println("email : " + user_email);
 
 		int result = likeDao.updateLike(is_like, post_code, user_email);
 
@@ -51,6 +72,6 @@ public class MyBatisLikeDao implements LikeDao {
 		session.close();
 
 		return result;
-	}
+	}*/
 
 }
