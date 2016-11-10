@@ -5,6 +5,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 	<main>
+		<div style = "color:skyblue" ><!-- 에러 메세지 뿌리기 -->
+			<c:if test = "${not empty errorMsg}">
+				<div>
+				${errorMsg}
+				</div>
+			</c:if>
+		</div>
 		<div class="content-container">
 			<form action="join" method="post">
 				<fieldset id="join-form">
@@ -14,22 +21,29 @@
 							<option></option>
 						</tr>
 						<tr>
-							<td ><input type="text" name="cellphone" placeholder="ex)+82)010-1234-5678" value = "${j.cellphone}"></td>
+							<td>
+							<input type="text" name="email" placeholder="E-mail" value="${email}">
+							<input type="submit" name="btn" value="중복확인"/>
+							<span>${duplicateResult}</span>
+							</td>
 						</tr>
 						<tr>
-							<td ><input type="text" name="email" placeholder="E-mail" value="${j.email}"></td>
+							<td>
+							<input type="password" name="password" placeholder="Password" value="${password}">
+							</td>
 						</tr>
 						<tr>
-							<td><input type="password" name="password" placeholder="Password" value="${j.password}"></td>
+							<td>
+							<input type="text" name="cellphone" placeholder="ex)010-1234-5678" value = "${cellphone}">
+							</td>
 						</tr>
 					</table>
 					<div id="join-menu">
-						<div id="radio"><input type="radio" name="gender" value="M">M</div>
-						<div id="radio"><input type="radio" name="gender" value="W">W</div>
+						<div id="radio"><input type="radio" name="gender" value="M"/>M</div>
+						<div id="radio"><input type="radio" name="gender" value="W"/>W</div>
 						<div>
 							<a href ="joinsuccess" class="link">
-							<!-- <button type="button" name="join" class=" join-button">Join</button> -->
-							<input type="submit" value="join"  class=" join-button"/>
+							<input type="submit" name="btn" value="join"  class=" join-button"/>
 							</a>
 						</div>
 					</div>

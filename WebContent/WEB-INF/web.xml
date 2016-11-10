@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
  Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -20,16 +20,18 @@
   <description>
      Welcome to Tomcat
   </description>
+  <!-- ▽서블릿이 실행될때 같이 실행되야함 -->
   <servlet>
     <servlet-name>sf</servlet-name>
     <servlet-class>com.web.dao.mybatis.SessionFactoryBuilder</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <context-param>
+  <context-param><!-- tiles가 어디에 위치해 있는지 알려주는 소스 -->
     <description>Tiles configuration file</description>
     <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
     <param-value>/WEB-INF/tiles.xml</param-value>
   </context-param>
+  <!-- tiles container를 만드는 작업  -->
   <listener>
     <listener-class>
     org.apache.tiles.web.startup.simple.SimpleTilesListener

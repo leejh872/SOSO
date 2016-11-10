@@ -17,7 +17,13 @@
 		</section>
 		<nav id="main-menu" class="h-menu">
 			<ul>
-				<li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li>
+				<c:if test="${empty sessionScope.email}">
+					<li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li>
+				</c:if>
+				<c:if test="${not empty sessionScope.email}">
+					<li><a href="${ctx}/joinus/logout" class="link">LOGOUT</a></li>
+				</c:if>
+				<%-- <li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li> --%>
 				<li><a href="${ctx}/customer/mypage" class="link">MY PAGE</a></li>
 				<li><a href="${ctx}/aboutus" class="link">ABOUT US</a></li>
 			</ul>

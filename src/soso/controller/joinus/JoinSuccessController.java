@@ -17,7 +17,6 @@ import org.apache.tiles.access.TilesAccess;
 import soso.dao.JoinDao;
 import soso.entities.Join;
 import soso.mybatis.MyBatisJoinDao;
-import soso.mybatis.MyBatisJoinDao;
 
 
 @WebServlet("/joinus/joinsuccess")
@@ -32,7 +31,4 @@ public class JoinSuccessController extends HttpServlet{
 			container.render("joinus.joinsuccess", request, response);
 			container.endContext(request, response);
 		}
-		
-
-
 }

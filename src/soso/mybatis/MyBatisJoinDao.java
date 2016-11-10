@@ -16,12 +16,12 @@ public class MyBatisJoinDao implements JoinDao {
 	}
 
 	@Override
-	public int insert(Join j) {
+	public int insert(Join join) {
 
 		SqlSession session = ssf.openSession();
 		JoinDao joinDao = session.getMapper(JoinDao.class);
 		
-		int result = joinDao.insert(j);
+		int result = joinDao.insert(join);
 		
 		session.commit();
 		session.close();
@@ -30,6 +30,16 @@ public class MyBatisJoinDao implements JoinDao {
 		
 		return result;
 		
+	}
+
+	@Override
+	public Join get(String email) {
+		SqlSession session = ssf.openSession();
+		JoinDao joinDao = session.getMapper(JoinDao.class);
+		
+		Join join = joinDao.get(email);
+		session.close();
+		return join;
 	}
 
 }

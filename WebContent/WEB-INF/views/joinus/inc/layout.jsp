@@ -13,7 +13,8 @@
 
 <!-- css가져오기 -->
 <link href="css/layout.css" type="text/css" rel="stylesheet" />
-<link href="css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
+<link href="css/<tiles:getAsString name="css"/>" type="text/css"
+	rel="stylesheet" />
 
 <script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");
@@ -41,9 +42,9 @@ Latest compiled and minified JavaScript
 
 			<!-- aside 부분 -->
 			<%-- <tiles:insertAttribute name="aside" /> --%>
-			
-				<!-- main, content 부분 -->
-				<tiles:insertAttribute name="main" />
+
+			<!-- main, content 부분 -->
+			<tiles:insertAttribute name="main" />
 
 		</div>
 	</div>
