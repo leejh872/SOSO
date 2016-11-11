@@ -5,12 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import soso.dao.CommentDao;
 import soso.dao.PostDao;
-import soso.dao.TagDao;
-import soso.entities.Comment;
 import soso.entities.Post;
-import soso.entities.Tag;
 
 public class MyBatisPostDao implements PostDao {
 
@@ -51,9 +47,16 @@ public class MyBatisPostDao implements PostDao {
 	}
 
 	@Override
-	public int delete(String code) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(String code, String email) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		int result = postDao.delete(code, email);
+		
+		session.commit();
+		session.close();
+		
+		return result;
 	}
 
 	@Override

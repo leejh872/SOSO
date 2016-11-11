@@ -23,8 +23,8 @@ public class DetailLikeController extends HttpServlet {
 			throws ServletException, IOException {
 
 		// POST의 CODE값을 받아온다.
-		String post_code = request.getParameter("pcode");
-		System.out.println("pcode : " + post_code);
+		String post_code = request.getParameter("plcode");
+		System.out.println("plcode : " + post_code);
 
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");

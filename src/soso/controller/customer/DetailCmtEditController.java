@@ -22,22 +22,21 @@ public class DetailCmtEditController extends HttpServlet {
 //		HttpSession session = request.getSession();
 //		String email = (String) session.getAttribute("email");
 //
+//			String code = request.getParameter("code");
+		
 //		// 로그인이 되어있지 않다면
 //		if (email == null || email.equals("")) {
 //			System.out.println("로그인 안됨");
-//			response.sendRedirect("main");
+//			response.sendRedirect("detail?code=" + code);
 //
 //			// 로그인이 되어 있다면
 //		} else {
 //			
 //			//자신의 댓글이 맞다면
-//
-//			String code = request.getParameter("code");
-//
 //			CommentDao cmtDao = new MyBatisCommentDao();
 //			cmtDao.delete(code, email);
 //
-//			response.sendRedirect("detail");
+//			response.sendRedirect("detail?code=" + code);
 //		}
 	}
 }

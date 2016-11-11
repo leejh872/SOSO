@@ -58,8 +58,6 @@ public class MyBatisCommentDao implements CommentDao {
 		
 		SqlSession session = ssf.openSession();
 		CommentDao cmtDao = session.getMapper(CommentDao.class);
-		System.out.println("MyBatis delete : "+ code);
-		System.out.println("MyBatis delete : "+ writer_email);
 		
 		int result = cmtDao.delete(code, writer_email);
 		

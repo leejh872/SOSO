@@ -76,6 +76,9 @@ public class DetailController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		
+		// POST의 CODE를 받아온다.
+		String post_code = request.getParameter("c_code");
 
 		// 로그인한 email값을 받아온다.
 		String email = (String) session.getAttribute("email");
@@ -84,12 +87,11 @@ public class DetailController extends HttpServlet {
 		// 로그인이 되어있지 않다면
 		if (email == null || email.equals("")) {
 			System.out.println("로그인 안됨");
-			response.sendRedirect("main");
+			response.sendRedirect("detail?code=" + post_code);
 
 			// 로그인이 되어 있다면
 		} else {
 			// POST의 CODE값, 내용, 아이디를 받아온다.
-			String post_code = request.getParameter("c_code");
 			String content = request.getParameter("content");
 
 			// String post_code = "1";

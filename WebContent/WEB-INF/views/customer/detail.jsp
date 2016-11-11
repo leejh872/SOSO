@@ -4,9 +4,22 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <main>
+<div class="link">
+	<!-- ${empty pn} -->
+	<c:if test="${empty pn}">
+            	이전글이 없습니다.
+         </c:if>
+	<c:if test="${not empty pn}">
+		<a href="detail?code=${pn.code}">이전글</a>
+	</c:if>
+</div>
+
+<div style="float: right;">
+	<a href="detail-post-del?pcode=${p.code}">삭제</a>
+</div>
 <div class="content-container-detail">
 	<h1 class="hidden">사진상세보기</h1>
-	<a href="detail-like?pcode=${p.code}">
+	<a href="detail-like?plcode=${p.code}">
 		<div id="photo">
 			<div class="text">
 				<table>
@@ -75,6 +88,15 @@
 			</fieldset>
 		</form>
 	</div>
+</div>
+<div class="link">
+	<c:if test="${empty nn}">
+            	다음글이 없습니다.
+         </c:if>
+	<c:if test="${not empty nn}">
+		<a href="detail?code=${nn.code}">다음글</a>
+	</c:if>
+
 </div>
 </main>
 
