@@ -9,7 +9,7 @@ import soso.entities.Post;
 public interface JoinDao {
 
 	Join get(String email);//이걸로 이메일(아이디)중복체크
-	int insert(Join j);
+	int insert(Join join);
 
    
 }

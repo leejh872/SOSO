@@ -3,8 +3,9 @@ package soso.entities;
 import java.util.Date;
 
 public class Join {
-	private String cellphone;
 	private String email;
+	private String cellphone;
+	
 	private String pw;
 	private String gender;
 	private int warning;
@@ -17,12 +18,14 @@ public class Join {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	
 	public String getCellphone() {
 		return cellphone;
 	}
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
 	}
+
 	public String getEmail() {
 		return email;
 	}

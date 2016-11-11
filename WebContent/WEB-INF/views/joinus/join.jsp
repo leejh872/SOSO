@@ -34,7 +34,7 @@
 						</tr>
 						<tr>
 							<td>
-							<input type="text" name="cellphone" placeholder="ex)010-1234-5678" value = "${cellphone}">
+							<input type="text" name="cellphone" placeholder="ex)010-1234-5678" value="${cellphone}">
 							</td>
 						</tr>
 					</table>

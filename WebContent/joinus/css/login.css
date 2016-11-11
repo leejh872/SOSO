@@ -24,10 +24,11 @@ main #login-table {
 	float: right;
 }
 
-.login-button {
+.join-button {
+	
 	width: 60px;
 }
-
-.join-button {
+.login-button {
+	
 	width: 60px;
 }

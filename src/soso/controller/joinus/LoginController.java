@@ -45,19 +45,27 @@ public class LoginController extends HttpServlet {
 		//1)회원이 존재하지 않을경우
 		if(join == null || join.equals("")){
 			request.setAttribute("msg", "회원이 존재하지 않습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
+			TilesContainer container = TilesAccess.getContainer(
+			        request.getSession().getServletContext());
+			container.render("joinus.login", request, response);
+			container.endContext(request, response);
 		}
 		//2)비밀번호가 틀릴경우
 		else if(!join.getPw().equals(password)){
 			request.setAttribute("msg", "비밀번호를 잘못입력하셨습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
+			TilesContainer container = TilesAccess.getContainer(
+			        request.getSession().getServletContext());
+			container.render("joinus.login", request, response);
+			container.endContext(request, response);
 		}
 				
 		//3)인증성공: 인증상태를 세션에 저장
 		else{
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
-			response.sendRedirect("../customer/main");
+			response.sendRedirect("../main");
 		}
 		
 	}

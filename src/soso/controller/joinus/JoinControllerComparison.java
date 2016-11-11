@@ -1,4 +1,4 @@
-package soso.controller.joinus;
+/*package soso.controller.joinus;
 
 import java.io.IOException;
 import java.util.Date;
@@ -12,7 +12,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
@@ -24,27 +23,35 @@ import soso.dao.JoinDao;
 import soso.entities.Join;
 import soso.mybatis.MyBatisJoinDao;
 
+
+
 @WebServlet("/joinus/join")
-public class JoinController extends HttpServlet{
+public class JoinControllerComparison extends HttpServlet{
 
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
 			System.out.println("doget()");
-			//request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
-			TilesContainer container = TilesAccess.getContainer(
-			        request.getSession().getServletContext());
-			container.render("joinus.join", request, response);
+			request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
+//			TilesContainer container = TilesAccess.getContainer(
+//			        request.getSession().getServletContext());
+//			container.render("joinus.join", request, response);
 		}
 		
 		@Override
 		protected void doPost(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
 			System.out.println("doPost()");
+			
 			String btn = request.getParameter("btn");
 			JoinDao joinDao = new MyBatisJoinDao();		
-			/*HttpSession session = request.getSession();
-			session.getAttribute("cellphone");*/
+			
+			
+			System.out.println("cellphone :"+cellphone);
+			System.out.println("email :"+email);
+			System.out.println("password :"+password);
+			System.out.println("gender :"+gender);
+			
 			
 			if(btn.equals("join"))
 			{
@@ -52,7 +59,7 @@ public class JoinController extends HttpServlet{
 				//---------------------------------------------
 				boolean hasMidChecked = false;
 				
-				//쿠키에 중복을 확인한적이 있는지를 검사
+				//쿠키에 중복을 확인한적이 있는지를 검사//getCookie 가 없어서 통째로 쿠키를 받아서 순회하면서 해당 키값을 찾아야함
 				Cookie[] cookies = request.getCookies();
 				if(cookies != null)
 					for(Cookie cookie : cookies)
@@ -64,12 +71,6 @@ public class JoinController extends HttpServlet{
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
 				String gender = request.getParameter("gender");
-				//System.out.println("cellphone null아니라고");
-				
-				System.out.println("cellphone :"+cellphone);
-				System.out.println("email :"+email);
-				System.out.println("password :"+password);
-				System.out.println("gender :"+gender);
 				//----------------------------------------------
 				//유효성 검사
 				//----------------------------------------------
@@ -99,7 +100,7 @@ public class JoinController extends HttpServlet{
 				//유효하지 않은 형식을 입력하더라도 나머지 값은 남아있도록 하기위해 씀
 				request.setAttribute("cellphone", cellphone);
 				request.setAttribute("gender", gender);
-//				request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
 				
 				TilesContainer container = TilesAccess.getContainer(
 				        request.getSession().getServletContext());
@@ -110,20 +111,14 @@ public class JoinController extends HttpServlet{
 				else
 				{
 					Join join = new Join();
-					
+					joinDao.insert(join);
 					
 					join.setCellphone(cellphone);
 					join.setEmail(email);
 					join.setPw(password);
 					join.setGender(gender);
-					
-					joinDao.insert(join);
 
-					//response.sendRedirect("joinsuccess");
-					TilesContainer container = TilesAccess.getContainer(
-					        request.getSession().getServletContext());
-					container.render("joinus.joinsuccess", request, response);
-					container.endContext(request, response);
+					response.sendRedirect("joinsuccess");
 				}		
 			}
 			
@@ -132,6 +127,7 @@ public class JoinController extends HttpServlet{
 				String email = request.getParameter("email");
 				Join join = joinDao.get(email);
 				
+				//if(member != null)
 				if(join != null)
 					request.setAttribute("duplicateResult", "이미 사용중인 이메일입니다.");
 				else{
@@ -139,19 +135,18 @@ public class JoinController extends HttpServlet{
 					//쿠키로 아이디 사용가능함을 검증한 결과를 저장
 					request.setAttribute("email", email);
 					Cookie cookie = new Cookie("email-checked", "ok");//여기서 쿠키는 중복확인을 했는지 확인하는것
-					cookie.setMaxAge(60*60*24);//60*60*24: 하루 이 기간을 없애면 브라우저가 닫힘과 동시에 없어짐
+					cookie.setMaxAge(60*60*24);//60*60*24: 하루)이 기간을 정해주는 순간 로컬파일로 저장되어 다음에 켜면 남아있게됨, 이 기간을 없애면 브라우저가 닫힘과 동시에 없어짐
 					response.addCookie(cookie); 
 				}
-				TilesContainer container = TilesAccess.getContainer(
-				        request.getSession().getServletContext());
-				container.render("joinus.join", request, response);
-				container.endContext(request, response);
-//				request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
+//				TilesContainer container = TilesAccess.getContainer(
+//				        request.getSession().getServletContext());
+//				container.render("joinus.join", request, response);
+//				container.endContext(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/joinus/join.jsp").forward(request, response);
 			}
-
 			
 			response.sendRedirect("joinsuccess");
 			
 		}
 
-}
+}*/

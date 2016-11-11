@@ -1,4 +1,4 @@
-package soso.controller.joinus;
+/*package soso.controller.joinus;
 
 import java.io.IOException;
 import java.util.Date;
@@ -36,9 +36,9 @@ public class JoinController_old extends HttpServlet{
          String password = request.getParameter("password");
          String gender = request.getParameter("gender");
          //아래는 쿼리문에서 자동으로 입력받으라고 기본값이 잇어서 없어도 됨
-/*         String warning = request.getParameter("warning");
+         String warning = request.getParameter("warning");
          String war_cause = request.getParameter("war_cause");
-         Date regdate = request.getParameter("regdate");*/
+         Date regdate = request.getParameter("regdate");
          
          
          JoinDao joinDao = new MyBatisJoinDao();
@@ -63,4 +63,4 @@ public class JoinController_old extends HttpServlet{
          
       }
 
-}
+}*/

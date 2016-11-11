@@ -6,9 +6,7 @@
 
 	<main>
 	<div class="content-container">
-		<c:if test="${not empty msg}">
-		${msg}
-		</c:if>
+		<c:if test="${not empty msg}">${msg}</c:if>
 		<form method="post">
 			<fieldset id="login-form">
 				<table align="center" id="login-table">
@@ -24,10 +22,10 @@
 				<div id="login-menu">
 					<!-- <div id="checkbox"><input type="checkbox">Stay Logged In</div> -->
 					<div>
-						<a href ="join">
-						<button type="button" name="join" class=" join-button">Join</button>
-						</a>
-						<button type="submit" name="login" class=" login-button">Login</button>
+						<!-- <a href ="join"> -->
+						<input type="button" name="join"  value="join" class=" join-button" onclick="location.href='join'";/>
+						<!-- </a> -->
+						<input type="submit" name="login" value="login" class=" login-button"/>
 					</div>
 				</div>
 			</fieldset>

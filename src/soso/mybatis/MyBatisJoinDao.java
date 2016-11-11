@@ -22,7 +22,6 @@ public class MyBatisJoinDao implements JoinDao {
 		JoinDao joinDao = session.getMapper(JoinDao.class);
 		
 		int result = joinDao.insert(join);
-		
 		session.commit();
 		session.close();
 		
