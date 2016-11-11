@@ -54,16 +54,30 @@ public class MyBatisCommentDao implements CommentDao {
 	}
 
 	@Override
-	public int delete(String code) {
+	public int delete(String code, String writer_email) {
+		
+		SqlSession session = ssf.openSession();
+		CommentDao cmtDao = session.getMapper(CommentDao.class);
+		
+		int result = cmtDao.delete(code, writer_email);
+		
+		session.commit();
+		session.close();
+		return result;
+	}
+
+/*	@Override
+	public int delete(String code, String writer_email) {
 		SqlSession session = ssf.openSession();
 		CommentDao cmtDao = session.getMapper(CommentDao.class);
 
-		int result = cmtDao.delete(code);
-		
+		int result = cmtDao.delete(code, writer_email);
+		System.out.println("안녕 난 마이바티스 델리트얌");
+		System.out.println("MyBatis delete : "+ code);
 		session.commit();
 		session.close();
 
 		return result;
 	}
-
+*/
 }

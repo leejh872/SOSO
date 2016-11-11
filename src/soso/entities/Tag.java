@@ -2,20 +2,20 @@ package soso.entities;
 
 
 public class Tag {
-	private int code;
-	private int post_code;
+	private String code;
+	private String post_code;
 	private String name;
 	
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getPost_code() {
+	public String getPost_code() {
 		return post_code;
 	}
-	public void setPost_code(int post_code) {
+	public void setPost_code(String post_code) {
 		this.post_code = post_code;
 	}
 	public String getName() {

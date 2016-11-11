@@ -26,6 +26,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="hitUp">
 		update POST set hit = hit + 1 where code = #{code}
 	</update>
+	<delete id="delete">
+		DELETE POST WHERE CODE = ${param1} AND EMAIL = '${param2}'
+	</delete>
 
 	<select id="getCode" resultType="int">
 		SELECT CONVERT(INT,

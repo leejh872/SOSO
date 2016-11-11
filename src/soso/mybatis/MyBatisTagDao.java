@@ -27,4 +27,17 @@ public class MyBatisTagDao implements TagDao {
 		return result;
 	}
 
+	@Override
+	public int delete(String post_code) {
+		SqlSession session = ssf.openSession();
+		TagDao postDao = session.getMapper(TagDao.class);
+		
+		int result = postDao.delete(post_code);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+
 }

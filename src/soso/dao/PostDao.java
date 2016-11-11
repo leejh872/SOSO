@@ -2,7 +2,6 @@ package soso.dao;
 
 import java.util.List;
 
-import soso.entities.Comment;
 import soso.entities.Post;
 
 public interface PostDao {
@@ -12,7 +11,7 @@ public interface PostDao {
 
 	int insert(Post post);
 	int update(Post post);
-	int delete(String code);
+	int delete(String code, String email);
 	int getCount(String field, String query);
 	int getCode();
 	int hitUp(String code);

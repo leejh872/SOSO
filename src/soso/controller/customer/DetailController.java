@@ -41,31 +41,6 @@ public class DetailController extends HttpServlet {
 		if (_code == null || _code.equals(""))
 			_code = "1";
 		
-		// like를 눌렀을 때의 값
-//		String l = request.getParameter("l");
-//
-//		// like를 눌렀다면
-//		if (l.equals("ok")) {
-//
-//			//로그인 여부 확인
-//			HttpSession session = request.getSession();
-//			String email = (String) request.getAttribute("email");
-//
-//			// 로그인이 안되있으면
-//			if (email == null || email.equals(""))
-//				response.sendRedirect("main");
-//			else{
-//				//로그인이 되어 있으면 
-//				//LIKE를 누른적이 있는지 확인하고 추가하거나 감소 시킨다.
-//				LikeDao likeDao = new MyBatisLikeDao();
-//				Like like = likeDao.getUserLike(_code, email);
-//				if(like.getIs_like() == 0)
-//					likeDao.updateLike(1, _code, email);
-//				else
-//					likeDao.updateLike(0, _code, email);
-//			}
-//		}
-
 		// 필요한 DB 테이블
 		PostDao postDao = new MyBatisPostDao();
 		LikeDao likeDao = new MyBatisLikeDao();
@@ -101,6 +76,9 @@ public class DetailController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		
+		// POST의 CODE를 받아온다.
+		String post_code = request.getParameter("c_code");
 
 		// 로그인한 email값을 받아온다.
 		String email = (String) session.getAttribute("email");
@@ -109,12 +87,11 @@ public class DetailController extends HttpServlet {
 		// 로그인이 되어있지 않다면
 		if (email == null || email.equals("")) {
 			System.out.println("로그인 안됨");
-			response.sendRedirect("main");
+			response.sendRedirect("detail?code=" + post_code);
 
 			// 로그인이 되어 있다면
 		} else {
 			// POST의 CODE값, 내용, 아이디를 받아온다.
-			String post_code = request.getParameter("c_code");
 			String content = request.getParameter("content");
 
 			// String post_code = "1";
