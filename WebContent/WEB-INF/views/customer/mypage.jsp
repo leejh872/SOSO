@@ -5,16 +5,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%List photolist =  (List)request.getAttribute("PHOTO_LIST"); %>	
-<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<%List myphotolist =  (List)request.getAttribute("MYPHOTO_LIST"); %>	
 
 	<main>
-	<div class="content-container">
-	<div id="photo">${n.photo}</div>
-		<%for (int i = 0 ; i < photolist.size() ; i ++) { %>
-			<a href="${ctx}/customer/detail?code=1"><img src= "../images/<%=photolist.get(i) %>" width="300" height="300"/></a> 
+		<div class="content-container">
+				
+	<div id="myphoto" class="left">${n.myphoto}</div>
+	<%for (int i = 0 ; i < myphotolist.size() ; i ++) { %>
+			<a href="detail?code=1"><img src= "../images/<%=myphotolist.get(i) %>" width="300" height="300"/></a> 
 		<%}%>
 
-	</div>
+		</div>
 	</main>
-	

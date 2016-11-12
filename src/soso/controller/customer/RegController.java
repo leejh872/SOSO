@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -26,6 +25,7 @@ import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.PhotoFile;
 import soso.entities.Post;
+import soso.entities.Tag;
 import soso.mybatis.MyBatisPhotoFileDao;
 import soso.mybatis.MyBatisPostDao;
 import soso.mybatis.MyBatisTagDao;
@@ -68,31 +68,34 @@ public class RegController extends HttpServlet {
 		PhotoFileDao photoFileDao = new MyBatisPhotoFileDao();
 		TagDao tagDao = new MyBatisTagDao(); 
 		
-
 		int code = postDao.getCode();
-		//int tagcode = tagDao.getTagCode();
+		String tagcode = tagDao.getCode();
+		
+		
 		System.out.println("code: " + code);
 
 		Post n = new Post();
 		PhotoFile pf = new PhotoFile();
-		//Tag t = new Tag();
+		Tag t = new Tag();
 		
 		String story = req.getParameter("story");
 		String photo = req.getParameter("photo");
-		//String name = req.getParameter("name");
+		String name = req.getParameter("name");
 		
 		System.out.println("story: " + story);
 		System.out.println("photo: " + photo);
 		System.out.println("email: " + email);
-		//System.out.println("tag: " + name);
+		System.out.println("tag: " + name);
 
 		pf.setPhoto(photo);
 		n.setStory(story);// 담아주기위한 코드
 		n.setEmail(email);
 		n.setCode(code);
-		//t.setTagCode(code);
-		//t.setName(name);
+		t.setCode(tagcode); //여기가 문제야 ㅠ
+		t.setName(name);
+		
 		postDao.insert(n);
+		tagDao.insert(t);
 		
 		//여기서 아래서  POST_CODE'에 NULL 값을 삽입할 수 없습니다. 나옴
 		//tagDao.insert(t);
@@ -141,14 +144,11 @@ public class RegController extends HttpServlet {
 			pf.setPhoto(fname); // 경로명은 안 넣는 게 좋음
 			pf.setSrc(path);
 			pf.setPostCode(code);
-			// nf.setEmail("test@naver.com");
-			// nf.setNoticeCode(noticeDao.getLastCode());
 			System.out.println("pf: " + pf);
 			photoFileDao.insert(pf);
 		}
 
 		response.sendRedirect("../main");
-		// System.out.println("fname :" +fname);
 
 	}
 }

@@ -40,31 +40,43 @@ public class MyBatisTagDao implements TagDao {
 		
 		return result;
 	}
-}
-/*	@Override
+
+	@Override
 	public int insert(Tag tag) {
-		 SqlSession session = ssf.openSession();
-	      TagDao tagDao = session.getMapper(TagDao.class);
-	      
-	      int result = tagDao.insert(tag);
-	      
-	      session.commit();
-	      session.close();
-	      return result;		
+		SqlSession session = ssf.openSession();
+	    TagDao tagDao = session.getMapper(TagDao.class);
+		
+	    int result = tagDao.insert(tag);
+	    
+	    session.commit();
+	    session.close();
+	    return result;
 	}
 
 	@Override
-	public int getTagCode() {
+	public String getCode() {
 		SqlSession session = ssf.openSession();
 		TagDao tagDao = session.getMapper(TagDao.class);
-
-		int result = tagDao.getTagCode();
-		session.close();
-
-		return result;
 		
+		String result = tagDao.getCode();
+		session.close();
+		
+		return result;
 	}
-}*/
+}
+/*해결 ㅋㅋㅋㅋㅋ
+	@Override
+	public String getPost_Code() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getPost_Code();
+		session.close();
+		
+		return result;
+	}
+}//?이거 왜 오류
+*/
 
 /*	@Override
 	public int insert(Tag tag) {
