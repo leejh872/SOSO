@@ -48,8 +48,6 @@ public class MainController extends HttpServlet {
 		
 		List<PhotoFile> photoList = new MyBatisPhotoFileDao().getPhoto(src, photo, postCode);
 		
-		
-		
 		System.out.println("check: " + postCode);
 		
 		request.setAttribute("photoList", photoList);
