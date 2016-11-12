@@ -37,8 +37,7 @@ public class MyPageController extends HttpServlet{
 		
 		request.setAttribute("MYPHOTO_LIST", myphotoList);
 		
-		TilesContainer container = TilesAccess.getContainer(
-		        request.getSession().getServletContext());
+		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
 		container.render("customer.mypage", request, response);
 		container.endContext(request, response);
 		

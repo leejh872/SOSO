@@ -4,6 +4,7 @@ public class PhotoFile {
 	private int postCode;
 	private String src;
 	private String photo;
+	
 	public int getPostCode() {
 		return postCode;
 	}
@@ -22,9 +23,5 @@ public class PhotoFile {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
-	
-	
-	
 
 }

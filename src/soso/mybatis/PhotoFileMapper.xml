@@ -2,18 +2,34 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="soso.dao.PhotoFileDao">
 
-<select id="getList" resultType="soso.entities.PhotoFile">      
-   SELECT * FROM PHOTOFILES WHERE PHOTO_CODE= #{photoCode}
+<select id="getList" resultType="String">      
+  <!--  SELECT * FROM PHOTOFILE WHERE PHOTO= #{photo} -->
+  		SELECT PHOTOFILE.PHOTO, PHOTOFILE.POST_CODE
+		FROM POST
+		JOIN PHOTOFILE
+		ON POST.CODE = PHOTOFILE.POST_CODE
+		ORDER BY PHOTOFILE.REGDATE DESC
    </select>
    
    <insert id="insert">
-<!--       <selectKey order="BEFORE" keyProperty="code" resultType="String">
-      SELECT ISNULL(MAX(CAST(CODE AS INT)),0)+1 AS CODE FROM PHOTOFILES
-      </selectKey> -->
+       <selectKey order="BEFORE" keyProperty="postCode" resultType="String">
+      SELECT ISNULL(MAX(CAST(POST_CODE AS INT)),0)+1 AS CODE FROM PHOTOFILE
+      </selectKey>
       
       INSERT INTO PHOTOFILE(POST_CODE,SRC,PHOTO)
       VALUES(#{postCode},#{src},#{photo})
    </insert>
+   
+   <select id="getPhoto" resultType="soso.entities.PhotoFile">
+
+		SELECT *
+		FROM POST
+		JOIN PHOTOFILE
+		ON POST.CODE = PHOTOFILE.POST_CODE
+		<!-- ORDER BY PHOTOFILE.REGDATE DESC -->
+		ORDER BY NEWID() <!-- 랜덤 -->
+
+	</select>
   
 </mapper>
 

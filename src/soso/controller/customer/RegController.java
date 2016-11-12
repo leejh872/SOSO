@@ -36,9 +36,8 @@ public class RegController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		TilesContainer container = TilesAccess.getContainer(
-		        request.getSession().getServletContext());
-		container.render("customer.reg.", request, response);
+		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
+		container.render("customer.reg", request, response);
 		container.endContext(request, response);
 	}
 
@@ -114,12 +113,12 @@ public class RegController extends HttpServlet {
 				path = "C:/Users/sist/git/SOSO/WebContent/images/";
 				fname = "test@naver.com"+code+"."+ext[ext.length-1];
 				
-				File copy=new File("C:/Users/sist/git/SOSO/WebContent/images/"+
+				File copy = new File("C:/Users/sist/git/SOSO/WebContent/images/"+
 						"test@naver.com"+code+"."+ext[ext.length-1]);
 				/*누나 이거 파일 경로 지정해야 하는데 어딧어 ? 소소 프로젝트 어딧어 ? */
 				
-				FileOutputStream fos=new FileOutputStream(copy);
-				int read=0;
+				FileOutputStream fos = new FileOutputStream(copy);
+				int read = 0;
 				
 				while( (read=fis.read()) !=-1 ){
 					fos.write(read);
@@ -136,7 +135,7 @@ public class RegController extends HttpServlet {
 			nf.setPhoto(fname); // 경로명은 안 넣는 게 좋음
 			nf.setSrc(path);
 			nf.setPostCode(code);
-			//nf.setEmail("test@naver.com");
+			// nf.setEmail("test@naver.com");
 			// nf.setNoticeCode(noticeDao.getLastCode());
 			System.out.println("nf: " + nf);
 			noticeFileDao.insert(nf);

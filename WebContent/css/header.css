@@ -36,6 +36,22 @@
 	padding-left: 15px; 
     list-style: none;
 }
+
+.submenu {              /* 하위 메뉴 스타일 설정 */
+   position: absolute;
+   padding-right: 55px;
+   display: none; /* 기본적으로 메뉴 안보이게 */;
+}
+
+.sub-menu:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+    display: block;         /* 메뉴 보이게 */
+    height: 32px;           /* 높이를 32px로 설정 */
+}
+
+.submenuLink:hover {        /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+    color: red;                 
+    background-color: #dddddd;  
+}
 /*--------검색-----------*/
    
 #search{		/*??이거 안하면 메뉴들이 한줄로 안나와요*/

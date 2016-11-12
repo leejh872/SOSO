@@ -16,12 +16,24 @@ public class MyBatisPhotoFileDao implements PhotoFileDao{
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
 	
 	}
+	
+	@Override
+	public List<PhotoFile> getPhoto(String src, String photo, int postCode) {
+		SqlSession session = ssf.openSession();
+		PhotoFileDao photoFileDao = session.getMapper(PhotoFileDao.class);
+		
+		List<PhotoFile> photoList = photoFileDao.getPhoto(src, photo, postCode);
+		session.close();
+		
+		return photoList;
+	}
 
 	@Override
 	public List<PhotoFile> getList(String photoCode) {
 		SqlSession session = ssf.openSession(); //트랜잭션을 하기위한 도구
 		PhotoFileDao photoFileDao = session.getMapper(PhotoFileDao.class);
-		return photoFileDao.getList(photoCode);
+		List<PhotoFile> photoList = photoFileDao.getList(photoCode); 
+		return photoList;
 	}
 
 	@Override

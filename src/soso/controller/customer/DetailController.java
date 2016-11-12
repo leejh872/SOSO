@@ -38,7 +38,7 @@ public class DetailController extends HttpServlet {
 		System.out.println("doGet : _code : " + _code);
 		
 		// CODE값이 null이나 없으면 기본값이면 code값을 1로
-		if (_code == null || _code.equals(""))
+		if (_code == null || _code.equals("") || _code == "0")
 			_code = "1";
 		
 		// 필요한 DB 테이블

@@ -18,7 +18,8 @@ public interface PostDao {
 	
 	
 	List<Post> getMyPhoto(String email);
-	List<Post> getPhoto();
+	/*List<Post> getPhoto();*/
+	
 	//String getLastCode();
 	
 }

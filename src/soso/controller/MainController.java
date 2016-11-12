@@ -13,18 +13,20 @@ import javax.servlet.http.HttpSession;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
-import soso.dao.PostDao;
-import soso.entities.Post;
-import soso.mybatis.MyBatisPostDao;
+import soso.entities.PhotoFile;
 
+import soso.mybatis.MyBatisPhotoFileDao;
+
+
+@SuppressWarnings("serial")
 @WebServlet("/main")
 public class MainController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+		throws ServletException, IOException {
 		
-		/*다른 페이지에 session.getAttribute("email") 할것*/
+		//다른 페이지에 session.getAttribute("email") 할것
 		HttpSession session = request.getSession();
 		if(session.getAttribute("email") == null){
 			session.setAttribute("email", request.getParameter("email"));
@@ -32,47 +34,35 @@ public class MainController extends HttpServlet {
 			//로그인 페이지 리다이렉트
 			//response.sendRedirect("");
 		}
-		
-		PostDao postDao = new MyBatisPostDao();
+	
 		String email = (String) session.getAttribute("email");
 		System.out.println("email: " + email);
-		List<Post> photoList = postDao.getPhoto();
-		
-		for(int i = 0 ; i < photoList.size(); i++){
-			System.out.println( "photoInfo.get: "+ photoList.get(i));
-		}
-		request.setAttribute("PHOTO_LIST", photoList);
-//		String q = request.getParameter("q");
-//	
-//		
-//		String query = "";
-//		
-//		if(q != null)
-//			query = q;
-//		
-//		
-//		
-//		String _code = request.getParameter("code");
-//
-//		NoticeDao noticeDao = new MyBatisNoticeDao();
-//		Notice notice;
-//		
-//		notice = noticeDao.get(_code);
-//		request.setAttribute("n", notice);
-//		
-//		CommentDao commentDao = new MyBatisCommentDao();
-//		List<CmtModel> clist = commentDao.getList(_code);
-//
-//		request.setAttribute("clist", clist);
-//		
-//		TagDao tagDao = new MyBatisTagDao();
-//		List<TagModel> list = tagDao.getList(_code);
-//		
-//		request.setAttribute("list", list);
 
-		TilesContainer container = TilesAccess.getContainer(
-		        request.getSession().getServletContext());
+		String q = request.getParameter("q");
+			
+		String src = "";
+		String photo = "";
+		int postCode = 1;
+		
+		
+		List<PhotoFile> photoList = new MyBatisPhotoFileDao().getPhoto(src, photo, postCode);
+		System.out.println("check: " + src);
+		
+		request.setAttribute("photoList", photoList);
+
+		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
 		container.render("root.main", request, response);
 		container.endContext(request, response);
 	}
+	
+/*	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
+		String post_code = request.getParameter("c_code");
+		
+		String email = (String) session.getAttribute("email");
+		
+		response.sendRedirect("detail?code=" + post_code);
+	}*/
 }

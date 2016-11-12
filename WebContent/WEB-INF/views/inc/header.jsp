@@ -15,8 +15,7 @@
 				<input type="submit" value="검색" />
 			</form>
 		</section>
-		</br>
-		</br>
+		</br> </br>
 		<nav id="main-menu" class="h-menu">
 			<ul>
 				<c:if test="${empty sessionScope.email}">
@@ -25,8 +24,16 @@
 				<c:if test="${not empty sessionScope.email}">
 					<li><a href="${ctx}/joinus/logout" class="link">LOGOUT</a></li>
 				</c:if>
-				
-				<li><a href="${ctx}/customer/mypage" class="link">MY PAGE</a></li>
+
+				<li class="sub-menu"><a href="${ctx}/customer/mypage" class="link">MY PAGE</a>
+					<table class="submenu">
+						<tr>
+							<td><a href="${ctx}/customer/mypage" class="submenuLink link">MY PHOTO</a></td>
+						</tr>
+						<tr>
+							<td><a href="${ctx}/customer/likespage" class="submenuLink link">LIKES</a></td>
+						</tr>
+					</table></li>
 				<li><a href="${ctx}/aboutus" class="link">ABOUT US</a></li>
 			</ul>
 		</nav>
