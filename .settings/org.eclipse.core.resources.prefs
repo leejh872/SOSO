@@ -3,6 +3,8 @@
 >>>>>>>=refs/remotes/origin/master
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/web.xml=UTF-8
+encoding//src/soso/controller/admin/AdminAddController.java=UTF-8
+encoding//src/soso/mybatis/MyBatisAdminDao.java=UTF-8
 encoding//src/soso/mybatis/MyBatisLikeDao.java=UTF-8
 encoding//src/soso/mybatis/MyBatisPostDao.java=UTF-8
 encoding//src/soso/mybatis/main.jsp=UTF-8

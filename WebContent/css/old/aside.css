@@ -1,9 +1,10 @@
 @CHARSET "UTF-8";
 
 /*--------어사이드--------*/
-#aside{		/*About Us의 aside*/
-   display: inline-block;
-   min-height: inherit;
-   width: 400px;
-   float: right;
+#aside { /*About Us의 aside*/
+	border: 1px solid red; display : inline-block;
+	min-height: inherit;
+	width: 400px;
+	float: right;
+	display: inline-block;
 }

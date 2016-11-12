@@ -21,18 +21,15 @@ import org.apache.tiles.access.TilesAccess;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import soso.dao.PhotoFileDao;
 import soso.dao.PostDao;
 import soso.dao.TagDao;
-import soso.dao.JoinDao;
-import soso.dao.PhotoFileDao;
-import soso.entities.Post;
-import soso.entities.Tag;
-import soso.entities.Join;
 import soso.entities.PhotoFile;
+import soso.entities.Post;
+import soso.mybatis.MyBatisPhotoFileDao;
 import soso.mybatis.MyBatisPostDao;
 import soso.mybatis.MyBatisTagDao;
-import soso.mybatis.MyBatisJoinDao;
-import soso.mybatis.MyBatisPhotoFileDao;
+
 
 @WebServlet("/customer/reg")
 public class RegController extends HttpServlet {

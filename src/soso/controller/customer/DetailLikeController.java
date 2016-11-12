@@ -24,8 +24,7 @@ public class DetailLikeController extends HttpServlet {
 
 		// POST의 CODE값을 받아온다.
 		String post_code = request.getParameter("plcode");
-		System.out.println("plcode : " + post_code);
-
+		
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 
@@ -40,6 +39,9 @@ public class DetailLikeController extends HttpServlet {
 			LikeDao likeDao = new MyBatisLikeDao();
 			//post_code, email로 User의 like 값을 가져온다.
 			Like like = likeDao.getUserLike(post_code, email);
+			
+			System.out.println("plcode : " + post_code);
+			System.out.println("like email : " + email);
 
 			//like값을 찾았다면
 			//is_like(개인 like 0~1), post_code, user_email
