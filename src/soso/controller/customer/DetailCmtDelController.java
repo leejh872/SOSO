@@ -29,7 +29,8 @@ public class DetailCmtDelController extends HttpServlet {
 		// 로그인이 되어있지 않다면
 		if (email == null || email.equals("")) {
 			System.out.println("로그인 안됨");
-			response.sendRedirect("detail?code=" + code);
+			response.sendRedirect("detail");
+//			response.sendRedirect("detail?code=" + code);
 
 			// 로그인이 되어 있다면
 		} else {
@@ -43,7 +44,8 @@ public class DetailCmtDelController extends HttpServlet {
 			cmtDao.delete(code, email);
 			/*cmtDao.delete("4", email);*/
 
-			response.sendRedirect("detail?code=" + code);
+			response.sendRedirect("detail");
+//			response.sendRedirect("detail?code=" + code);
 		}
 	}
 }

@@ -31,10 +31,14 @@ public class MyBatisCommentDao implements CommentDao {
 
 	@Override
 	public List<Comment> getList(String post_code) {
+		return getList(1, post_code);
+	}
+	@Override
+	public List<Comment> getList(int page, String post_code) {
 		SqlSession session = ssf.openSession();
 		CommentDao cmtDao = session.getMapper(CommentDao.class);
 
-		List<Comment> result = cmtDao.getList(post_code);
+		List<Comment> result = cmtDao.getList(page, post_code);
 		session.close();
 
 		return result;
@@ -65,6 +69,7 @@ public class MyBatisCommentDao implements CommentDao {
 		session.close();
 		return result;
 	}
+
 
 /*	@Override
 	public int delete(String code, String writer_email) {

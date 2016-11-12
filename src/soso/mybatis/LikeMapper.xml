@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="soso.dao.LikeDao">
-	<select id="getPostLike" resultType="int">
+	<select id="getPostLike" resultType="String">
 		SELECT DISTINCT CONVERT(INT, POST_LIKE) POST_LIKE FROM POST_LIKE_VIEW WHERE POST_CODE = #{post_code};
 	</select>
 	<select id = "getUserLike" resultType = "soso.entities.Like">

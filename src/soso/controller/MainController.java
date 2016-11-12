@@ -38,6 +38,7 @@ public class MainController extends HttpServlet {
 		String email = (String) session.getAttribute("email");
 		System.out.println("email: " + email);
 
+
 		String q = request.getParameter("q");
 			
 		String src = "";
@@ -46,11 +47,15 @@ public class MainController extends HttpServlet {
 		
 		
 		List<PhotoFile> photoList = new MyBatisPhotoFileDao().getPhoto(src, photo, postCode);
-		System.out.println("check: " + src);
+		
+		
+		
+		System.out.println("check: " + postCode);
 		
 		request.setAttribute("photoList", photoList);
 
-		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
+		TilesContainer container = TilesAccess.getContainer( request.getSession().getServletContext());
+
 		container.render("root.main", request, response);
 		container.endContext(request, response);
 	}

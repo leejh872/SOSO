@@ -22,7 +22,7 @@
          <main> 
             <div class="content-container">
                
-               <img src="images/zmfpdlwl0909@naver.com25.jpg" width="500" height="500"/>
+               <img src="../../images/zmfpdlwl0909@naver.com25.jpg" width="500" height="500"/>
             </div>
          </main>
       </div>

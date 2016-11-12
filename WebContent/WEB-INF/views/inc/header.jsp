@@ -18,6 +18,7 @@
 		</br> </br>
 		<nav id="main-menu" class="h-menu">
 			<ul>
+				<li><a href="${ctx}/admin/main" class="link">ADMIN</a></li>
 				<c:if test="${empty sessionScope.email}">
 					<li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li>
 				</c:if>

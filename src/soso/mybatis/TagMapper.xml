@@ -10,7 +10,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM TAG WHERE POST_CODE = #{code}
 	</select>
 	
+	
+<!-- 	<select id="getTagCode" resultType="Integer">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM TAG
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO TAG(CODE,NAME)
+		VALUES(#{code},#{name});
+	</insert> -->	
+	
+	 
+	
 	<delete id="delete">
 		DELETE TAG WHERE POST_CODE = #{code}
 	</delete>
+	
+	
+
+
 </mapper>
+

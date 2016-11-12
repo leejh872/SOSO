@@ -6,6 +6,9 @@ body{
 	font-family: Helvetica, "맑은 고딕";
 }
 
+body .hidden{
+	display: none;
+}
 .link {			/*하이퍼 링크 밑줄/색깔 지우기*/
 	color: #000;
 	text-decoration: none;

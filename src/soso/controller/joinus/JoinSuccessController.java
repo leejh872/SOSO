@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
-import soso.dao.JoinDao;
-import soso.entities.Join;
-import soso.mybatis.MyBatisJoinDao;
+import soso.dao.UserDao;
+import soso.entities.User;
+import soso.mybatis.MyBatisUserDao;
 
 
 @WebServlet("/joinus/joinsuccess")
