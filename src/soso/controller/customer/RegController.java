@@ -21,13 +21,13 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import soso.dao.PostDao;
-import soso.dao.JoinDao;
+import soso.dao.UserDao;
 import soso.dao.PhotoFileDao;
 import soso.entities.Post;
-import soso.entities.Join;
+import soso.entities.User;
 import soso.entities.PhotoFile;
 import soso.mybatis.MyBatisPostDao;
-import soso.mybatis.MyBatisJoinDao;
+import soso.mybatis.MyBatisUserDao;
 import soso.mybatis.MyBatisPhotoFileDao;
 
 @WebServlet("/customer/reg")

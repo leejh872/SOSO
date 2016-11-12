@@ -8,7 +8,7 @@
 <main>
 <div class="content-container">
 	<div class="admin-menu">
-		<a href="">관리자</a> <a href="">회원</a>
+		<a href="">관리자</a> <a href="">회원</a> <a href="">포스트</a> <a href="">댓글</a>
 	</div>
 	<div>
 		<h1>관리자 목록</h1>
@@ -32,7 +32,8 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<td colspan="4"><input type="text" name="aemail" value="${aemail}" /></td>
+				<td>추가할 관리자 이메일 </td>
+				<td colspan="3"><input type="text" name="aemail" value="${aemail}" /></td>
 				<td><input type="submit" value="추가" /></td>
 			</tr>
 		</table>

@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
-import soso.dao.JoinDao;
-import soso.entities.Join;
-import soso.mybatis.MyBatisJoinDao;
+import soso.dao.UserDao;
+import soso.entities.User;
+import soso.mybatis.MyBatisUserDao;
 
 @WebServlet("/joinus/login")
 public class LoginController extends HttpServlet {
@@ -39,11 +39,11 @@ public class LoginController extends HttpServlet {
 		System.out.println(email);
 		//인증
 		
-		JoinDao joinDao = new MyBatisJoinDao();
-		Join join = joinDao.get(email);
-		System.out.println(join);
+		UserDao userDao = new MyBatisUserDao();
+		User user = userDao.get(email);
+		System.out.println(user);
 		//1)회원이 존재하지 않을경우
-		if(join == null || join.equals("")){
+		if(user == null || user.equals("")){
 			request.setAttribute("msg", "회원이 존재하지 않습니다.");
 			//request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
 			TilesContainer container = TilesAccess.getContainer(
@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
 			container.endContext(request, response);
 		}
 		//2)비밀번호가 틀릴경우
-		else if(!join.getPw().equals(password)){
+		else if(!user.getPw().equals(password)){
 			request.setAttribute("msg", "비밀번호를 잘못입력하셨습니다.");
 			//request.getRequestDispatcher("/WEB-INF/views/joinus/login.jsp").forward(request, response);
 			TilesContainer container = TilesAccess.getContainer(

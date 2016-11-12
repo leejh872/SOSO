@@ -6,9 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.AdminDao;
-import soso.dao.CommentDao;
 import soso.entities.Admin;
-import soso.entities.Comment;
 
 public class MyBatisAdminDao implements AdminDao {
 
@@ -19,6 +17,16 @@ public class MyBatisAdminDao implements AdminDao {
 		
 	}
 	
+	/*@Override
+	public Admin get(String email) {
+		SqlSession session = ssf.openSession();
+		AdminDao adminDao = session.getMapper(AdminDao.class);
+
+		Admin result = adminDao.get(email);
+		session.close();
+
+		return result;
+	}*/
 	
 	@Override
 	public List<Admin> getList(String email) {
@@ -61,4 +69,5 @@ public class MyBatisAdminDao implements AdminDao {
 		
 		return result;
 	}
+
 }

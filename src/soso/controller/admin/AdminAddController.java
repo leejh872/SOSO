@@ -16,16 +16,18 @@ import soso.entities.Comment;
 import soso.mybatis.MyBatisAdminDao;
 import soso.mybatis.MyBatisCommentDao;
 
-@WebServlet("/customer/admin-del")
+@WebServlet("/admin/admin-add")
 public class AdminAddController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//code값 받기
+		//code 받기
 		String code = request.getParameter("acode");
 		System.out.println("acode : " + code);
+		
+		//admin이 맞다면 추가하기
 		
 		//admin 추가하기
 		AdminDao adminDao = new MyBatisAdminDao();

@@ -3,23 +3,23 @@ package soso.mybatis;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import soso.dao.JoinDao;
-import soso.entities.Join;
+import soso.dao.UserDao;
+import soso.entities.User;
 
 
-public class MyBatisJoinDao implements JoinDao {
+public class MyBatisUserDao implements UserDao {
 
 	SqlSessionFactory ssf;
 
-	public MyBatisJoinDao() {
+	public MyBatisUserDao() {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
 	}
 
 	@Override
-	public int insert(Join join) {
+	public int insert(User join) {
 
 		SqlSession session = ssf.openSession();
-		JoinDao joinDao = session.getMapper(JoinDao.class);
+		UserDao joinDao = session.getMapper(UserDao.class);
 		
 		int result = joinDao.insert(join);
 		session.commit();
@@ -32,11 +32,11 @@ public class MyBatisJoinDao implements JoinDao {
 	}
 
 	@Override
-	public Join get(String email) {
+	public User get(String email) {
 		SqlSession session = ssf.openSession();
-		JoinDao joinDao = session.getMapper(JoinDao.class);
+		UserDao joinDao = session.getMapper(UserDao.class);
 		
-		Join join = joinDao.get(email);
+		User join = joinDao.get(email);
 		session.close();
 		return join;
 	}

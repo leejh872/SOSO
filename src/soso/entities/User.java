@@ -2,7 +2,7 @@ package soso.entities;
 
 import java.util.Date;
 
-public class Join {
+public class User {
 	private String email;
 	private String cellphone;
 	
