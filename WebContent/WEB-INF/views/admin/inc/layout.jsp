@@ -33,6 +33,10 @@
 	
 	<!-- visual 부분 -->
 	<%-- <tiles:insertAttribute name="visual" /> --%>
+	
+	<div class = "content-container">
+		<a href="">관리자</a> <a href="">회원</a> <a href="">포스트</a> <a href="">댓글</a>
+	</div>
 
 	<!-- body 부분 -->
 	<div id="body">

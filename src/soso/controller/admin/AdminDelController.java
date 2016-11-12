@@ -31,8 +31,6 @@ public class AdminDelController extends HttpServlet {
 
 		// admin이 맞다면
 		if (alist.size() != 0){
-			// admin이 맞다면
-
 			// code값 받기
 			String code = request.getParameter("acode");
 			System.out.println("acode : " + code);
