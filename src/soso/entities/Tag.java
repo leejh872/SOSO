@@ -2,14 +2,14 @@ package soso.entities;
 
 
 public class Tag {
-	private String code;
+	private int code;
 	private String post_code;
 	private String name;
 	
-	public String getCode() {
+	public int getTagCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setTagCode(int code) {
 		this.code = code;
 	}
 	public String getPost_code() {
@@ -24,6 +24,7 @@ public class Tag {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	
 	
 

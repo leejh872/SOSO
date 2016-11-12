@@ -4,6 +4,7 @@ public class PhotoFile {
 	private int postCode;
 	private String src;
 	private String photo;
+	
 	public int getPostCode() {
 		return postCode;
 	}

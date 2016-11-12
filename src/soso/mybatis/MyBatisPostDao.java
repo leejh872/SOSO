@@ -136,6 +136,8 @@ public class MyBatisPostDao implements PostDao {
 
 
 
+
+
 	/*@Override
 	public String getLastCode() {
 		SqlSession session = ssf.openSession(); //트랜잭션을 하기위한 도구

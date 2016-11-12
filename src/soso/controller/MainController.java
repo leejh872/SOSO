@@ -36,40 +36,14 @@ public class MainController extends HttpServlet {
 		PostDao postDao = new MyBatisPostDao();
 		String email = (String) session.getAttribute("email");
 		System.out.println("email: " + email);
-		List<Post> photoList = postDao.getPhoto();
 		
+		List<Post> photoList = postDao.getPhoto();
 		for(int i = 0 ; i < photoList.size(); i++){
 			System.out.println( "photoInfo.get: "+ photoList.get(i));
 		}
+		
 		request.setAttribute("PHOTO_LIST", photoList);
-//		String q = request.getParameter("q");
-//	
-//		
-//		String query = "";
-//		
-//		if(q != null)
-//			query = q;
-//		
-//		
-//		
-//		String _code = request.getParameter("code");
-//
-//		NoticeDao noticeDao = new MyBatisNoticeDao();
-//		Notice notice;
-//		
-//		notice = noticeDao.get(_code);
-//		request.setAttribute("n", notice);
-//		
-//		CommentDao commentDao = new MyBatisCommentDao();
-//		List<CmtModel> clist = commentDao.getList(_code);
-//
-//		request.setAttribute("clist", clist);
-//		
-//		TagDao tagDao = new MyBatisTagDao();
-//		List<TagModel> list = tagDao.getList(_code);
-//		
-//		request.setAttribute("list", list);
-
+			
 		TilesContainer container = TilesAccess.getContainer(
 		        request.getSession().getServletContext());
 		container.render("root.main", request, response);

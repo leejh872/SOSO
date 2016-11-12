@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.PhotoFileDao;
+import soso.dao.PostDao;
 import soso.entities.PhotoFile;
 import soso.mybatis.SessionFactoryBuilder;
 
@@ -46,4 +47,5 @@ public class MyBatisPhotoFileDao implements PhotoFileDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 }

@@ -10,10 +10,11 @@
 
 	<main>
 	<div class="content-container">
-	<div id="photo" class="left">${n.photo}</div>
+	<div id="photo">${n.photo}</div>
 		<%for (int i = 0 ; i < photolist.size() ; i ++) { %>
 			<a href="${ctx}/customer/detail?code=1"><img src= "../images/<%=photolist.get(i) %>" width="300" height="300"/></a> 
 		<%}%>
 
 	</div>
 	</main>
+	

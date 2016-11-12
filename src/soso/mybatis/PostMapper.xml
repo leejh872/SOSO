@@ -31,8 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 
 	<select id="getCode" resultType="int">
-		SELECT CONVERT(INT,
-		ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
+		SELECT CONVERT(INT,ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
 	</select>
 
 	<select id="getMyPhoto" resultType="String" parameterType="String">
@@ -55,4 +54,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY TB2.REGDATE DESC
 
 	</select>
+	
+
 </mapper>
