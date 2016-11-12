@@ -22,5 +22,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="soso/mybatis/TagMapper.xml" />
 		<mapper resource="soso/mybatis/JoinMapper.xml" />
 		<mapper resource="soso/mybatis/LikeMapper.xml" />
+		<mapper resource="soso/mybatis/AdminMapper.xml" />
 	</mappers>
 </configuration>

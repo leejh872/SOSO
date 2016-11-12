@@ -10,7 +10,7 @@
 	<info>제어구조 라이브러리</info>
 	<tag>
 		<name>for</name>
-		<tagclass>com.web.tags.ForTag</tagclass>
+		<tagclass>soso.tags.ForTag</tagclass>
 		<info>반복을 위한 태그</info>
 	</tag>
 </taglib> 

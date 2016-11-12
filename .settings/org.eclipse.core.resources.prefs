@@ -4,6 +4,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/main.jsp=UTF-8
 encoding//WebContent/WEB-INF/web.xml=UTF-8
+encoding//src/soso/mybatis/MyBatisAdminDao.java=UTF-8
 encoding//src/soso/mybatis/MyBatisLikeDao.java=UTF-8
 encoding//src/soso/mybatis/MyBatisPostDao.java=UTF-8
 encoding//src/soso/sqlserver/SosoDao.sql=UTF-8

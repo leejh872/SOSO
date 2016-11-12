@@ -59,9 +59,11 @@ public class LoginController extends HttpServlet {
 			        request.getSession().getServletContext());
 			container.render("joinus.login", request, response);
 			container.endContext(request, response);
-		}
+		} /*else if(){
+			//3)admin일 경우
+		}*/
 				
-		//3)인증성공: 인증상태를 세션에 저장
+		//4)인증성공: 인증상태를 세션에 저장
 		else{
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
