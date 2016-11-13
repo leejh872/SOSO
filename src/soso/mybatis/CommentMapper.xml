@@ -9,6 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getList" resultType="soso.entities.Comment">
 		SELECT * FROM(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, [COMMENT].*
+		FROM [COMMENT]
+		WHERE ${param2} LIKE '%${param3}%'
+		) C WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
+	<select id="getCList" resultType="soso.entities.Comment">
+		SELECT * FROM(
 		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, USER_COMMENT_VIEW.*
 		FROM USER_COMMENT_VIEW
 		WHERE POST_CODE = #{param2}

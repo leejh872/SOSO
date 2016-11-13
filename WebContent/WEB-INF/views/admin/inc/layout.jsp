@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html>
@@ -35,7 +38,10 @@
 	<%-- <tiles:insertAttribute name="visual" /> --%>
 	
 	<div class = "content-container">
-		<a href="">관리자</a> <a href="">회원</a> <a href="">포스트</a> <a href="">댓글</a>
+		<a href="${ctx}/admin/main">관리자</a> 
+		<a href="">회원</a> 
+		<a href="${ctx}/admin/post">포스트</a> 
+		<a href="${ctx}/admin/cmt">댓글</a>
 	</div>
 
 	<!-- body 부분 -->
