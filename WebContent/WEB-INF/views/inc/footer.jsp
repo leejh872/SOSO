@@ -9,8 +9,14 @@
 		<dl class="soso">
 			<dt class="dt">CREATED BY SOSOHEA</dt>
 		</dl>
-		<button type="button" name="upload" class="upload_button">
+		<%-- <button type="button" name="upload" class="upload_button">
 			<a href="${ctx}/customer/reg" class="link">UPLOAD</a>
-		</button>
+		</button>  --%>
+			<div class="upload_button">
+			<a href="${ctx}/customer/reg" class="upload_button">
+				<img src="${ctx}/images/upload_lightgrey.png" alt="upload" />
+			</a>
+			</div>
+
 	</div>
 </footer>
