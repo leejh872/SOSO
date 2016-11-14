@@ -38,6 +38,28 @@ public class MyBatisPostDao implements PostDao {
 
 		return result;
 	}
+	
+	@Override
+	public Post getC(String code) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		Post result = postDao.get(code);
+		session.close();
+
+		return result;
+	}
+	
+	@Override
+	public List<Post> getCList(int page, String title, String query) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		List<Post> result = postDao.getList(page, title, query);
+		session.close();
+
+		return result;
+	}
 
 	@Override
 	public int insert(Post post) {
@@ -156,6 +178,7 @@ public class MyBatisPostDao implements PostDao {
 		
 		return result;
 	}
+
 
 	/*@Override
 	public int tempdelUp(String code) {

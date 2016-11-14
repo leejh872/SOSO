@@ -5,7 +5,11 @@ import java.util.List;
 import soso.entities.Post;
 
 public interface PostDao {
+	
+	// c가 붙은거는 customer
+	
 	Post get(String code);
+	Post getC(String code);
 	Post getPrev(String code);
 	Post getNext(String code);
 
@@ -19,6 +23,7 @@ public interface PostDao {
 //	int tempdelUp(String code);
 	
 	List<Post> getList(int page, String title, String query);
+	List<Post> getCList(int page, String title, String query);
 	List<Post> getMyPhoto(String email);
 	List<Post> getPhoto();
 	//String getLastCode();

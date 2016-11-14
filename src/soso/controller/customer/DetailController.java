@@ -61,7 +61,7 @@ public class DetailController extends HttpServlet {
 
 		// POST_CODE값으로 조회한,
 		// POST에 값 담기, POST의 LIKE값 조회, CmtModel에 값 담기, TagModel에 값 담기
-		Post post = postDao.get(_code);
+		Post post = postDao.getC(_code);
 		String post_like = likeDao.getPostLike(_code);
 		List<Comment> clist = commentDao.getCList(page, _code);
 		List<Tag> list = tagDao.getList(_code);
