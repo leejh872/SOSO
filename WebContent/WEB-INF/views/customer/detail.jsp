@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="n" uri="http://www.newlecture.com/jsp/tags/control"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="s" tagdir="/WEB-INF/tags"%>
 
 <main>
 <div class="link">
@@ -12,6 +15,15 @@
 	<c:if test="${not empty pn}">
 		<a href="detail?code=${pn.code}">이전글</a>
 	</c:if>
+</div>
+<div class="link">
+	<c:if test="${empty nn}">
+            	다음글이 없습니다.
+         </c:if>
+	<c:if test="${not empty nn}">
+		<a href="detail?code=${nn.code}">다음글</a>
+	</c:if>
+
 </div>
 
 <div style="float: right;">
@@ -83,20 +95,26 @@
 								<td><a href="detail-cmt-del?ccode=${c.code}">삭제</a></td>
 							</tr>
 						</c:forEach>
+						<tr>
+							<td><%-- <c:if test="${empty param.p}">
+									<c:set var="page" value="1" />
+								</c:if> <c:if test="${not empty param.p}">
+									<c:set var="page" value="${param.p}" />
+								</c:if> <c:set var="start" value="${page-(page-1)%5}" /> <c:set
+									var="end"
+									value="${fn:substringBefore((count%10==0?count/10:count/10+1),'.')}" /> --%>
+
+								<div>
+									<h3 class="hidden">페이저</h3>
+									<s:pager />
+								</div></td>
+						</tr>
 					</tbody>
 				</table>
 			</fieldset>
 		</form>
 	</div>
 </div>
-<div class="link">
-	<c:if test="${empty nn}">
-            	다음글이 없습니다.
-         </c:if>
-	<c:if test="${not empty nn}">
-		<a href="detail?code=${nn.code}">다음글</a>
-	</c:if>
 
-</div>
 </main>
 

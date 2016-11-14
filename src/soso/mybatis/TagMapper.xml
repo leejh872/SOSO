@@ -3,14 +3,36 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="soso.dao.TagDao">
-	<!-- <select id="getT" resultType="entities.Tag>
-		SELECT * FROM TAG WHERE POST_CODE = #{code}
-	</select> -->
 	<select id="getList" resultType="soso.entities.Tag">
 		SELECT * FROM TAG WHERE POST_CODE = #{code}
 	</select>
-	
+		
 	<delete id="delete">
 		DELETE TAG WHERE POST_CODE = #{code}
 	</delete>
+	
+	<insert id="insert">
+	INSERT INTO TAG(CODE,NAME,POST_CODE)
+	VALUES(#{code},#{name},#{post_code})
+	</insert> 	
+	
+	<select id="getCode" resultType="String">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM TAG
+	</select>
+	
+	
+	<select id="name" resultType="String">
+		SELECT TB2.NAME
+		FROM POST TB1
+		JOIN TAG TB2
+		ON TB1.CODE = TB2.POST_CODE
+		ORDER BY TB1.REGDATE DESC;
+	</select>	
 </mapper>
+
+	<!-- <select id="getT" resultType="entities.Tag>
+		SELECT * FROM TAG WHERE POST_CODE = #{code}
+	</select> -->
+<!-- 	<select id="getTagCode" resultType="Integer">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM TAG
+	</select> -->

@@ -20,9 +20,9 @@ import org.apache.tiles.access.TilesAccess;
 //import org.apache.tiles.TilesContainer;
 //import org.apache.tiles.access.TilesAccess;
 
-import soso.dao.JoinDao;
-import soso.entities.Join;
-import soso.mybatis.MyBatisJoinDao;
+import soso.dao.UserDao;
+import soso.entities.User;
+import soso.mybatis.MyBatisUserDao;
 
 @WebServlet("/joinus/join")
 public class JoinController extends HttpServlet{
@@ -42,7 +42,7 @@ public class JoinController extends HttpServlet{
 				throws ServletException, IOException {
 			System.out.println("doPost()");
 			String btn = request.getParameter("btn");
-			JoinDao joinDao = new MyBatisJoinDao();		
+			UserDao userDao = new MyBatisUserDao();		
 			/*HttpSession session = request.getSession();
 			session.getAttribute("cellphone");*/
 			
@@ -109,15 +109,15 @@ public class JoinController extends HttpServlet{
 				}
 				else
 				{
-					Join join = new Join();
+					User user = new User();
 					
 					
-					join.setCellphone(cellphone);
-					join.setEmail(email);
-					join.setPw(password);
-					join.setGender(gender);
+					user.setCellphone(cellphone);
+					user.setEmail(email);
+					user.setPw(password);
+					user.setGender(gender);
 					
-					joinDao.insert(join);
+					userDao.insert(user);
 
 					//response.sendRedirect("joinsuccess");
 					TilesContainer container = TilesAccess.getContainer(
@@ -130,9 +130,9 @@ public class JoinController extends HttpServlet{
 			else if(btn.equals("중복확인"))
 			{
 				String email = request.getParameter("email");
-				Join join = joinDao.get(email);
+				User user = userDao.get(email);
 				
-				if(join != null)
+				if(user != null)
 					request.setAttribute("duplicateResult", "이미 사용중인 이메일입니다.");
 				else{
 					request.setAttribute("duplicateResult", "사용가능한 이메일입니다.");

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.Tag;
 
@@ -40,4 +41,65 @@ public class MyBatisTagDao implements TagDao {
 		return result;
 	}
 
+	@Override
+	public int insert(Tag tag) {
+		SqlSession session = ssf.openSession();
+	    TagDao tagDao = session.getMapper(TagDao.class);
+		
+	    int result = tagDao.insert(tag);
+	    
+	    session.commit();
+	    session.close();
+	    return result;
+	}
+
+	@Override
+	public String getCode() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getCode();
+		session.close();
+		
+		return result;
+	}
 }
+/*해결 ㅋㅋㅋㅋㅋ
+	@Override
+	public String getPost_Code() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getPost_Code();
+		session.close();
+		
+		return result;
+	}
+}//?이거 왜 오류
+*/
+
+/*	@Override
+	public int insert(Tag tag) {
+		SqlSession session = ssf.openSession();
+		TagDao postDao = session.getMapper(TagDao.class);
+		
+		int result = postDao.insert(tag);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}*/
+
+/*	@Override
+	public int getCode() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+
+		int result = tagDao.getCode();
+		session.close();
+
+		return result;
+	}
+
+}*/

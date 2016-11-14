@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="soso.dao.JoinDao">
-	<select id="get" resultType="soso.entities.Join"> 
+<mapper namespace="soso.dao.UserDao">
+	<select id="get" resultType="soso.entities.User"> 
 		<!-- 값을넘겨 받을 때는 #을 사용 -->
 		SELECT * FROM [USER] WHERE EMAIL = #{email}		
 	</select>
 	
-	<insert id="insert" parameterType="soso.entities.Join">
+	<insert id="insert" parameterType="soso.entities.User">
 		INSERT INTO [USER] (EMAIL,CELLPHONE,PW, GENDER) 
 			VALUES(#{email},#{cellphone},#{pw},#{gender})
 	</insert>

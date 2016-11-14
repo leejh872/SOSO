@@ -8,13 +8,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		POST_CODE = #{code}
 	</select>
 	<select id="getList" resultType="soso.entities.Comment">
+		SELECT * FROM(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, [COMMENT].*
+		FROM [COMMENT]
+		WHERE ${param2} LIKE '%${param3}%'
+		) C WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
+	<select id="getCList" resultType="soso.entities.Comment">
+		SELECT * FROM(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, USER_COMMENT_VIEW.*
+		FROM USER_COMMENT_VIEW
+		WHERE POST_CODE = #{param2}
+		) C WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
+	
+	<!-- <select id="getList" resultType="com.web.model.NoticeModel">
 		SELECT * FROM
 		(
-		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, USER_COMMENT_VIEW.*
-		FROM USER_COMMENT_VIEW
-		WHERE POST_CODE = #{code}
-		) C ORDER BY REGDATE ASC
-	</select>
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, NOTICES_VIEW.* 
+		FROM NOTICES_VIEW
+		문자열을 심을 때 자동으로 ''으로 넣으므로 
+		WHERE #{param2}은 'WHERE TITLE'이 되어 버림, 따라서 ${}를 쓴다
+		WHERE ${param2} LIKE '%${param3}%'
+		) N WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+		엔티티값이 아닌 변수값은 1밖에 인식 못하므로 #{}을 쓸수 없음
+	</select> -->
 	
 	<insert id="insert" parameterType="soso.entities.Comment">
 	<!-- 사전에 실행하도록 하는 selectKey -->

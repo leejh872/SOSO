@@ -15,5 +15,6 @@
       VALUES(#{postCode},#{src},#{photo})
    </insert>
   
+  
 </mapper>
 

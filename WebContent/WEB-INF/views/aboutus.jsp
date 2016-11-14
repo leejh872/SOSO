@@ -4,6 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
    <main>
    <div id="body">
@@ -22,7 +23,7 @@
          <main> 
             <div class="content-container">
                
-               <img src="../../images/1160820780_59.jpg" width="500" height="500"/>
+               <img src="${ctx}/images/cherryblossom.jpg" width="500" height="500"/>
             </div>
          </main>
       </div>

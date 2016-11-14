@@ -37,6 +37,15 @@ public class DetailController extends HttpServlet {
 		String _code = request.getParameter("code");
 		System.out.println("doGet : _code : " + _code);
 		
+		// page값 받아오기
+		String p = request.getParameter("p");
+		
+		int page = 1;
+
+		 if(p!=null && !p.equals("")){
+	         page = Integer.parseInt(p);
+	      }
+		
 		// CODE값이 null이나 없으면 기본값이면 code값을 1로
 		if (_code == null || _code.equals(""))
 			_code = "1";
@@ -53,8 +62,8 @@ public class DetailController extends HttpServlet {
 		// POST_CODE값으로 조회한,
 		// POST에 값 담기, POST의 LIKE값 조회, CmtModel에 값 담기, TagModel에 값 담기
 		Post post = postDao.get(_code);
-		int post_like = likeDao.getPostLike(_code);
-		List<Comment> clist = commentDao.getList(_code);
+		String post_like = likeDao.getPostLike(_code);
+		List<Comment> clist = commentDao.getCList(page, _code);
 		List<Tag> list = tagDao.getList(_code);
 
 		// request저장소에 값 넣어주기
