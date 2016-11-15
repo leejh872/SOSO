@@ -75,7 +75,7 @@ public class DetailController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		TilesContainer container = TilesAccess.getContainer(
-		        request.getSession().getServletContext());
+        request.getSession().getServletContext());
 		container.render("customer.detail", request, response);
 		container.endContext(request, response);
 	}
@@ -83,6 +83,8 @@ public class DetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 
 		HttpSession session = request.getSession();
 		

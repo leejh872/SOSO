@@ -30,12 +30,3 @@ main #login-table {
 .join-button {
 	width: 60px;
 }
-
-#photo:hover .text {
-	opacity: 0.6;
-	text-align: center;
-	color: #ffffff;
-}
-
-
-

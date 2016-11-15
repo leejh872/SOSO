@@ -15,7 +15,9 @@ import org.apache.tiles.access.TilesAccess;
 
 import soso.dao.PostDao;
 import soso.entities.Post;
+import soso.entities.model.PhotoFileTagModel;
 import soso.mybatis.MyBatisPostDao;
+import soso.mybatis.MyBatisTagDao;
 
 @WebServlet("/customer/mypage")
 public class MyPageController extends HttpServlet{
@@ -41,5 +43,25 @@ public class MyPageController extends HttpServlet{
 		container.render("customer.mypage", request, response);
 		container.endContext(request, response);
 		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String tag = request.getParameter("q");
+		
+		if(!tag.contains("#")) {
+			tag = "#"+tag;
+		}
+	
+		List<PhotoFileTagModel> photoList = new MyBatisTagDao().getSearch(tag);
+		
+		request.setAttribute("photoList", photoList);
+	
+		TilesContainer container = TilesAccess.getContainer( request.getSession().getServletContext());
+		container.render("root.main", request, response);
+		container.endContext(request, response);
+		
+		response.sendRedirect("/WEB-INF/views/main");
 	}
 }

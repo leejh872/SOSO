@@ -39,6 +39,7 @@ public class AdminDelController extends HttpServlet {
 
 		}
 		
+		
 		response.sendRedirect("admin");
 	}
 }

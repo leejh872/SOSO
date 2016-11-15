@@ -34,7 +34,12 @@
 	<a href="detail-like?plcode=${p.code}">
 		<div id="photo">
 			<div class="text">
+				<form action="detail" method="post"/>
 				<table>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="♡"/></td>
+					</tr>
 					<tr>
 						<td>조회수</td>
 						<td>좋아요</td>
@@ -44,6 +49,7 @@
 						<td>${pl}</td>
 					</tr>
 				</table>
+				</form>
 			</div>
 		</div>
 	</a>
@@ -71,6 +77,8 @@
 		<br />
 
 	</div>
+	
+	
 	<div class="comment">
 		<form action="detail" method="post">
 			<fieldset>

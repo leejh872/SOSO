@@ -5,11 +5,11 @@ public class Tag {
 	private String code;
 	private String post_code;
 	private String name;
-	
-	public String getTagCode() {
+
+	public String getCode() {
 		return code;
 	}
-	public void setTagCode(String code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	public String getPost_code() {
@@ -24,6 +24,7 @@ public class Tag {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	
 	
 	

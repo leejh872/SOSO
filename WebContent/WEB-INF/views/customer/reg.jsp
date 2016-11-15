@@ -35,7 +35,7 @@
 				<!-- name 키값을 전달함 -->
 			</div>
 		</fieldset>
-	<input type="submit" value="등록" /> <a href="notice">취소</a>
+	<input type="submit" value="등록" /> <a href="main">취소</a>
 	</form>
 </div>
 </main>

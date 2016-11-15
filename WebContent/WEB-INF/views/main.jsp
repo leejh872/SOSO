@@ -8,11 +8,11 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 	<main>
-	<div class="content-container">
-    	<c:forEach  var="p" items="${photoList}">
-			<a href="${ctx}/customer/detail?code=1">
-				<img src = "images/${p.photo}" width="300" height="300"/>
-  			</a>
- 		</c:forEach>
-	</div>
+		<div class="content-container">
+	    	<c:forEach  var="p" items="${photoList}">
+				<a href="${ctx}/customer/detail?code=${p.post_code}">
+					<img src = "${ctx}/customer/upload${p.photo}" width="300" height="300"/>
+	  			</a>
+	 		</c:forEach>
+		</div>
 	</main>

@@ -15,7 +15,9 @@ import org.apache.tiles.access.TilesAccess;
 
 import soso.dao.PostDao;
 import soso.entities.Post;
+import soso.entities.model.PhotoFileTagModel;
 import soso.mybatis.MyBatisPostDao;
+import soso.mybatis.MyBatisTagDao;
 
 @WebServlet("/customer/likespage")
 public class LikesPageController extends HttpServlet{

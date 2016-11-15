@@ -8,8 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		POST_CODE = #{code}
 	</select>
 	<select id="getList" resultType="soso.entities.Comment">
-		SELECT * FROM
-		(
+		SELECT * FROM(
 		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, USER_COMMENT_VIEW.*
 		FROM USER_COMMENT_VIEW
 		WHERE POST_CODE = #{param2}

@@ -47,6 +47,4 @@ public class Post {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	
-	
 }

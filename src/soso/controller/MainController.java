@@ -14,8 +14,9 @@ import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
 import soso.entities.PhotoFile;
-
+import soso.entities.model.PhotoFileTagModel;
 import soso.mybatis.MyBatisPhotoFileDao;
+import soso.mybatis.MyBatisTagDao;
 
 
 @SuppressWarnings("serial")
@@ -38,34 +39,40 @@ public class MainController extends HttpServlet {
 		String email = (String) session.getAttribute("email");
 		System.out.println("email: " + email);
 
-
 		String q = request.getParameter("q");
 			
 		String src = "";
 		String photo = "";
-		int postCode = 1;
+		int post_code = 1;
 		
+		List<PhotoFile> photoList = new MyBatisPhotoFileDao().getPhoto(src, photo, post_code);
 		
-		List<PhotoFile> photoList = new MyBatisPhotoFileDao().getPhoto(src, photo, postCode);
-		
-		System.out.println("check: " + postCode);
+		System.out.println("check: " + post_code);
 		
 		request.setAttribute("photoList", photoList);
 
 		TilesContainer container = TilesAccess.getContainer( request.getSession().getServletContext());
-
 		container.render("root.main", request, response);
 		container.endContext(request, response);
 	}
 	
-/*	@Override
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		
-		String post_code = request.getParameter("c_code");
+		String tag = request.getParameter("q");
 		
-		String email = (String) session.getAttribute("email");
+		if(!tag.contains("#")) {
+			tag = "#"+tag;
+		}
+	
+		List<PhotoFileTagModel> photoList = new MyBatisTagDao().getSearch(tag);
 		
-		response.sendRedirect("detail?code=" + post_code);
-	}*/
+		request.setAttribute("photoList", photoList);
+	
+		TilesContainer container = TilesAccess.getContainer( request.getSession().getServletContext());
+		container.render("root.main", request, response);
+		container.endContext(request, response);
+		
+		response.sendRedirect("/WEB-INF/views/main");
+	}
 }

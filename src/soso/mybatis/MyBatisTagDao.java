@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.Tag;
+import soso.entities.model.PhotoFileTagModel;
 
 public class MyBatisTagDao implements TagDao {
 
@@ -15,6 +16,17 @@ public class MyBatisTagDao implements TagDao {
 
 	public MyBatisTagDao() {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
+	}
+	
+	@Override
+	public String getPostCode() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getPostCode();
+		session.close();
+		
+		return result;
 	}
 
 	@Override
@@ -40,31 +52,54 @@ public class MyBatisTagDao implements TagDao {
 		
 		return result;
 	}
-}
-/*	@Override
+
+	@Override
 	public int insert(Tag tag) {
-		 SqlSession session = ssf.openSession();
-	      TagDao tagDao = session.getMapper(TagDao.class);
-	      
-	      int result = tagDao.insert(tag);
-	      
-	      session.commit();
-	      session.close();
-	      return result;		
+		SqlSession session = ssf.openSession();
+	    TagDao tagDao = session.getMapper(TagDao.class);
+		
+	    int result = tagDao.insert(tag);
+	    
+	    session.commit();
+	    session.close();
+	    return result;
 	}
 
 	@Override
-	public int getTagCode() {
+	public String getCode() {
 		SqlSession session = ssf.openSession();
 		TagDao tagDao = session.getMapper(TagDao.class);
-
-		int result = tagDao.getTagCode();
-		session.close();
-
-		return result;
 		
+		String result = tagDao.getCode();
+		session.close();
+		
+		return result;
 	}
-}*/
+
+	@Override
+	public List<PhotoFileTagModel> getSearch(String tag) {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		List<PhotoFileTagModel> list = tagDao.getSearch(tag);
+		session.close();
+		
+		return list;
+	}
+}
+/*해결 ㅋㅋㅋㅋㅋ
+	@Override
+	public String getPost_Code() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getPost_Code();
+		session.close();
+		
+		return result;
+	}
+}//?이거 왜 오류
+*/
 
 /*	@Override
 	public int insert(Tag tag) {

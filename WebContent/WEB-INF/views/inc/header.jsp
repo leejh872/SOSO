@@ -10,8 +10,8 @@
 	</h1>
 	<section id="menu">
 		<section id="search">
-			<form>
-				<input name="q" placeholder="# tag" value=${param.q}> 
+			<form action="main" method="post">
+				<input type="text" name="q" placeholder="# tag" value=${param.q}> 
 				<input type="submit" value="검색" />
 			</form>
 		</section>
