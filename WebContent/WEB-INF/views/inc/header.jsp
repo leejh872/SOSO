@@ -9,13 +9,28 @@
 		<a href="${ctx}/main" class="link">SOSOHEA</a>
 	</h1>
 	<section id="menu">
-		<section id="search">
-			<form action="main" method="post">
-				<input type="text" name="q" placeholder="# tag" value=${param.q}> 
+	
+	
+		<section id="search-form">
+					<form action="main" method="post">
+						<fieldset>
+						<input name="q" placeholder="# tag" value=${param.q}> 
+						<input type="submit" value="검색" />
+						</fieldset>
+					</form>
+				</section>
+
+	
+		<!-- <section id="search">
+			<form>
+				<input name="q" placeholder="# tag" value=${param.q}> 
 				<input type="submit" value="검색" />
 			</form>
 		</section>
 		</br> </br>
+		</section> -->
+		</br>
+		</br>
 		<nav id="main-menu" class="h-menu">
 			<ul>
 				<li><a href="${ctx}/admin/main" class="link">ADMIN</a></li>

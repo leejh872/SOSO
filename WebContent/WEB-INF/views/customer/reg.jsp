@@ -18,6 +18,7 @@
 						<td>첨부파일</td>
 						
 							<td><input type="file" name="photo"/></td>
+							
 						<!--이름이 똑같으면 배열로 간대요.  -->
 					</tr>
 					<tr>

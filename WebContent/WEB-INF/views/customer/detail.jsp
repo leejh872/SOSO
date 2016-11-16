@@ -5,8 +5,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="s" tagdir="/WEB-INF/tags"%>
-
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <main>
+
+
+
 <div class="link">
 	<!-- ${empty pn} -->
 	<c:if test="${empty pn}">
@@ -31,9 +34,13 @@
 </div>
 <div class="content-container-detail">
 	<h1 class="hidden">사진상세보기</h1>
-	<a href="detail-like?plcode=${p.code}">
-		<div id="photo">
-			<div class="text">
+	<!--  <a href="detail-like?plcode=${p.code}">-->
+		<div id="photo" class="content-container">
+			
+	    	
+		</div>
+	
+			<%-- <div class="text">
 				<form action="detail" method="post"/>
 				<table>
 					<tr>
@@ -50,9 +57,9 @@
 					</tr>
 				</table>
 				</form>
-			</div>
+			</div> --%>
 		</div>
-	</a>
+	<!-- </a> -->
 	<div id="story">
 		<table>
 			<tbody>

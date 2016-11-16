@@ -14,47 +14,45 @@ import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
 import soso.dao.AdminDao;
+import soso.dao.PostDao;
 import soso.entities.Admin;
+import soso.entities.Post;
 import soso.mybatis.MyBatisAdminDao;
+import soso.mybatis.MyBatisPostDao;
 
-@WebServlet("/admin/admin-del")
-public class AdminDelController extends HttpServlet {
+@WebServlet("/admin/post")
+public class AdminPostController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		HttpSession session = request.getSession();
-
 		// 로그인한 email값을 받아온다.
 		String email = (String) session.getAttribute("email");
-
-		AdminDao adminDao = new MyBatisAdminDao();
-		List<Admin> alist = adminDao.getList(email);
-
-		if(email == null || email.equals("")){
-			response.sendRedirect("main");
-		}
-		// admin이 맞다면
-		else if (alist.size() != 0){
-			// code값 받기
-			String code = request.getParameter("acode");
-			System.out.println("acode : " + code);
-			
-			adminDao.delete(code);
-			
-			response.sendRedirect("main");
-
+		
+		//검색값 받아오기
+		String p = request.getParameter("p");
+		
+		//기본값 초기화
+		int page = 1;
+		String title = "email";
+		String query = "";
+		
+		//검색값이 있을경우
+		if(p!=null && !p.equals("")){
+			page = Integer.parseInt(p);
 		}
 		
-
+		//모든 POST값을 보여준다
+		PostDao postDao = new MyBatisPostDao();
+		List<Post> plist = postDao.getList(page, title, query);
 		
-		response.sendRedirect("admin");
+		request.setAttribute("plist", plist);
 
 		TilesContainer container = TilesAccess.getContainer(
 		        request.getSession().getServletContext());
-		container.render("admin.main", request, response);
+		container.render("admin.post", request, response);
 		container.endContext(request, response);
-
 	}
 }

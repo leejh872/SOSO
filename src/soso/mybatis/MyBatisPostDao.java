@@ -28,6 +28,17 @@ public class MyBatisPostDao implements PostDao {
 
 		return result;
 	}
+	
+	@Override
+	public List<Post> getList(int page, String title, String query) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+
+		List<Post> result = postDao.getList(page, title, query);
+		session.close();
+
+		return result;
+	}
 
 	@Override
 	public int insert(Post post) {
@@ -47,6 +58,19 @@ public class MyBatisPostDao implements PostDao {
 		return 0;
 	}
 
+	@Override
+	public int admindelete(String code) {
+		SqlSession session = ssf.openSession();
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		int result = postDao.admindelete(code);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+	
 	@Override
 	public int delete(String code, String email) {
 		SqlSession session = ssf.openSession();
@@ -72,20 +96,6 @@ public class MyBatisPostDao implements PostDao {
 		PostDao postDao = session.getMapper(PostDao.class);
 
 		int result = postDao.getCode();
-		session.close();
-
-		return result;
-	}
-
-
-	@Override
-	public int hitUp(String code) {
-		SqlSession session = ssf.openSession(); 
-		PostDao postDao = session.getMapper(PostDao.class);
-
-		int result = postDao.hitUp(code);
-
-		session.commit();
 		session.close();
 
 		return result;
@@ -134,6 +144,34 @@ public class MyBatisPostDao implements PostDao {
 
 		return post;
 	}
+	
+	@Override
+	public int hitUp(String code) {
+		SqlSession session = ssf.openSession(); 
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		int result = postDao.hitUp(code);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+
+	/*@Override
+	public int tempdelUp(String code) {
+		SqlSession session = ssf.openSession(); 
+		PostDao postDao = session.getMapper(PostDao.class);
+		
+		int result = postDao.tempdelUp(code);
+		
+		session.commit();
+		session.close();
+		
+		return result;
+	}*/
+
+
 
 
 

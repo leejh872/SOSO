@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" parameterType="string" resultType="soso.entities.Admin">
 		SELECT * FROM
 		(
-		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, ADMIN.*
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, [ADMIN].*
 		FROM [ADMIN]
 		WHERE EMAIL LIKE '%${param2}%'
 		) A WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10

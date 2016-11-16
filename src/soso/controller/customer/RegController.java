@@ -136,15 +136,14 @@ public class RegController extends HttpServlet {
       }
 
       response.sendRedirect("../main");
-      /*System.out.println("pf: " + pf);
+      System.out.println("pf: " + pf);
       System.out.println("code: " + code);
       System.out.println("story: " + story);
       System.out.println("photo: " + photo);
       System.out.println("email: " + email);
       System.out.println("tag: " + name);
-      System.out.println(tagcode);
-      System.out.println(name);
-      System.out.println(post_code);*/
+      System.out.println("tagcode"+tagcode);
+      System.out.println("post_code"+post_code);
 
    }
 }

@@ -7,6 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="get" resultType="soso.entities.Post">
 		SELECT * FROM POST WHERE CODE = #{code}
 	</select>
+	<select id="getList" parameterType="string" resultType="soso.entities.Post">
+		SELECT * FROM
+		(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, POST.*
+		FROM [POST]
+		WHERE ${param2} LIKE '%${param3}%'
+		) A WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
 	<select id="getPrev" resultType="soso.entities.Post">
 		select top 1 * from POST where code &lt; CAST(#{code} as INT) order by regdate desc
 	</select>
@@ -26,6 +34,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="hitUp">
 		update POST set hit = hit + 1 where code = #{code}
 	</update>
+	<!-- <update id="tempdel">
+		update POST set TEMP_DEL = TEMP_DEL + 1 where code = #{code}
+	</update> -->
+	<delete id="admindelete">
+		DELETE POST WHERE CODE = #{code}
+	</delete>
 	<delete id="delete">
 		DELETE POST WHERE CODE = ${param1} AND EMAIL = '${param2}'
 	</delete>

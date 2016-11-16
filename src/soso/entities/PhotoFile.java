@@ -4,7 +4,7 @@ public class PhotoFile {
 	private int post_code;
 	private String src;
 	private String photo;
-	
+
 	public int getPost_code() {
 		return post_code;
 	}

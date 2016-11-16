@@ -14,11 +14,15 @@ import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 
 import soso.dao.AdminDao;
+import soso.dao.CommentDao;
+import soso.dao.PostDao;
 import soso.entities.Admin;
 import soso.mybatis.MyBatisAdminDao;
+import soso.mybatis.MyBatisCommentDao;
+import soso.mybatis.MyBatisPostDao;
 
-@WebServlet("/admin/admin-del")
-public class AdminDelController extends HttpServlet {
+@WebServlet("/admin/cmt-del")
+public class AdminCommentDelController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,28 +37,30 @@ public class AdminDelController extends HttpServlet {
 		List<Admin> alist = adminDao.getList(email);
 
 		if(email == null || email.equals("")){
-			response.sendRedirect("main");
+			response.sendRedirect("cmt");
 		}
 		// admin이 맞다면
 		else if (alist.size() != 0){
+			
+			System.out.println("admin이 맞음");
+			
 			// code값 받기
-			String code = request.getParameter("acode");
-			System.out.println("acode : " + code);
+			String code = request.getParameter("ccode");
+			System.out.println("pcode : " + code);
 			
-			adminDao.delete(code);
+			//삭제를 위한 email값 받기
+			String writer_email = request.getParameter("cemail");
+			System.out.println("cemail : " + writer_email);
 			
-			response.sendRedirect("main");
+			//일단은 글삭제?? 가 안되므로 보류
+			CommentDao cmtDao = new MyBatisCommentDao();
+			cmtDao.delete(code, writer_email);
 
+			response.sendRedirect("cmt");
 		}
-		
-
-		
-		response.sendRedirect("admin");
-
 		TilesContainer container = TilesAccess.getContainer(
 		        request.getSession().getServletContext());
-		container.render("admin.main", request, response);
+		container.render("admin.cmt", request, response);
 		container.endContext(request, response);
-
 	}
 }

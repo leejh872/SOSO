@@ -50,4 +50,7 @@ public class MyBatisPhotoFileDao implements PhotoFileDao{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
+
 }
