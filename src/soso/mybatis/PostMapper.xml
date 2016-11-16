@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	<select id="getPhoto" resultType="String">
+<!-- 	<select id="getPhoto" resultType="String">
 
 		SELECT TB2.PHOTO
 		FROM POST TB1
@@ -78,7 +78,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON TB1.CODE = TB2.POST_CODE
 		ORDER BY TB2.REGDATE DESC
 
-	</select>
-	
-
+<<<<<<< HEAD
+	</select> -->
 </mapper>

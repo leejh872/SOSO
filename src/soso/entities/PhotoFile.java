@@ -1,15 +1,15 @@
 package soso.entities;
 
 public class PhotoFile {
-	private int postCode;
+	private int post_code;
 	private String src;
 	private String photo;
-	
-	public int getPostCode() {
-		return postCode;
+
+	public int getPost_code() {
+		return post_code;
 	}
-	public void setPostCode(int postCode) {
-		this.postCode = postCode;
+	public void setPost_code(int post_code) {
+		this.post_code = post_code;
 	}
 	public String getSrc() {
 		return src;
@@ -23,9 +23,5 @@ public class PhotoFile {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
-	
-	
-	
 
 }

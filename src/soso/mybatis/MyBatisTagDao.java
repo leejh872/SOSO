@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.Tag;
+import soso.entities.model.PhotoFileTagModel;
 
 public class MyBatisTagDao implements TagDao {
 
@@ -15,6 +16,17 @@ public class MyBatisTagDao implements TagDao {
 
 	public MyBatisTagDao() {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
+	}
+	
+	@Override
+	public String getPostCode() {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		String result = tagDao.getPostCode();
+		session.close();
+		
+		return result;
 	}
 
 	@Override
@@ -62,6 +74,17 @@ public class MyBatisTagDao implements TagDao {
 		session.close();
 		
 		return result;
+	}
+
+	@Override
+	public List<PhotoFileTagModel> getSearch(String tag) {
+		SqlSession session = ssf.openSession();
+		TagDao tagDao = session.getMapper(TagDao.class);
+		
+		List<PhotoFileTagModel> list = tagDao.getSearch(tag);
+		session.close();
+		
+		return list;
 	}
 }
 /*해결 ㅋㅋㅋㅋㅋ

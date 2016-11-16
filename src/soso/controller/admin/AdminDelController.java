@@ -47,9 +47,14 @@ public class AdminDelController extends HttpServlet {
 
 		}
 		
+
+		
+		response.sendRedirect("admin");
+
 		TilesContainer container = TilesAccess.getContainer(
 		        request.getSession().getServletContext());
 		container.render("admin.main", request, response);
 		container.endContext(request, response);
+
 	}
 }

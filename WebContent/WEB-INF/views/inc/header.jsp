@@ -9,12 +9,26 @@
 		<a href="${ctx}/main" class="link">SOSOHEA</a>
 	</h1>
 	<section id="menu">
-		<section id="search">
+	
+	
+		<section id="search-form">
+					<form action="main" method="post">
+						<fieldset>
+						<input name="q" placeholder="# tag" value=${param.q}> 
+						<input type="submit" value="검색" />
+						</fieldset>
+					</form>
+				</section>
+
+	
+		<!-- <section id="search">
 			<form>
 				<input name="q" placeholder="# tag" value=${param.q}> 
 				<input type="submit" value="검색" />
 			</form>
 		</section>
+		</br> </br>
+		</section> -->
 		</br>
 		</br>
 		<nav id="main-menu" class="h-menu">
@@ -26,8 +40,16 @@
 				<c:if test="${not empty sessionScope.email}">
 					<li><a href="${ctx}/joinus/logout" class="link">LOGOUT</a></li>
 				</c:if>
-				
-				<li><a href="${ctx}/customer/mypage" class="link">MY PAGE</a></li>
+
+				<li class="sub-menu"><a href="${ctx}/customer/mypage" class="link">MY PAGE</a>
+					<table class="submenu">
+						<tr>
+							<td><a href="${ctx}/customer/mypage" class="submenuLink link">MY PHOTO</a></td>
+						</tr>
+						<tr>
+							<td><a href="${ctx}/customer/likespage" class="submenuLink link">LIKES</a></td>
+						</tr>
+					</table></li>
 				<li><a href="${ctx}/aboutus" class="link">ABOUT US</a></li>
 			</ul>
 		</nav>

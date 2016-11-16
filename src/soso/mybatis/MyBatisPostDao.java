@@ -16,7 +16,8 @@ public class MyBatisPostDao implements PostDao {
 		ssf = SessionFactoryBuilder.getSqlsessionFactory();
 		
 	}
-
+	
+	
 	@Override
 	public Post get(String code) {
 		SqlSession session = ssf.openSession();
@@ -122,7 +123,7 @@ public class MyBatisPostDao implements PostDao {
 		return result;
 	}
 	
-	@Override
+/*	@Override
 	public List<Post> getPhoto() {
 		SqlSession session = ssf.openSession();
 		PostDao postDao = session.getMapper(PostDao.class);
@@ -131,7 +132,7 @@ public class MyBatisPostDao implements PostDao {
 		session.close();
 		
 		return result;
-	}
+	}*/
 
 	@Override
 	public List<Post> getMyPhoto(String email) {

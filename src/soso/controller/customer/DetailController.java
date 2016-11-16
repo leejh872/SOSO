@@ -47,7 +47,7 @@ public class DetailController extends HttpServlet {
 	      }
 		
 		// CODE값이 null이나 없으면 기본값이면 code값을 1로
-		if (_code == null || _code.equals(""))
+		if (_code == null || _code.equals("") || _code == "0")
 			_code = "1";
 		
 		// 필요한 DB 테이블
@@ -75,7 +75,7 @@ public class DetailController extends HttpServlet {
 		request.setAttribute("list", list);
 		
 		TilesContainer container = TilesAccess.getContainer(
-		        request.getSession().getServletContext());
+        request.getSession().getServletContext());
 		container.render("customer.detail", request, response);
 		container.endContext(request, response);
 	}
@@ -83,6 +83,8 @@ public class DetailController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 
 		HttpSession session = request.getSession();
 		

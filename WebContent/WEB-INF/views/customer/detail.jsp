@@ -5,8 +5,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="s" tagdir="/WEB-INF/tags"%>
-
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <main>
+
+
+
 <div class="link">
 	<!-- ${empty pn} -->
 	<c:if test="${empty pn}">
@@ -31,10 +34,19 @@
 </div>
 <div class="content-container-detail">
 	<h1 class="hidden">사진상세보기</h1>
-	<a href="detail-like?plcode=${p.code}">
-		<div id="photo">
-			<div class="text">
+	<!--  <a href="detail-like?plcode=${p.code}">-->
+		<div id="photo" class="content-container">
+			
+	    	
+		</div>
+	
+			<%-- <div class="text">
+				<form action="detail" method="post"/>
 				<table>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="♡"/></td>
+					</tr>
 					<tr>
 						<td>조회수</td>
 						<td>좋아요</td>
@@ -44,9 +56,10 @@
 						<td>${pl}</td>
 					</tr>
 				</table>
-			</div>
+				</form>
+			</div> --%>
 		</div>
-	</a>
+	<!-- </a> -->
 	<div id="story">
 		<table>
 			<tbody>
@@ -71,6 +84,8 @@
 		<br />
 
 	</div>
+	
+	
 	<div class="comment">
 		<form action="detail" method="post">
 			<fieldset>
@@ -106,7 +121,7 @@
 
 								<div>
 									<h3 class="hidden">페이저</h3>
-									<s:pager />
+									<%-- <s:pager /> --%>
 								</div></td>
 						</tr>
 					</tbody>
@@ -115,6 +130,4 @@
 		</form>
 	</div>
 </div>
-
 </main>
-

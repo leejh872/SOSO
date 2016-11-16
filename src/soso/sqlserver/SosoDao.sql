@@ -66,19 +66,19 @@ INSERT INTO POST(STORY, EMAIL, CODE) VALUES('테스트용', 'test@naver.com', 6)
 INSERT INTO POST(STORY, EMAIL, CODE) VALUES('테스트용', 'test@naver.com', 7);
 INSERT INTO COMMENT(CODE, CONTENT, WRITER_EMAIL, POST_CODE) VALUES(1, '저도 오늘 봤어요!ㅠ 다음에는 더 잘 볼 거예요!', 'test@naver.com', 1);
 INSERT INTO COMMENT(CODE, CONTENT, WRITER_EMAIL, POST_CODE) VALUES(2, '힘내요 :)', 'test@naver.com', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(1, '#GREEN', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(2, '#TOEIC', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(3, '#운동장', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(4, '#망했', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(5, '#초록색', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(6, '#상큼해', 1);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(7, '#히히', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(8, '#히히히히', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(9, '#하하하', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(10, '#호호', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(11, '#ㅎㅎ', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(12, '#ㅎ', 2);
-INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(13, '#헤헤', 2);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(1, '#GREEN', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(2, '#TOEIC', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(3, '#운동장', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(4, '#망했', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(5, '#초록색', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(6, '#상큼해', 21);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(7, '#히히', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(8, '#히히히히', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(9, '#하하하', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(10, '#호호', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(11, '#ㅎㅎ', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(12, '#ㅎ', 22);
+INSERT INTO TAG(CODE, [NAME], POST_CODE) VALUES(13, '#헤헤', 22);
 
 INSERT INTO [LIKE](CODE, USER_EMAIL, IS_LIKE, POST_CODE) VALUES(1, 'test@naver.com', 1, 1);
 INSERT INTO [LIKE](CODE, USER_EMAIL, IS_LIKE, POST_CODE) VALUES(3, 'delete@naver.com', 1, 1);
@@ -145,3 +145,29 @@ SELECT DISTINCT CONVERT(INT, POST_LIKE) POST_LIKE FROM POST_LIKE_VIEW WHERE POST
 DELETE COMMENT WHERE CODE =8 AND WRITER_EMAIL = 'test@naver.com';
 
 DELETE POST WHERE CODE = 3 AND EMAIL = 'test@naver.com'
+
+
+
+insert into tag values('8','#초록색','2')
+insert into tag values('8','#상큼','2')
+
+select * from post
+select * from tag
+select * from photofile
+
+select * from [like]
+
+insert into [like] values(1,1,'test@naver.com',1);
+
+select * from tag where post_code='1'
+
+select * from [user]
+
+select * from tag t inner join photofile p  on t.post_code = p.post_code where t.name='#상큼해'
+
+select * from tag t inner join PHOTOFILE p  on t.post_code = p.post_code where t.name='#초록색'
+
+
+insert into [like] values(1,1,'test@naver.com',1);
+
+

@@ -11,26 +11,37 @@
     bottom: 0;		/*바닥에 붙어 있게*/
 }
 
-.upload_button{			/*푸터 버튼 설정*/
+.upload_button {	
+	float: right;
+	margin-top: 5px;
+}
+/*
+.upload_button{			푸터 버튼 설정
+	background: url("../images/upload_lightgrey.png") no-repeat center;
    float:right;
-   margin-top:8px;		/*푸터 윗변으로 부터의 위치*/
+   margin-top:8px;		푸터 윗변으로 부터의 위치
    font-size:15px;
-   width: 150px;
-   padding-top: 8px;		/*버튼안에서 글자의 간격*/
+   height:40px;
+   width: 40px;
+   padding-top: 8px;		버튼안에서 글자의 간격
    padding-bottom: 8px;		
-   border-radius: 10px;		/*모서리 굴곡 정도*/
+   border-radius: 5px;		모서리 굴곡 정도
    border: 3px solid gray;	
 } 
-
+*/
+ 
 .soso{		/*CREATED BY SOSOHEA*/
+
    color:white;
    list-style:none;
+   margin-top:13px;
    display: inline-block;
 }   
 
 .dt{		/*CREATED BY SOSOHEA*/
+	
    font-style:oblique;
-   font-family: sans-serif;
-   font-size: 20px;
+   font-family: Helvetica, "맑은고딕";
+   font-size: 15px;
    font-weight: lighter; ;
 }

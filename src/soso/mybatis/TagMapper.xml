@@ -28,6 +28,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ON TB1.CODE = TB2.POST_CODE
 		ORDER BY TB1.REGDATE DESC;
 	</select>	
+	
+	
+	<select id="getSearch" resultType="soso.entities.model.PhotoFileTagModel">
+		select * from tag t inner join PHOTOFILE p  on t.post_code = p.post_code where t.name=#{tag}
+	</select>
+	
+	
+	
 </mapper>
 
 	<!-- <select id="getT" resultType="entities.Tag>

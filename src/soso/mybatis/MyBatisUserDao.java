@@ -41,4 +41,15 @@ public class MyBatisUserDao implements UserDao {
 		return join;
 	}
 
+	@Override
+	public int delete(String email) {
+		SqlSession session = ssf.openSession();
+		UserDao userDao = session.getMapper(UserDao.class);
+		
+		int result = userDao.delete(email);
+		session.commit();
+		session.close();
+		return result;
+	}
+
 }

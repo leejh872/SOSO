@@ -5,7 +5,7 @@ public class Tag {
 	private String code;
 	private String post_code;
 	private String name;
-	
+
 	public String getCode() {
 		return code;
 	}

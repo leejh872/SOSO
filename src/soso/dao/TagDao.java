@@ -2,8 +2,8 @@ package soso.dao;
 
 import java.util.List;
 
-
 import soso.entities.Tag;
+import soso.entities.model.PhotoFileTagModel;
 
 public interface TagDao {
    List<Tag> getList(String post_code);
@@ -12,9 +12,8 @@ public interface TagDao {
   
    int insert(Tag tag);
    String getCode();
-
-  
-  
-
+   String getPostCode();
+   
+   List<PhotoFileTagModel> getSearch(String tag);
 
 }

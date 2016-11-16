@@ -19,12 +19,10 @@ import soso.entities.model.PhotoFileTagModel;
 import soso.mybatis.MyBatisPostDao;
 import soso.mybatis.MyBatisTagDao;
 
-@WebServlet("/customer/mypage")
-public class MyPageController extends HttpServlet{
+@WebServlet("/customer/likespage")
+public class LikesPageController extends HttpServlet{
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		
@@ -40,28 +38,7 @@ public class MyPageController extends HttpServlet{
 		request.setAttribute("MYPHOTO_LIST", myphotoList);
 		
 		TilesContainer container = TilesAccess.getContainer(request.getSession().getServletContext());
-		container.render("customer.mypage", request, response);
+		container.render("customer.likespage", request, response);
 		container.endContext(request, response);
-		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String tag = request.getParameter("q");
-		
-		if(!tag.contains("#")) {
-			tag = "#"+tag;
-		}
-	
-		List<PhotoFileTagModel> photoList = new MyBatisTagDao().getSearch(tag);
-		
-		request.setAttribute("photoList", photoList);
-	
-		TilesContainer container = TilesAccess.getContainer( request.getSession().getServletContext());
-		container.render("root.main", request, response);
-		container.endContext(request, response);
-		
-		response.sendRedirect("/WEB-INF/views/main");
 	}
 }
