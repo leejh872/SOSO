@@ -14,6 +14,14 @@
 
 	<!-- 어노테이션을 사용할 경우 -->
 	<context:component-scan base-package="soso.controller" />
+	<!-- 사용자의 임시디렉토리에 미리 저장 하고 찾을때는 꺼낼 수 있는 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+
+
 	<!-- xml을 사용할 경우 -->
 
 	<!-- tiles의 구성을 읽음 -->
@@ -45,13 +53,5 @@
 	<mvc:annotation-driven />
 	<mvc:resources location="/resource/" mapping="/resource/**"></mvc:resources>
 
-	<!-- 사용자의 임시디렉토리에 미리 저장 하고 찾을때는 꺼낼 수 있는 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-
-		<!-- setting maximum upload size -->
-		<property name="maxUploadSize" value="10000000" />
-	</bean>
 </beans>
-
 			

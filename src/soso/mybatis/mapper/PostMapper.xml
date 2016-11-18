@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT CONVERT(INT,ISNULL(MAX(CAST(CODE AS INT)),0)+1) AS CODE FROM POST
 	</select>
 
-	<select id="getMyPhoto" resultType="String" parameterType="String">
+	<select id="getMyPhoto" resultType="soso.entities.PhotoFile" >
 
 		SELECT TB2.PHOTO
 		FROM POST TB1

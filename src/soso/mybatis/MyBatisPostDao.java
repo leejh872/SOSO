@@ -119,10 +119,10 @@ public class MyBatisPostDao implements PostDao {
 	}*/
 
 	@Override
-	public List<Post> getMyPhoto(String email) {
+	public List<String> getMyPhoto(String email) {
 		PostDao postDao = sqlSession.getMapper(PostDao.class);
 		
-		List<Post> result = postDao.getMyPhoto(email);
+		List<String> result = postDao.getMyPhoto(email);
 		
 		return result;
 	}
