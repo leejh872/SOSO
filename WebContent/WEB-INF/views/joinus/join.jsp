@@ -42,7 +42,7 @@
 						<div id="radio"><input type="radio" name="gender" value="M"/>M</div>
 						<div id="radio"><input type="radio" name="gender" value="W"/>W</div>
 						<div>
-							<a href ="joinsuccess" class="link">
+							<a href ="../main" class="link">
 							<input type="submit" name="btn" value="join"  class=" join-button"/>
 							</a>
 						</div>

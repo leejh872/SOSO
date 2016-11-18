@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/security" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
     	http://www.springframework.org/schema/beans   
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -8,10 +9,9 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<!-- security -->
-
-
 	<http>
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/joinus/mypage" access="ROLE_USER" />
 
 		<!-- login, logout하면 / 페이지로 가도록 -->
 		<form-login login-page="/joinus/login" default-target-url="/main" />
@@ -23,19 +23,19 @@
 		<authentication-provider>
 
 			<!-- 1. 메모리에 박는 방법 -->
-			<user-service> 
+			<!-- <user-service> 
 				<user name="admin" password="1111" authorities="ROLE_USER,ROLE_ADMIN,ROLE_TEACHER" /> 
 				<user name="user" password="2222" authorities="ROLE_USER" /> 
-			</user-service>
+			</user-service> -->
 
 			<!-- 2. 데이터베이스에서 설정 -->
 			<!-- users-by-username-query : id에 해당하는 name(유저)을 가져오는 쿼리 -->
 			<!-- enable : 0, 1 활성화 비활성화 (잠금, 비우기x) -->
 			<!-- authorities-by-username-query : id에 해당하는 권한을 가져오는 쿼리 -->
 			<!-- ROLE_USER : 모든 유저를 유저로보고 상수화 시킴 -> 쿼리문 바꿈 -->
-			<!-- <jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT MID ID, PWD PASSWORD, ENABLED FROM MEMBERS WHERE MID = ? "
-				authorities-by-username-query="SELECT MEMBERID ID, ROLENAME AUTHORITY FROM MEMBERROLES WHERE MEMBERID = ?" /> -->
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT EMAIL ID, PW PASSWORD, ENABLED FROM USER WHERE EMAIL = ? "
+				authorities-by-username-query="SELECT USERID ID, ROLENAME AUTHORITY FROM USERROLES WHERE USERID = ?" />
 
 			<!-- 3. 윈도우 인증을 이용한 방법 -->
 		</authentication-provider>

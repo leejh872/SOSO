@@ -23,7 +23,7 @@ import soso.mybatis.MyBatisUserDao;
 
 @Controller
 @RequestMapping("joinus/*")
-public class JoinusController {
+public class JoinusController_Compare {
 
 	@Autowired
 	private UserDao userDao;
@@ -38,6 +38,10 @@ public class JoinusController {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, String btn, HttpServletRequest request, HttpServletResponse response) {
 
+		/*
+		 * HttpSession session = request.getSession();
+		 * session.getAttribute("cellphone");
+		 */
 
 		if (btn.equals("join")) {
 			// 값 받기
