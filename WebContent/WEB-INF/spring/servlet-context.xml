@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+        <!-- 서블릿 -->
+
+	<!-- 어노테이션을 사용할 경우 -->
+	<context:component-scan base-package="soso.controller" />
+	<!-- xml을 사용할 경우 -->
+
+	<!-- tiles의 구성을 읽음 -->
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions" value="/WEB-INF/tiles.xml" />
+		<!-- tiles에 preparer을 쓰기 위해 설정 -->
+		<property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles3.SimpleSpringPreparerFactory" />
+	</bean>
+
+	<!-- 무조건 tiles파일을 찾다(뷰로 무조건이동) -->
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="1" />
+	</bean>
+
+	<!-- tiles가 아니면 뷰로 이동할 필요가 없는 경우 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" /> <!-- 경로 시작시 -->
+		<property name="suffix" value=".jsp" /> <!-- 경로 끝에 -->
+		<property name="order" value="2" />
+	</bean>
+
+	<!-- 리소스를 위한 예외 디렉토리 설정 어노테이션으로 설정한 부분을 냅둬라 -->
+	<!-- ** : 자식의자식 -->
+	<!-- resources해석기를 달아줘야함 위에 xmlns:~를 달아줌 -->
+	<!-- 냅두라는거 -->
+	<mvc:annotation-driven />
+	<mvc:resources location="/resource/" mapping="/resource/**"></mvc:resources>
+
+	<!-- 사용자의 임시디렉토리에 미리 저장 하고 찾을때는 꺼낼 수 있는 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+</beans>
+
+			

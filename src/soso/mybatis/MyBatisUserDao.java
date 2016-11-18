@@ -1,29 +1,24 @@
 package soso.mybatis;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.UserDao;
 import soso.entities.User;
 
-
 public class MyBatisUserDao implements UserDao {
 
-	SqlSessionFactory ssf;
+	private SqlSession sqlSession;
 
-	public MyBatisUserDao() {
-		ssf = SessionFactoryBuilder.getSqlsessionFactory();
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
 	}
 
 	@Override
 	public int insert(User join) {
-
-		SqlSession session = ssf.openSession();
-		UserDao joinDao = session.getMapper(UserDao.class);
+		
+		UserDao joinDao = sqlSession.getMapper(UserDao.class);
 		
 		int result = joinDao.insert(join);
-		session.commit();
-		session.close();
 		
 		System.out.println(result);
 		
@@ -33,22 +28,21 @@ public class MyBatisUserDao implements UserDao {
 
 	@Override
 	public User get(String email) {
-		SqlSession session = ssf.openSession();
-		UserDao joinDao = session.getMapper(UserDao.class);
+		
+		UserDao joinDao = sqlSession.getMapper(UserDao.class);
 		
 		User join = joinDao.get(email);
-		session.close();
+		
 		return join;
 	}
 
 	@Override
 	public int delete(String email) {
-		SqlSession session = ssf.openSession();
-		UserDao userDao = session.getMapper(UserDao.class);
+		
+		UserDao userDao = sqlSession.getMapper(UserDao.class);
 		
 		int result = userDao.delete(email);
-		session.commit();
-		session.close();
+		
 		return result;
 	}
 

@@ -1,6 +1,5 @@
 package soso.dao;
 
-
 import soso.entities.Like;
 
 public interface LikeDao {

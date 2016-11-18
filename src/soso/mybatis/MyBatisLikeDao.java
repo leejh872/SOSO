@@ -1,49 +1,42 @@
 package soso.mybatis;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.LikeDao;
-import soso.dao.PostDao;
 import soso.entities.Like;
 
 public class MyBatisLikeDao implements LikeDao {
 
-	SqlSessionFactory ssf;
+	private SqlSession sqlSession;
 
-	public MyBatisLikeDao() {
-		ssf = SessionFactoryBuilder.getSqlsessionFactory();
-		
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
 	}
 
 	@Override
 	public String getPostLike(String post_code) {
-		SqlSession session = ssf.openSession();
-		LikeDao likeDao = session.getMapper(LikeDao.class);
+		
+		LikeDao likeDao = sqlSession.getMapper(LikeDao.class);
 
 		String result = likeDao.getPostLike(post_code);
-		session.close();
 
 		return result;
 	}
 
 	@Override
 	public Like getUserLike(String post_code, String user_email) {
-		SqlSession session = ssf.openSession();
-		LikeDao likeDao = session.getMapper(LikeDao.class);
+		
+		LikeDao likeDao = sqlSession.getMapper(LikeDao.class);
 
 		Like result = likeDao.getUserLike(post_code, user_email);
-		session.close();
 
 		return result;
 	}
 
 	@Override
 	public int updateLike(int is_like, String post_code, String user_email) {
-		SqlSession session = ssf.openSession();
-		LikeDao likeDao = session.getMapper(LikeDao.class);
+		
+		LikeDao likeDao = sqlSession.getMapper(LikeDao.class);
 		
 		System.out.println("is_like : " + is_like);
 		System.out.println("post_code : " + post_code);

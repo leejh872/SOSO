@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    	http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans.xsd">  
+        
+        <!-- DB -->
+	
+	
+	
+	<!-- config.xml은 spring은 못쓰고 MyBatis만 쓸 수 있으므로 MyBatis가 읽을 수 있도록 만들어줌(객체생성) -->
+	<bean name="dataSource"
+	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+	<property name="url"
+		value="jdbc:sqlserver://dev.newlecture.com:1433;databaseName=sosodb" />
+	<property name="username" value="soso" />
+	<property name="password" value="nobadnogood" />
+	</bean>
+	
+	<!-- MyBatis config.xml을 로드하는 팩토리 객체 생성을 지시 -->
+	<!-- ORM(데이터를 객체화) : Factory사용 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations"
+			value="classpath:soso/mybatis/mapper/*.xml" />
+	</bean>
+
+	<!-- open하고 알아서 commit, close 해주는 것 / 관리해주는 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+
+	<bean name="adminDao" class="soso.mybatis.MyBatisAdminDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="commentDao" class="soso.mybatis.MyBatisCommentDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="likeDao" class="soso.mybatis.MyBatisLikeDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="photoFileDao" class="soso.mybatis.MyBatisPhotoFileDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="postDao" class="soso.mybatis.MyBatisPostDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="tagDao" class="soso.mybatis.MyBatisTagDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="userDao" class="soso.mybatis.MyBatisUserDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	
+</beans>	

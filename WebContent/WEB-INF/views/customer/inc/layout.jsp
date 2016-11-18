@@ -5,6 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +14,8 @@
 <title>사용자</title>
 
 <!-- css가져오기 -->
-<link href="css/layout.css" type="text/css" rel="stylesheet" />
-<link href="css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
+<link href="${ctx}/resource/customer/css/layout.css" type="text/css" rel="stylesheet" />
+<link href="${ctx}/resource/customer/css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
 
 <script src="../js/modernizr-custom.js" type="text/javascript">
 	document.createElement("main");

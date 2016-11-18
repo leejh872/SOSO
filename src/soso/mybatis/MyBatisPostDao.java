@@ -3,74 +3,65 @@ package soso.mybatis;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.PostDao;
 import soso.entities.Post;
 
 public class MyBatisPostDao implements PostDao {
 
-	SqlSessionFactory ssf;
+	private SqlSession sqlSession;
 
-	public MyBatisPostDao() {
-		ssf = SessionFactoryBuilder.getSqlsessionFactory();
-		
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
 	}
-	
 	
 	@Override
 	public Post get(String code) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		Post result = postDao.get(code);
-		session.close();
 
 		return result;
 	}
 	
 	@Override
 	public List<Post> getList(int page, String title, String query) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		List<Post> result = postDao.getList(page, title, query);
-		session.close();
 
 		return result;
 	}
 	
 	@Override
 	public Post getC(String code) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		Post result = postDao.get(code);
-		session.close();
 
 		return result;
 	}
 	
 	@Override
 	public List<Post> getCList(int page, String title, String query) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		List<Post> result = postDao.getList(page, title, query);
-		session.close();
-
+		
 		return result;
 	}
 
 	@Override
 	public int insert(Post post) {
-	      SqlSession session = ssf.openSession();
-	      PostDao postDao = session.getMapper(PostDao.class);
+	      
+	      PostDao postDao = sqlSession.getMapper(PostDao.class);
 	      
 	      int result = postDao.insert(post);
 	      
-	      session.commit();
-	      session.close();
 	      return result;
 	}
 
@@ -82,26 +73,20 @@ public class MyBatisPostDao implements PostDao {
 
 	@Override
 	public int admindelete(String code) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 		
 		int result = postDao.admindelete(code);
-		
-		session.commit();
-		session.close();
 		
 		return result;
 	}
 	
 	@Override
 	public int delete(String code, String email) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 		
 		int result = postDao.delete(code, email);
-		
-		session.commit();
-		session.close();
 		
 		return result;
 	}
@@ -114,11 +99,10 @@ public class MyBatisPostDao implements PostDao {
 
 	@Override
 	public int getCode() {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		int result = postDao.getCode();
-		session.close();
 
 		return result;
 	}
@@ -136,46 +120,39 @@ public class MyBatisPostDao implements PostDao {
 
 	@Override
 	public List<Post> getMyPhoto(String email) {
-		SqlSession session = ssf.openSession();
-		PostDao postDao = session.getMapper(PostDao.class);
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 		
 		List<Post> result = postDao.getMyPhoto(email);
-		session.close();
 		
 		return result;
 	}
 
 	@Override
 	public Post getPrev(String code) {
-		SqlSession session = ssf.openSession(); //
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		Post post = postDao.getPrev(code);
-		session.close();
 
 		return post;
 	}
 
 	@Override
 	public Post getNext(String code) {
-		SqlSession session = ssf.openSession(); //
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 
 		Post post = postDao.getNext(code);
-		session.close();
 
 		return post;
 	}
 	
 	@Override
 	public int hitUp(String code) {
-		SqlSession session = ssf.openSession(); 
-		PostDao postDao = session.getMapper(PostDao.class);
+		
+		PostDao postDao = sqlSession.getMapper(PostDao.class);
 		
 		int result = postDao.hitUp(code);
-		
-		session.commit();
-		session.close();
 		
 		return result;
 	}

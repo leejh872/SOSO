@@ -3,18 +3,16 @@ package soso.mybatis;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import soso.dao.AdminDao;
 import soso.entities.Admin;
 
 public class MyBatisAdminDao implements AdminDao {
 
-	SqlSessionFactory ssf;
+	private SqlSession sqlSession;
 
-	public MyBatisAdminDao() {
-		ssf = SessionFactoryBuilder.getSqlsessionFactory();
-		
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
 	}
 	
 	/*@Override
@@ -35,37 +33,29 @@ public class MyBatisAdminDao implements AdminDao {
 
 	@Override
 	public List<Admin> getList(int page, String email) {
-		SqlSession session = ssf.openSession();
-		AdminDao adminDao = session.getMapper(AdminDao.class);
-
+		
+		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
 		List<Admin> result = adminDao.getList(page, email);
-		session.close();
 
 		return result;
 	}
 	
 	@Override
 	public int insert(Admin admin) {
-		SqlSession session = ssf.openSession();
-		AdminDao adminDao = session.getMapper(AdminDao.class);
+		
+		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
 		
 		int result = adminDao.insert(admin);
-		
-		session.commit();
-		session.close();
 		
 		return result;
 	}
 
 	@Override
 	public int delete(String code) {
-		SqlSession session = ssf.openSession();
-		AdminDao adminDao = session.getMapper(AdminDao.class);
+		
+		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
 		
 		int result = adminDao.delete(code);
-		
-		session.commit();
-		session.close();
 		
 		return result;
 	}
