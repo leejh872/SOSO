@@ -10,5 +10,5 @@ public interface PhotoFileDao {
 	int update(PhotoFile file);
 	int delete(String code);
 
-	List<PhotoFile> getPhoto(String src, String photo, int post_code);
+	List<PhotoFile> getPhoto();
 }

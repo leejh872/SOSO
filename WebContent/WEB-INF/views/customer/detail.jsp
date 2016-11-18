@@ -6,41 +6,45 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="s" tagdir="/WEB-INF/tags"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+
+
 <main>
 
-
-
-<div class="link">
-	<!-- ${empty pn} -->
-	<c:if test="${empty pn}">
-            	이전글이 없습니다.
-         </c:if>
-	<c:if test="${not empty pn}">
-		<a href="detail?code=${pn.code}">이전글</a>
-	</c:if>
-</div>
-<div class="link">
-	<c:if test="${empty nn}">
-            	다음글이 없습니다.
-         </c:if>
-	<c:if test="${not empty nn}">
-		<a href="detail?code=${nn.code}">다음글</a>
-	</c:if>
-
-</div>
-
-<div style="float: right;">
-	<a href="detail-post-del?pcode=${p.code}">삭제</a>
-</div>
 <div class="content-container-detail">
+
+	<div class="content-container-detail-top">
+		<div class="left">
+			<!-- ${empty pn} -->
+			<c:if test="${empty pn}">
+            	<!-- 이전글이 없습니다. -->
+         </c:if>
+			<c:if test="${not empty pn}">
+				<a class="link" href="detail?code=${pn.code}"><img src="${ctx}/resource/images/left.png" width="30" height="30"/></a>
+			</c:if>
+		</div>
+		<div class="left">
+			<c:if test="${empty nn}">
+            	<!-- 다음글이 없습니다. -->
+         </c:if>
+			<c:if test="${not empty nn}">
+				<a class="link" href="detail?code=${nn.code}"><img src="${ctx}/resource/images/right.png" width="30" height="30"/></a>
+			</c:if>
+
+		</div>
+
+
+		<div class="right">
+			<a href="detail-post-del?pcode=${p.code}" class="link">삭제</a>
+		</div>
+	</div>
+
 	<h1 class="hidden">사진상세보기</h1>
 	<!--  <a href="detail-like?plcode=${p.code}">-->
-		<div id="photo" class="content-container">
-			
-	    	
-		</div>
+	<div id="photo" class="content-container"></div>
 	
-			<%-- <div class="text">
+	<img src = "${ctx}/customer/upload${p.photo}" width="380" height="450"/>
+
+	<%-- <div class="text">
 				<form action="detail" method="post"/>
 				<table>
 					<tr>
@@ -58,7 +62,7 @@
 				</table>
 				</form>
 			</div> --%>
-		</div>
+
 	<!-- </a> -->
 	<div id="story">
 		<table>
@@ -73,7 +77,7 @@
 					</c:forEach>
 				</tr>
 				<tr>
-					<td colspan="7" style="text-align: right;"><fmt:formatDate
+					<td colspan="7" class="right"><fmt:formatDate
 							pattern="yyyy-MM-dd hh:mm:ss" value="${p.regdate}" /></td>
 				</tr>
 				<tr>
@@ -84,8 +88,8 @@
 		<br />
 
 	</div>
-	
-	
+
+
 	<div class="comment">
 		<form action="detail" method="post">
 			<fieldset>
@@ -107,11 +111,12 @@
 								<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
 										value="${c.regdate}" /></td>
 								<td>${c.writer_email}</td>
-								<td><a href="detail-cmt-del?ccode=${c.code}">삭제</a></td>
+								<td><a href="detail-cmt-del?ccode=${c.code}" class="link">삭제</a></td>
 							</tr>
 						</c:forEach>
 						<tr>
-							<td><%-- <c:if test="${empty param.p}">
+							<td>
+								<%-- <c:if test="${empty param.p}">
 									<c:set var="page" value="1" />
 								</c:if> <c:if test="${not empty param.p}">
 									<c:set var="page" value="${param.p}" />
@@ -122,7 +127,8 @@
 								<div>
 									<h3 class="hidden">페이저</h3>
 									<%-- <s:pager /> --%>
-								</div></td>
+								</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>
