@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="soso.dao.UserRoleDao">
+	
+	<select id="getDefaultRole" resultType="String">
+		SELECT ROLENAME FROM USERROLE WHERE USERID = #{userId} and DefaultRole=1	
+	</select>
+		
+		
+	<update id="update" parameterType="soso.entities.UserRole" >
+		UPDATE MEMBERROLES
+			SET  ROLENAME = #{roleName}, USERID = #{userId}, DefaultRole
+			WHERE ROLENAME = #{roleName} AND USERID = #{userId}	
+	</update>
+	
+	<delete id="delete"> <!-- parameterType="String" -->
+		DELETE USERROLE WHERE  USERID = #{userId}
+	</delete>
+	
+	<insert id="insert" parameterType="soso.entities.UserRole">
+		INSERT INTO 
+			USERROLE(userId, RoleName)
+			VALUES(#{roleName}, #{userId}
+	</insert>
+
+</mapper>

@@ -34,8 +34,8 @@
 			<!-- authorities-by-username-query : id에 해당하는 권한을 가져오는 쿼리 -->
 			<!-- ROLE_USER : 모든 유저를 유저로보고 상수화 시킴 -> 쿼리문 바꿈 -->
 			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT EMAIL ID, PW PASSWORD, ENABLED FROM USER WHERE EMAIL = ? "
-				authorities-by-username-query="SELECT USERID ID, ROLENAME AUTHORITY FROM USERROLES WHERE USERID = ?" />
+				users-by-username-query="SELECT EMAIL ID, PW PASSWORD, ENABLED FROM [USER] WHERE EMAIL = ? "
+				authorities-by-username-query="SELECT USERID ID, ROLENAME AUTHORITY FROM USERROLE WHERE USERID = ?" />
 
 			<!-- 3. 윈도우 인증을 이용한 방법 -->
 		</authentication-provider>

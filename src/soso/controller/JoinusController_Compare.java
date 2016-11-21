@@ -1,3 +1,4 @@
+
 package soso.controller;
 
 import java.security.Principal;
@@ -38,10 +39,10 @@ public class JoinusController_Compare {
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(User user, String btn, HttpServletRequest request, HttpServletResponse response) {
 
-		/*
-		 * HttpSession session = request.getSession();
-		 * session.getAttribute("cellphone");
-		 */
+		
+//		  HttpSession session = request.getSession();
+//		  session.getAttribute("cellphone");
+		 
 
 		if (btn.equals("join")) {
 			// 값 받기
@@ -100,12 +101,12 @@ public class JoinusController_Compare {
 				return "joinus.join";
 
 			} else {
-				/*
-				 * User user = new User();
-				 * 
-				 * user.setCellphone(cellphone); user.setEmail(email);
-				 * user.setPw(password); user.setGender(gender);
-				 */
+				
+//				  User user = new User();
+//				  
+//				  user.setCellphone(cellphone); user.setEmail(email);
+//				  user.setPw(password); user.setGender(gender);
+//				 
 
 				userDao.insert(user);
 
