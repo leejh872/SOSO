@@ -11,6 +11,9 @@
       VALUES(#{post_code},#{src},#{photo})
    </insert>
    
+   <select id="get" resultType="soso.entities.PhotoFile">
+		SELECT * FROM PHOTOFILE WHERE POST_CODE = #{post_code};
+	</select>
    <select id="getPhoto" resultType="soso.entities.PhotoFile">
 		SELECT *
 		FROM POST

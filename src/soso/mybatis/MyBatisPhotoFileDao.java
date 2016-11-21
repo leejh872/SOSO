@@ -14,6 +14,15 @@ public class MyBatisPhotoFileDao implements PhotoFileDao {
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
+	
+	@Override
+	public PhotoFile get(String post_code) {
+		PhotoFileDao photoFileDao = sqlSession.getMapper(PhotoFileDao.class);
+
+		PhotoFile photoFile = photoFileDao.get(post_code);
+
+		return photoFile;
+	}
 
 	@Override
 	public List<PhotoFile> getPhoto() {

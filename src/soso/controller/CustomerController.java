@@ -17,6 +17,7 @@ import soso.dao.PhotoFileDao;
 import soso.dao.PostDao;
 import soso.dao.TagDao;
 import soso.entities.Comment;
+import soso.entities.PhotoFile;
 import soso.entities.Post;
 import soso.entities.Tag;
 import soso.entities.model.PhotoFileTagModel;
@@ -171,6 +172,7 @@ public class CustomerController {
 		// POST_CODE값으로 조회한,
 		// POST에 값 담기, POST의 LIKE값 조회, CmtModel에 값 담기, TagModel에 값 담기
 		Post post = postDao.getC(_code);
+		PhotoFile photoFile = photoFileDao.get(_code);
 		String post_like = likeDao.getPostLike(_code);
 		List<Comment> clist = commentDao.getCList(page, _code);
 		List<Tag> list = tagDao.getList(_code);
@@ -180,6 +182,7 @@ public class CustomerController {
 		model.addAttribute("pn", postDao.getPrev(_code));
 		model.addAttribute("nn", postDao.getNext(_code));
 		model.addAttribute("p", post);
+		model.addAttribute("photo", photoFile.getPhoto());
 		model.addAttribute("pl", post_like);
 		model.addAttribute("clist", clist);
 		model.addAttribute("list", list);
@@ -217,15 +220,13 @@ public class CustomerController {
 			System.out.println("doPost : post_code : " + post_code);
 			System.out.println("content : " + content);
 
-			CommentDao cmtDao = new MyBatisCommentDao();
-
 			Comment c = new Comment();
 			// Comment Table의 기본값POST_CODE, CONTENT, WRITER_EMAIL 넣기
 			c.setPost_code(post_code);
 			c.setWriter_email(email);
 			c.setContent(content);
 
-			cmtDao.insert(c);
+			commentDao.insert(c);
 		}
 
 		return "redirect:detail?code=" + post_code;

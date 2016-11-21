@@ -7,7 +7,6 @@
 <%@ taglib prefix="s" tagdir="/WEB-INF/tags"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
-
 <main>
 
 <div class="content-container-detail">
@@ -16,18 +15,20 @@
 		<div class="left">
 			<!-- ${empty pn} -->
 			<c:if test="${empty pn}">
-            	<!-- 이전글이 없습니다. -->
-         </c:if>
+				<!-- 이전글이 없습니다. -->
+			</c:if>
 			<c:if test="${not empty pn}">
-				<a class="link" href="detail?code=${pn.code}"><img src="${ctx}/resource/images/left.png" width="30" height="30"/></a>
+				<a class="link" href="detail?code=${pn.code}"><img
+					src="${ctx}/resource/images/left.png" width="30" height="30" /></a>
 			</c:if>
 		</div>
 		<div class="left">
 			<c:if test="${empty nn}">
-            	<!-- 다음글이 없습니다. -->
-         </c:if>
+				<!-- 다음글이 없습니다. -->
+			</c:if>
 			<c:if test="${not empty nn}">
-				<a class="link" href="detail?code=${nn.code}"><img src="${ctx}/resource/images/right.png" width="30" height="30"/></a>
+				<a class="link" href="detail?code=${nn.code}"><img
+					src="${ctx}/resource/images/right.png" width="30" height="30" /></a>
 			</c:if>
 
 		</div>
@@ -40,9 +41,9 @@
 
 	<h1 class="hidden">사진상세보기</h1>
 	<!--  <a href="detail-like?plcode=${p.code}">-->
-	<div id="photo" class="content-container"></div>
-	
-	<img src = "${ctx}/customer/upload${p.photo}" width="380" height="450"/>
+
+	<img src="${ctx}/customer/upload/${photo}" width="380" height="450"
+		id="photo" class="content-container" />
 
 	<%-- <div class="text">
 				<form action="detail" method="post"/>
@@ -64,7 +65,7 @@
 			</div> --%>
 
 	<!-- </a> -->
-	<div id="story">
+	<div id="story" class="content-container">
 		<table>
 			<tbody>
 				<tr>
@@ -77,8 +78,10 @@
 					</c:forEach>
 				</tr>
 				<tr>
-					<td colspan="7" class="right"><fmt:formatDate
-							pattern="yyyy-MM-dd hh:mm:ss" value="${p.regdate}" /></td>
+					<td colspan="7"><%-- <fmt:formatDate
+							pattern="yyyy-MM-dd hh:mm:ss" value="${p.regdate}" /> --%>
+							<span id="time-str"></span>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="7">${p.story}</td>
@@ -86,11 +89,10 @@
 			</tbody>
 		</table>
 		<br />
-
 	</div>
 
 
-	<div class="comment">
+	<div id="comment" class="content-container">
 		<form action="detail" method="post">
 			<fieldset>
 				<table class="ctable">
@@ -105,11 +107,12 @@
 
 					<tbody>
 						<c:forEach var="c" items="${clist}">
-							<tr>
+							<tr class="ctable-td">
 								<td>${c.gender}</td>
 								<td>${c.content}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
 										value="${c.regdate}" /></td>
+								<!-- admin이면 보이고 안보이고 처리하기 -->
 								<td>${c.writer_email}</td>
 								<td><a href="detail-cmt-del?ccode=${c.code}" class="link">삭제</a></td>
 							</tr>
@@ -134,6 +137,7 @@
 				</table>
 			</fieldset>
 		</form>
+
 	</div>
 </div>
 </main>

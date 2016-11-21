@@ -9,18 +9,18 @@
 		<a href="${ctx}/main" class="link">SOSOHEA</a>
 	</h1>
 	<section id="menu">
-	
-	
-		<section id="search-form">
-					<form action="main" method="post">
-						<fieldset>
-						<input name="q" placeholder="# tag" value=${param.q}> 
-						<input type="submit" value="검색" />
-						</fieldset>
-					</form>
-				</section>
 
-	
+
+		<section id="search-form">
+			<form action="main" method="post">
+				<fieldset>
+					<input name="q" placeholder="# tag" value=${param.q}> <input
+						type="submit" value="검색" />
+				</fieldset>
+			</form>
+		</section>
+
+
 		<!-- <section id="search">
 			<form>
 				<input name="q" placeholder="# tag" value=${param.q}> 
@@ -29,11 +29,20 @@
 		</section>
 		</br> </br>
 		</section> -->
-		</br>
-		</br>
+		</br> </br>
 		<nav id="main-menu" class="h-menu">
 			<ul>
-				<li><a href="${ctx}/admin/main" class="link">ADMIN</a></li>
+				<li><a href="${ctx}/admin/main" class="link">ADMIN</a>
+					<table class="submenu">
+						<%-- <tr>
+							<td><a href="${ctx}/customer/mypage"
+								class="submenuLink link">MY PHOTO</a></td>
+						</tr>
+						<tr>
+							<td><a href="${ctx}/customer/likespage"
+								class="submenuLink link">LIKES</a></td>
+						</tr> --%>
+					</table></li>
 				<c:if test="${empty sessionScope.email}">
 					<li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li>
 				</c:if>
@@ -41,13 +50,16 @@
 					<li><a href="${ctx}/joinus/logout" class="link">LOGOUT</a></li>
 				</c:if>
 
-				<li class="sub-menu"><a href="${ctx}/customer/mypage" class="link">MY PAGE</a>
+				<li class="sub-menu"><a href="${ctx}/customer/mypage"
+					class="link">MY PAGE</a>
 					<table class="submenu">
 						<tr>
-							<td><a href="${ctx}/customer/mypage" class="submenuLink link">MY PHOTO</a></td>
+							<td><a href="${ctx}/customer/mypage"
+								class="submenuLink link">MY PHOTO</a></td>
 						</tr>
 						<tr>
-							<td><a href="${ctx}/customer/likespage" class="submenuLink link">LIKES</a></td>
+							<td><a href="${ctx}/customer/likespage"
+								class="submenuLink link">LIKES</a></td>
 						</tr>
 					</table></li>
 				<li><a href="${ctx}/aboutus" class="link">ABOUT US</a></li>
