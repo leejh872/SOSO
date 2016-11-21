@@ -4,15 +4,20 @@
     xsi:schemaLocation="
     	http://www.springframework.org/schema/beans   
         http://www.springframework.org/schema/beans/spring-beans.xsd">  
+ 	
+ 	
+ 	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+         <!-- setting maximum upload size -->
+        <property name="maxUploadSize" value="10000000" />       
+    </bean>	       
         
         <!-- DB -->
 	
 	<!-- config.xml은 spring은 못쓰고 MyBatis만 쓸 수 있으므로 MyBatis가 읽을 수 있도록 만들어줌(객체생성) -->
-	<bean name="dataSource"
-	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean name="dataSource"	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-	<property name="url"
-		value="jdbc:sqlserver://dev.newlecture.com:1433;databaseName=sosodb" />
+	<property name="url" value="jdbc:sqlserver://dev.newlecture.com:1433;databaseName=sosodb" />
 	<property name="username" value="soso" />
 	<property name="password" value="nobadnogood" />
 	</bean>

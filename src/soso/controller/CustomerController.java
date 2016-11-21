@@ -331,7 +331,7 @@ public class CustomerController {
 		String email = "test@naver.com";
 
 		System.out.println("myemail: " + email);
-		List<Post> myphotoList = postDao.getMyPhoto(email);// 마이폐이찌 포토
+		List<String> myphotoList = postDao.getMyPhoto(email);// 마이폐이찌 포토
 
 		for (int i = 0; i < myphotoList.size(); i++) {
 			System.out.println("myphotoInfo.get: " + myphotoList.get(i));
@@ -351,16 +351,14 @@ public class CustomerController {
 		// 로그인 안됨
 		String email = "test@naver.com";
 
-		System.out.println("myemail: " + email);
-		List<Post> myphotoList = postDao.getMyPhoto(email);// 마이폐이찌 포토
+		//System.out.println("myemail: " + email);
+		List<String> myphotoList = postDao.getMyPhoto(email);//마이폐이찌 포토
 
-		for (int i = 0; i < myphotoList.size(); i++) {
-			System.out.println("myphotoInfo.get: " + myphotoList.get(i));
-		}
-
-		model.addAttribute("MYPHOTO_LIST", myphotoList);
+		model.addAttribute("myphotoList", myphotoList);
+		//System.out.println("myphotoList:"+myphotoList);
 
 		return "customer.mypage";
+		
 	}
 
 	@RequestMapping(value = "mypage", method = RequestMethod.POST)

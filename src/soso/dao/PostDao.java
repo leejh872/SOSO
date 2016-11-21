@@ -24,7 +24,7 @@ public interface PostDao {
 	
 	List<Post> getList(int page, String title, String query);
 	List<Post> getCList(int page, String title, String query);
-	List<Post> getMyPhoto(String email);
+	List<String> getMyPhoto(String email);
 	/*List<Post> getPhoto();*/
 	
 	//String getLastCode();

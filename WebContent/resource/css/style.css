@@ -9,6 +9,12 @@ body{
 body .hidden{
 	display: none;
 }
+body .left{
+	float: left;
+}
+body .right{
+	float: right;
+}
 .link {			/*하이퍼 링크 밑줄/색깔 지우기*/
 	color: #000;
 	text-decoration: none;

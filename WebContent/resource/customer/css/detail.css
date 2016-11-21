@@ -2,12 +2,23 @@
 
 
 /* 메인 */
+
+body main{
+	margin: auto;
+}
+
+.content-container-detail-top {
+	display: inline-block;
+	height: inherit;
+	width: 760px;
+	margin: auto;
+}
 .content-container-detail {
 	font-family: Helvetica, "맑은 고딕";
 	font-weight: lighter;
 	font-size: 17px;
 	
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	height: inherit;
 	width: 760px;
 	margin: auto;
