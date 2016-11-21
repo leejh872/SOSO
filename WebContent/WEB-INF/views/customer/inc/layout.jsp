@@ -45,7 +45,6 @@ Latest compiled and minified JavaScript
 			
 				<!-- main, content 부분 -->
 				<tiles:insertAttribute name="main" />
-
 		</div>
 	</div>
 

@@ -1,9 +1,14 @@
 package soso.mybatis;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import soso.dao.LikeDao;
+import soso.dao.TagDao;
 import soso.entities.Like;
+import soso.entities.model.PhotoFileLikeModel;
+import soso.entities.model.PhotoFileTagModel;
 
 public class MyBatisLikeDao implements LikeDao {
 
@@ -45,6 +50,16 @@ public class MyBatisLikeDao implements LikeDao {
 		int result = likeDao.updateLike(is_like, post_code, user_email);
 		
 		return result;
+	}
+	
+	@Override
+	public List<PhotoFileLikeModel> getLikePhoto(String user_email) {
+		
+		LikeDao likeDao = sqlSession.getMapper(LikeDao.class);
+		
+		List<PhotoFileLikeModel> list = likeDao.getLikePhoto(user_email);
+		
+		return list;
 	}
 
 	/*@Override

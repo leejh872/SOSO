@@ -22,16 +22,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="name" resultType="String">
-		SELECT TB2.NAME
-		FROM POST TB1
-		JOIN TAG TB2
-		ON TB1.CODE = TB2.POST_CODE
-		ORDER BY TB1.REGDATE DESC;
+		SELECT TAG.NAME
+		FROM POST
+		JOIN TAG
+		ON POST.CODE = TAG.POST_CODE
+		ORDER BY POST.REGDATE DESC;
 	</select>	
 	
 	
 	<select id="getSearch" resultType="soso.entities.model.PhotoFileTagModel">
-		select * from tag t inner join PHOTOFILE p  on t.post_code = p.post_code where t.name=#{tag}
+		SELECT * FROM TAG  INNER JOIN PHOTOFILE ON TAG.POST_CODE = PHOTOFILE.POST_CODE WHERE TAG.NAME=#{tag}
 	</select>
 	
 	

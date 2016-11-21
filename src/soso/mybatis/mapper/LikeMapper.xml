@@ -15,5 +15,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	UPDATE [LIKE] SET IS_LIKE = ${param1} WHERE POST_CODE = ${param2} AND USER_EMAIL = '${param3}';
    	<!-- UPDATE [LIKE] SET IS_LIKE = #{is_like} WHERE POST_CODE = #{post_code} AND USER_EMAIL = #{email}; -->
    </update>
+   
+   <select id="getLikePhoto" resultType="soso.entities.model.PhotoFileLikeModel">
+		SELECT PHOTOFILE.POST_CODE, PHOTO, [LIKE].USER_EMAIL
+		FROM [LIKE] INNER JOIN PHOTOFILE 
+		ON PHOTOFILE.POST_CODE = [LIKE].POST_CODE
+		WHERE [LIKE].USER_EMAIL = #{email}
+		
+	</select>
 	
    </mapper>

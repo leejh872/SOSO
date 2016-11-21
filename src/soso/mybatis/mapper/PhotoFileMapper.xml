@@ -19,4 +19,7 @@
 		<!-- ORDER BY PHOTOFILE.REGDATE DESC -->
 		ORDER BY NEWID() <!-- 랜덤 -->
 	</select>
+	
+	
+	
 </mapper>

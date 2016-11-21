@@ -5,13 +5,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 	<main>
 		<div class="content-container">
-<c:forEach  var="p" items="${photoList}">
-			<a href="${ctx}/customer/detail?code=${p.postCode}">
-			<div>${p.postCode}</div>
-				<img src = "images/${p.photo}" width="300" height="300"/>
+		<c:forEach  var="l" items="${likephotoList}">
+			<a href="${ctx}/customer/detail?code=${l.post_code}">
+				<img src = "${ctx}/resource/customer/upload/${l.photo}" width="300" height="300"/>
   			</a>
  		</c:forEach>
 	</main>

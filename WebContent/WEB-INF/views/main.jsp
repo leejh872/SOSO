@@ -11,7 +11,7 @@
 		<div class="content-container">
 	    	<c:forEach  var="p" items="${photoList}">
 				<a href="${ctx}/customer/detail?code=${p.post_code}">
-					<img src = "${ctx}/customer/upload${p.photo}" width="300" height="300"/>
+					<img src = "${ctx}/resource/customer/upload/${p.photo}" width="300" height="300"/>
 	  			</a>
 	 		</c:forEach>
 		</div>

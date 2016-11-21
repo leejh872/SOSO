@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getMyPhoto" resultType="soso.entities.PhotoFile" >
 
-		SELECT TB2.PHOTO
+		SELECT TB2.PHOTO, TB2.POST_CODE
 		FROM POST TB1
 		JOIN PHOTOFILE TB2
 		ON TB1.CODE = TB2.POST_CODE

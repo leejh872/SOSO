@@ -5,7 +5,7 @@
 	<h1>
 		<a href="main" class="link">SOSOHEA</a>
 	</h1>
-	<form method="post" enctype="multipart/form-data">
+	<form action="reg" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend></legend>
 			<table border="1">
@@ -17,7 +17,7 @@
 					<tr>
 						<td>첨부파일</td>
 						
-							<td><input type="file" name="photo"/></td>
+							<td><input type="file" name="file"/></td>
 							
 						<!--이름이 똑같으면 배열로 간대요.  -->
 					</tr>

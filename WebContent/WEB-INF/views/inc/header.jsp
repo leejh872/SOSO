@@ -12,7 +12,7 @@
 	
 	
 		<section id="search-form">
-					<form action="main" method="post">
+					<form action="main-search" method="post">
 						<fieldset>
 						<input name="q" placeholder="# tag" value=${param.q}> 
 						<input type="submit" value="검색" />
