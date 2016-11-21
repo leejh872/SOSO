@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -34,14 +34,14 @@ Latest compiled and minified JavaScript
 	<tiles:insertAttribute name="header" />
 	
 	<!-- visual 부분 -->
-	<%-- <tiles:insertAttribute name="visual" /> --%>
+	<tiles:insertAttribute name="visual" />
 
 	<!-- body 부분 -->
 	<div id="body">
 		<div class="content-container clearfix">
 		
 			<!-- aside 부분 -->
-			<%-- <tiles:insertAttribute name="aside" /> --%>
+			<tiles:insertAttribute name="aside" />
 			
 				<!-- main, content 부분 -->
 				<tiles:insertAttribute name="main" />
@@ -53,4 +53,4 @@ Latest compiled and minified JavaScript
 	<tiles:insertAttribute name="footer" />
 
 </body>
-</html>
+</html> --%>

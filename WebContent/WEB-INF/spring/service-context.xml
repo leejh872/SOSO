@@ -56,5 +56,29 @@
 	<bean name="userDao" class="soso.mybatis.MyBatisUserDao">
 		<property name="sqlSession" ref="sqlSession"></property>
 	</bean>
+	<bean name="userRoleDao" class="soso.mybatis.MyBatisUserRoleDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	
+<!-- 	
+	
+	타일즈 설정	
+타일즈 구성을 만드는 객체를 만듦
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+       <property name="definitions"  value="/WEB-INF/tiles.xml"/>
+    </bean>
+Resolver가 설정이 되지 않으면, 페이지뷰를 찾는다=페이지뷰를 리졸빙한다 //타일즈를 이용할 수 있게 해주는 Resolver     
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+       <property name="viewClass"  value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+       <property name="order"  value="1"/>
+    </bean>
+ Resolver가 두개 있으면, property order로 명시적인 순서를 주면된다.    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix"  value="/WEB-INF/views/"/>
+      <property name="suffix" value=".jsp" />
+      <property name="order"  value="2"/>
+   </bean>  
+  -->  
+   
 	
 </beans>	

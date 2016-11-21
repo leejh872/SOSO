@@ -1,21 +1,21 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
 
 	<main>
 	<div class="content-container">
 		<c:if test="${not empty msg}">${msg}</c:if>
-		<form method="post">
+		<form action="${ctx}/j_spring_security_check" method="post">
 			<fieldset id="login-form">
 				<table align="center" id="login-table">
 					<tr>
-						<td><input type="text" name="email" placeholder="ID" />
+						<td><input type="text" name="j_username" placeholder="ID" />
 						<a href="" class="link"></a></td>
 					</tr>
 					<tr>
-						<td><input type="password" name="password" placeholder="PW" /><a
+						<td><input type="password" name="j_password" placeholder="PW" /><a
 							href="" class="link"></a></td>
 					</tr>
 				</table>

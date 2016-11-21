@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<%-- <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="n" uri="http://www.newlecture.com/jsp/tags/control"%>
@@ -35,13 +35,13 @@
 						</c:forEach>
 						<tr>
 							<td>
-								<%-- <c:if test="${empty param.p}">
+								<c:if test="${empty param.p}">
 									<c:set var="page" value="1" />
 								</c:if> <c:if test="${not empty param.p}">
 									<c:set var="page" value="${param.p}" />
 								</c:if> <c:set var="start" value="${page-(page-1)%5}" /> <c:set
 									var="end"
-									value="${fn:substringBefore((count%10==0?count/10:count/10+1),'.')}" /> --%>
+									value="${fn:substringBefore((count%10==0?count/10:count/10+1),'.')}" />
 
 								<div>
 									<h3 class="hidden">페이저</h3>
@@ -54,4 +54,4 @@
 			</fieldset>
 		</form>
 	</div>
-	</content>
+	</content> --%>

@@ -24,6 +24,7 @@
             <div class="content-container">
                
                <img src="${ctx}/resource/images/leejh872@naver.com3.jpg" width="500" height="500"/>
+
             </div>
          </main>
       </div>
