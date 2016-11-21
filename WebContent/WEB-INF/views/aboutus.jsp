@@ -23,8 +23,8 @@
          <main> 
             <div class="content-container">
                
-               <img src="${ctx}/images/zmfpdlwl0909@naver.com4.jpg" width="500" height="500"/>
-               <img src="${ctx}/images/cherryblossom.jpg" width="500" height="500"/>
+               <img src="${ctx}/images/soon.jpg" width="500" height="500"/>
+               <%-- <img src="${ctx}/images/cherryblossom.jpg" width="500" height="500"/> --%>
             </div>
          </main>
       </div>
