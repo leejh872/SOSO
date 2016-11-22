@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="soso.dao.WarningDao">
+	<!-- <select id="get" resultType="soso.entities.Admin">
+		SELECT * FROM [ADMIN] WHERE
+		EMAIL = #{email}
+	</select> -->
+	<select id="getList" parameterType="String" resultType="soso.entities.Warning">
+		SELECT * FROM
+		(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) lNUM, WARNING.*
+		FROM WARNING
+		WHERE NUM = ${param2}
+		) A WHERE lNUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
+	
+	<insert id="insert" parameterType="soso.entities.Warning">
+
+	<selectKey order="BEFORE" keyProperty="code" resultType="String">
+		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM [WARNING]
+	</selectKey>
+		INSERT INTO WARNING(CODE, EMAIL, CAUSE, ADMIN_EMAIL) 
+		VALUES(#{code}, #{email}, #{cause}, #{admin_email});
+	</insert>
+	<delete id="delete">
+		DELETE [WARNING] WHERE CODE = #{code}
+	</delete>
+	
+</mapper>

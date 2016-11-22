@@ -32,9 +32,6 @@
 <body>
 	<!-- header 부분 -->
 	<tiles:insertAttribute name="header" />
-	
-	<!-- visual 부분 -->
-	<%-- <tiles:insertAttribute name="visual" /> --%>
 
 	<!-- body 부분 -->
 	<div id="body">
@@ -48,5 +45,6 @@
 
 		</div>
 	</div>
+
 </body>
 </html>

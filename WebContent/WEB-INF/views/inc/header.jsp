@@ -35,8 +35,29 @@
 			<ul>
 			
 				 <security:authorize ifAnyGranted="ROLE_ADMIN">
-				 <li><a href="${ctx}/admin/main" class="link">ADMIN</a></li>
+				 <li class="sub-menu">
+				 <a href="${ctx}/admin/member/admin" class="link">ADMIN</a>
+				 <table class="submenu">
+						<tr>
+							<td><a href="${ctx}/admin/member/admin"
+								class="submenuLink link">ADMIN</a></td>
+						</tr>
+						<tr>
+							<td><a href=""
+								class="submenuLink link">USER</a></td>
+						</tr>
+						<tr>
+							<td><a href="${ctx}/admin/board/post"
+								class="submenuLink link">POST</a></td>
+						</tr>
+						<tr>
+							<td><a href="${ctx}/admin/board/cmt"
+								class="submenuLink link">COMMENT</a></td>
+						</tr>
+					</table>
+				 </li>
 				 </security:authorize>
+				 
 				 <c:if test="${empty pageContext.request.userPrincipal}">
 				 <li><a href="${ctx}/joinus/login" class="link">JOIN/LOGIN</a></li>
 				 </c:if>

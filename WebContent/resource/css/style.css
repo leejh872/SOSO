@@ -15,6 +15,7 @@ body .left{
 body .right{
 	float: right;
 }
+
 .link {			/*하이퍼 링크 밑줄/색깔 지우기*/
 	color: #000;
 	text-decoration: none;
@@ -24,4 +25,8 @@ body .right{
    height: inherit;
    width: 960px;
    margin : auto;
+}
+
+.table-style{
+	width: 100%;
 }

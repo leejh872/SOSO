@@ -3,8 +3,7 @@
 /*--------헤더-----------*/
 #header {
 	padding-top: 20px;
-	height: 150px;
-	
+	height: 220px;
 }
 #header h1 { /* 글자에 그라데이션 넣기 */
 	font-size: 40px;

@@ -12,7 +12,7 @@
 		<h1>댓글 목록</h1>
 
 		<form action="" method="post">
-			<table>
+			<table  class="table-style">
 				<tr>
 					<td>검색창</td>
 					<td colspan="3"><input type="text" name="title"

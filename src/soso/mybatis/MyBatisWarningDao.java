@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import soso.dao.AdminDao;
-import soso.entities.Admin;
+import soso.dao.WarningDao;
+import soso.entities.Warning;
 
-public class MyBatisAdminDao implements AdminDao {
+public class MyBatisWarningDao implements WarningDao {
 
 	private SqlSession sqlSession;
 
@@ -27,25 +27,25 @@ public class MyBatisAdminDao implements AdminDao {
 	}*/
 	
 	@Override
-	public List<Admin> getList(String email) {
-		return getList(1, email);
+	public List<Warning> getList(String num) {
+		return getList(1, num);
 	}
 
 	@Override
-	public List<Admin> getList(int page, String email) {
+	public List<Warning> getList(int page, String num) {
 		
-		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
-		List<Admin> result = adminDao.getList(page, email);
+		WarningDao adminDao = sqlSession.getMapper(WarningDao.class);
+		List<Warning> result = adminDao.getList(page, num);
 
 		return result;
 	}
 	
 	@Override
-	public int insert(Admin admin) {
+	public int insert(Warning warning) {
 		
-		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
+		WarningDao adminDao = sqlSession.getMapper(WarningDao.class);
 		
-		int result = adminDao.insert(admin);
+		int result = adminDao.insert(warning);
 		
 		return result;
 	}
@@ -53,7 +53,7 @@ public class MyBatisAdminDao implements AdminDao {
 	@Override
 	public int delete(String code) {
 		
-		AdminDao adminDao = sqlSession.getMapper(AdminDao.class);
+		WarningDao adminDao = sqlSession.getMapper(WarningDao.class);
 		
 		int result = adminDao.delete(code);
 		

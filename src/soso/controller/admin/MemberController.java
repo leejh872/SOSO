@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import soso.dao.AdminDao;
+import soso.dao.WarningDao;
 import soso.dao.UserDao;
-import soso.entities.Admin;
-import soso.mybatis.MyBatisAdminDao;
+import soso.entities.Warning;
+import soso.mybatis.MyBatisWarningDao;
 import soso.mybatis.MyBatisUserDao;
 
 @Controller
@@ -20,17 +20,17 @@ import soso.mybatis.MyBatisUserDao;
 public class MemberController {
 
 	@Autowired
-	private AdminDao adminDao;
+	private WarningDao warningDao;
 	@Autowired
 	private UserDao userDao;
 
 	@RequestMapping("admin")
 	public String admin(Model model) {
+		
+		// warning의 모든 num 값을 보여준다
+		List<Warning> wlist = warningDao.getList("NUM");
 
-		// 모든 admin값을 보여준다
-		List<Admin> alist = adminDao.getList("");
-
-		model.addAttribute("alist", alist);
+		model.addAttribute("wlist", wlist);
 
 		return "admin.member.admin";
 
@@ -46,15 +46,15 @@ public class MemberController {
 		// 로그인 안됨
 		String _email = "test@naver.com";
 
-		List<Admin> alist = adminDao.getList(_email);
+		List<Warning> alist = warningDao.getList(_email);
 
 		// admin이 맞다면
 		if (alist.size() != 0) {
 			// admin 추가하기
 
-			Admin admin = null;
+			Warning admin = null;
 			admin.setEmail(email);
-			adminDao.insert(admin);
+			warningDao.insert(admin);
 		}
 
 		return "redirect:admin";
@@ -66,7 +66,7 @@ public class MemberController {
 		// 로그인 안됨
 		String email = "test@naver.com";
 
-		List<Admin> alist = adminDao.getList(email);
+		List<Warning> alist = warningDao.getList(email);
 
 		if (email == null || email.equals("")) {
 		}
@@ -75,7 +75,7 @@ public class MemberController {
 
 			System.out.println("acode : " + acode);
 
-			adminDao.delete(acode);
+			warningDao.delete(acode);
 
 		}
 		return "redirect:admin";

@@ -35,9 +35,6 @@
 		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
-	<bean name="adminDao" class="soso.mybatis.MyBatisAdminDao">
-		<property name="sqlSession" ref="sqlSession"></property>
-	</bean>
 	<bean name="commentDao" class="soso.mybatis.MyBatisCommentDao">
 		<property name="sqlSession" ref="sqlSession"></property>
 	</bean>
@@ -57,6 +54,9 @@
 		<property name="sqlSession" ref="sqlSession"></property>
 	</bean>
 	<bean name="userRoleDao" class="soso.mybatis.MyBatisUserRoleDao">
+		<property name="sqlSession" ref="sqlSession"></property>
+	</bean>
+	<bean name="warningDao" class="soso.mybatis.MyBatisWarningDao">
 		<property name="sqlSession" ref="sqlSession"></property>
 	</bean>
 	

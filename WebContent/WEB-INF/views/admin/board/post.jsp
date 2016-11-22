@@ -12,7 +12,7 @@
 		<h1>포스트 목록</h1>
 
 		<form action="" method="post">
-			<table>
+			<table  class="table-style">
 				<tr>
 					<td>검색창</td>
 					<td colspan="3"><input type="text" name="title"
@@ -32,7 +32,7 @@
 						<th>내용</th>
 						<th>날짜</th>
 						<th>조회수</th>
-						<th>경고 횟수</th>
+						<th>보임</th>
 					</tr>
 				</thead>
 				<c:forEach var="p" items="${plist}">

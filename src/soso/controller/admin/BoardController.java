@@ -9,13 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import soso.dao.AdminDao;
+import soso.dao.WarningDao;
 import soso.dao.CommentDao;
 import soso.dao.PostDao;
-import soso.entities.Admin;
+import soso.entities.Warning;
 import soso.entities.Comment;
 import soso.entities.Post;
-import soso.mybatis.MyBatisAdminDao;
+import soso.mybatis.MyBatisWarningDao;
 import soso.mybatis.MyBatisCommentDao;
 import soso.mybatis.MyBatisPostDao;
 
@@ -24,7 +24,7 @@ import soso.mybatis.MyBatisPostDao;
 public class BoardController {
 
 	@Autowired
-	private AdminDao adminDao;
+	private WarningDao adminDao;
 	@Autowired
 	private CommentDao commentDao;
 	@Autowired
@@ -60,7 +60,7 @@ public class BoardController {
 		// 로그인 안됨
 		String email = "test@naver.com";
 		
-		List<Admin> alist = adminDao.getList(email);
+		List<Warning> alist = adminDao.getList(email);
 
 		if (email == null || email.equals("")) {
 			
@@ -109,7 +109,7 @@ public class BoardController {
 		// 로그인 안됨
 		String email = "test@naver.com";
 
-		List<Admin> alist = adminDao.getList(email);
+		List<Warning> alist = adminDao.getList(email);
 
 		if (email == null || email.equals("")) {
 		}

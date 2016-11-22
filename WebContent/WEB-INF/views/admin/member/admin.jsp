@@ -12,33 +12,33 @@
 		<h1>관리자 목록</h1>
 		<form action="admin-add" method="post">
 			<fieldset>
-				<table>
+				<table class="table-style">
 					<thead>
 						<tr>
-							<th>관리자 아이디</th>
+							<th>번호</th>
 							<th>경고한 포스트</th>
 							<th>경고한 댓글</th>
+							<th>경고 아이디</th>
+							<th>경고 횟수</th>
+							<th>경고 이유</th>
+							<th>관리자 아이디</th>
 							<th>경고 날짜</th>
 						</tr>
 					</thead>
-					<c:forEach var="a" items="${alist}">
+					<c:forEach var="w" items="${wlist}">
 						<tr>
-							<td>${a.email}</td>
-							<td>${a.post_code}</td>
-							<td>${a.cmt_code}</td>
+							<td>${w.code}</td>
+							<td>${w.post_code}</td>
+							<td>${w.cmt_code}</td>
+							<td>${w.email}</td>
+							<td>${w.num}</td>
+							<td>${w.cause}</td>
+							<td>${w.admin_email}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
-									value="${a.regdate}" /></td>
-							<td><a href="admin-del?acode=${a.code}">삭제</a></td>
+									value="${w.regdate}" /></td>
+							<td><a href="admin-del?acode=${w.code}">삭제</a></td>
 						</tr>
 					</c:forEach>
-					<tr>
-
-						<td>추가할 관리자 이메일</td>
-						<td colspan="3"><input type="text" name="aemail"
-							value="${aemail}" /></td>
-						<td><input type="submit" value="추가" /></td>
-
-					</tr>
 				</table>
 			</fieldset>
 		</form>
