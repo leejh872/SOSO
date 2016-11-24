@@ -44,7 +44,7 @@ public class MemberController {
 	}
 
 	@RequestMapping("user")
-	public String user(Model model, String p) {
+	public String user(Model model, String p, String t, String q) {
 
 		// 기본값 초기화
 		int page = 1;
@@ -54,6 +54,12 @@ public class MemberController {
 		// 검색값이 있을경우
 		if (p != null && !p.equals("")) {
 			page = Integer.parseInt(p);
+		}
+		if (t != null && !t.equals("")) {
+			title = t;
+		}
+		if (q != null && !q.equals("")) {
+			query = q;
 		}
 
 		// UserListView값을 보여준다
@@ -141,7 +147,7 @@ public class MemberController {
 			// user와 연관되어있는 userRole, user 삭제
 			userRoleDao.delete(aemail);
 			userDao.delete(aemail);
-			
+
 			return "redirect:user";
 
 		} else if (roleName.equals("ROLE_USER")) {
@@ -180,7 +186,8 @@ public class MemberController {
 
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("user-warning-del")
-	public String userWarningDel(Principal principal, String acode, String aemail, HttpServletResponse response) throws IOException {
+	public String userWarningDel(Principal principal, String acode, String aemail, HttpServletResponse response)
+			throws IOException {
 
 		// 로그인 유저의 롤네임(권한) 얻기
 		String email = principal.getName();

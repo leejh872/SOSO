@@ -49,16 +49,22 @@ public class BoardController {
 	}
 
 	@RequestMapping("post")
-	public String post(Model model, String p) {
+	public String post(Model model, String p, String t, String q) {
 
 		// 기본값 초기화
 		int page = 1;
-		String title = "email";
+		String title = "story";
 		String query = "";
 
 		// 검색값이 있을경우
 		if (p != null && !p.equals("")) {
 			page = Integer.parseInt(p);
+		}
+		if (t != null && !t.equals("")) {
+			title = t;
+		}
+		if (q != null && !q.equals("")) {
+			query = q;
 		}
 
 		// 모든 POST값을 보여준다
@@ -94,16 +100,22 @@ public class BoardController {
 	}
 
 	@RequestMapping("cmt")
-	public String cmt(Model model, String p) {
+	public String cmt(Model model, String p, String t, String q) {
 
 		// 기본값 초기화
 		int page = 1;
-		String title = "writer_email";
+		String title = "content";
 		String query = "";
 
 		// 검색값이 있을경우
 		if (p != null && !p.equals("")) {
 			page = Integer.parseInt(p);
+		}
+		if (t != null && !t.equals("")) {
+			title = t;
+		}
+		if (q != null && !q.equals("")) {
+			query = q;
 		}
 
 		// 모든 Comment값을 보여준다

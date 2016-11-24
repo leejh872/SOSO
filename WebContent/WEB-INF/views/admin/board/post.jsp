@@ -12,17 +12,39 @@
 	<div>
 		<h1>포스트 목록</h1>
 
-		<%-- <form action="" method="post">
+		<form action="post" method="get">
 			<table>
 				<tr>
-					<td>검색창</td>
-					<td colspan="3"><input type="text" name="title"
-						value="${title}" /></td>
+					<td><select name="t">
+							<option value="">분류선택</option>
+
+							<c:if test="${param.t == 'STORY'}">
+								<option value="STORY" selected="selected">내용</option>
+							</c:if>
+							<c:if test="${param.t != 'STORY'}">
+								<option value="STORY">내용</option>
+							</c:if>
+							<c:if test="${param.t == 'EMAIL'}">
+								<option value="EMAIL" selected="selected">작성자</option>
+							</c:if>
+							<c:if test="${param.t != 'EMAIL'}">
+								<option value="EMAIL">작성자</option>
+							</c:if>
+							<c:if test="${param.t == 'TEMP_DEL'}">
+								<option value="TEMP_DEL" selected="selected">임시 삭제</option>
+							</c:if>
+							<c:if test="${param.t != 'TEMP_DEL'}">
+								<option value="TEMP_DEL">임시 삭제</option>
+							</c:if>
+
+					</select></td>
+
+					<td colspan="3"><input type="text" name="q" value="${query}" /></td>
 					<td><input type="submit" value="검색" /></td>
 
 				</tr>
 			</table>
-		</form> --%>
+		</form>
 
 		<table class="table table-size table-style">
 			<thead>

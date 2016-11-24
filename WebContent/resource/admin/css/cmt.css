@@ -11,7 +11,7 @@
 }
 .table-style tbody > tr td:NTH-CHILD(3){
 	width: 300px;
-	
+	display: block;
 	/* wrap = 다음칸으로 넘어간다 */
 	white-space: nowrap;
 	/* 넘치는 것은 안보이게 */
