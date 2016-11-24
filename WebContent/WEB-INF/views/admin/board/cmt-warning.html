@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>경고 사유</title>
+
+<script type="text/javascript">
+	window.onload = function() {
+		var openerCloseButton = document.getElementById("opener-close-button");
+
+		openerCloseButton.onclick = function() {
+			
+			var cause = prompt("경고 사유를 입력해주세요.", "");
+			
+			if(cause == null || cause.equlse(""){
+				alert("경고 사유를 입력해주세요.");
+				history.go(-1);
+			}else{
+				opener.location.href="javascripｔ:p_fun();";
+				opener.close();
+			}
+		};
+
+	}
+</script>
+
+</head>
+<body>
+
+	<input id="opener-close-button" type="button" value="확인">
+
+</body>
+</html>

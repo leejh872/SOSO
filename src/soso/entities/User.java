@@ -8,6 +8,8 @@ public class User {
 	private String pw;
 	private String gender;
 	private Date regdate;
+	private int war_num;
+	private String roleDName;
 	
 	public String getPw() {
 		return pw;
@@ -42,5 +44,18 @@ public class User {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public int getWar_num() {
+		return war_num;
+	}
+	public void setWar_num(int war_num) {
+		this.war_num = war_num;
+	}
+	public String getRoleDName() {
+		return roleDName;
+	}
+	public void setRoleDName(String roleDName) {
+		this.roleDName = roleDName;
+	}
+	
 	
 }

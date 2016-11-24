@@ -8,10 +8,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM [USER] WHERE EMAIL = #{email}		
 	</select>
 	
+	<select id="getList" parameterType="string" resultType="soso.entities.User">
+		SELECT * FROM
+		(
+		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE ASC) NUM, USER_LIST_VIEW.*
+		FROM USER_LIST_VIEW
+		WHERE ${param2} LIKE '%${param3}%'
+		) A WHERE NUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
+	</select>
+	
 	<insert id="insert" parameterType="soso.entities.User">
 		INSERT INTO [USER] (EMAIL,CELLPHONE,PW, GENDER) 
 			VALUES(#{email},#{cellphone},#{pw},#{gender})
 	</insert>
+	
+	<delete id="delete">
+		DELETE [USER] WHERE EMAIL = #{email}
+	</delete>
 	
 	
 	

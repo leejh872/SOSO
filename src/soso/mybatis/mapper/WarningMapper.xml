@@ -15,17 +15,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE NUM = ${param2}
 		) A WHERE lNUM BETWEEN (1+(#{param1}-1)*10) AND #{param1}*10
 	</select>
+	<select id="getCList" parameterType="String" resultType="soso.entities.Warning">
+		SELECT * FROM WARNING WHERE EMAIL = #{email}
+	</select>
 	
 	<insert id="insert" parameterType="soso.entities.Warning">
-
 	<selectKey order="BEFORE" keyProperty="code" resultType="String">
 		SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 AS CODE FROM [WARNING]
 	</selectKey>
-		INSERT INTO WARNING(CODE, EMAIL, CAUSE, ADMIN_EMAIL) 
-		VALUES(#{code}, #{email}, #{cause}, #{admin_email});
+		INSERT INTO WARNING(CODE, CMT_CODE, EMAIL, CAUSE, ADMIN_EMAIL) 
+		VALUES(#{code}, #{cmt_code}, #{email}, #{cause}, #{admin_email});
 	</insert>
+	<update id="updateNum" parameterType="soso.entities.Warning">
+		UPDATE WARNING 
+		SET NUM = (SELECT ISNULL(MAX(NUM), 0) NUM FROM WARNING WHERE EMAIL = '${param1}') + 1 
+		WHERE CODE = ${param2}
+	</update>
 	<delete id="delete">
-		DELETE [WARNING] WHERE CODE = #{code}
+		DELETE [WARNING] WHERE CODE = #{param2}
 	</delete>
 	
 </mapper>

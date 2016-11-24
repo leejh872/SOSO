@@ -29,14 +29,14 @@ public class MyBatisUserRoleDao implements UserRoleDao {
 	@Override
 	public int update(UserRole userRole) {
 		UserRoleDao userroleDao = sqlsession.getMapper(UserRoleDao.class);
-		int result = userroleDao.insert(userRole);
+		int result = userroleDao.update(userRole);
 		return result;
 	}
 
 	@Override
-	public int delete(String roleName, String userId) {
+	public int delete(String userId) {
 		UserRoleDao userroleDao = sqlsession.getMapper(UserRoleDao.class);
-		int result = userroleDao.delete(roleName, userId);
+		int result = userroleDao.delete(userId);
 		return result;
 	}
 

@@ -2,3 +2,29 @@
 
 
 /* 메인 */
+
+.table-style tbody > tr td:first-child{
+	width: 100px;
+}
+.table-style tbody > tr td:NTH-CHILD(2){
+	width: 100px;
+}
+.table-style tbody > tr td:NTH-CHILD(3){
+	width: 300px;
+	
+	/* wrap = 다음칸으로 넘어간다 */
+	white-space: nowrap;
+	/* 넘치는 것은 안보이게 */
+	overflow: hidden;
+	/* 두 줄 이상에 줄임표시, 생략표시 */
+	text-overflow: ellipsis;
+}
+.table-style tbody > tr td:NTH-CHILD(4){
+	width: 120px;
+}
+.table-style tbody > tr td:NTH-CHILD(5){
+	width: 300px;
+}
+.table-style tbody > tr td:last-child{
+	width: 130px;
+}

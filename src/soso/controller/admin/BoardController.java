@@ -1,10 +1,15 @@
 package soso.controller.admin;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import soso.dao.WarningDao;
 import soso.dao.CommentDao;
 import soso.dao.PostDao;
+import soso.dao.UserRoleDao;
 import soso.entities.Warning;
 import soso.entities.Comment;
 import soso.entities.Post;
@@ -24,17 +30,26 @@ import soso.mybatis.MyBatisPostDao;
 public class BoardController {
 
 	@Autowired
-	private WarningDao adminDao;
+	private WarningDao warningDao;
 	@Autowired
 	private CommentDao commentDao;
 	@Autowired
 	private PostDao postDao;
+	@Autowired
+	private UserRoleDao userRoleDao;
+
+	// 알람창에 쓰일 재료
+	String contentType;
+	String alert;
+
+	public BoardController() {
+		// 초기화
+		contentType = "text/html; charset=UTF-8";
+		alert = "<script>alert('권한이 없습니다.'); history.go(-1);</script>";
+	}
 
 	@RequestMapping("post")
 	public String post(Model model, String p) {
-
-		// 로그인 안됨
-		String email = "test@naver.com";
 
 		// 기본값 초기화
 		int page = 1;
@@ -54,36 +69,32 @@ public class BoardController {
 		return "admin.board.post";
 	}
 
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("post-del")
-	public String postDel(String pcode) {
+	public String postDel(Principal principal, String pcode, HttpServletResponse response) throws IOException {
 
-		// 로그인 안됨
-		String email = "test@naver.com";
-		
-		List<Warning> alist = adminDao.getList(email);
+		// 로그인 유저의 롤네임(권한) 얻기
+		String email = principal.getName();
+		String roleName = userRoleDao.getDefaultRole(email);
 
-		if (email == null || email.equals("")) {
-			
+		if (roleName.equals("ROLE_ADMIN")) {
+
+			// 일단은 글삭제
+			postDao.admindelete(pcode);
+
+			return "redirect:post";
+
+		} else if (roleName.equals("ROLE_USER")) {
+			response.setContentType(contentType);
+			PrintWriter out = response.getWriter();
+			out.println(alert);
+			out.flush();
 		}
-		// admin이 맞다면
-		else if (alist.size() != 0) {
-
-			System.out.println("admin이 맞음");
-			System.out.println("pcode : " + pcode);
-
-			// 일단은 글삭제?? 가 안되므로 보류
-			
-			 PostDao postDao = new MyBatisPostDao();
-			 postDao.admindelete(pcode);
-		}
-
 		return "admin.board.post";
 	}
 
 	@RequestMapping("cmt")
 	public String cmt(Model model, String p) {
-
-		String email = "test@naver.com";
 
 		// 기본값 초기화
 		int page = 1;
@@ -95,7 +106,7 @@ public class BoardController {
 			page = Integer.parseInt(p);
 		}
 
-		// 모든 POST값을 보여준다
+		// 모든 Comment값을 보여준다
 		List<Comment> clist = commentDao.getList(page, title, query);
 
 		model.addAttribute("clist", clist);
@@ -103,33 +114,43 @@ public class BoardController {
 		return "admin.board.cmt";
 	}
 
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("cmt-del")
-	public String cmtDel(String ccode, String cemail) {
+	public String cmtDel(Principal principal, String ccode, String cemail, HttpServletResponse response)
+			throws IOException {
 
-		// 로그인 안됨
-		String email = "test@naver.com";
+		// 로그인 유저의 롤네임(권한) 얻기
+		String email = principal.getName();
+		String roleName = userRoleDao.getDefaultRole(email);
 
-		List<Warning> alist = adminDao.getList(email);
+		if (roleName.equals("ROLE_ADMIN")) {
 
-		if (email == null || email.equals("")) {
-		}
-		// admin이 맞다면
-		else if (alist.size() != 0) {
+			// 경고 이유가 없으면 뒤로 보냄
 
-			System.out.println("admin이 맞음");
+			// 경고 관련 된 것을 작성
+			Warning warning = new Warning();
+			warning.setCmt_code(ccode);
+			warning.setEmail(cemail);
+			warning.setCause("부적절함");
+			warning.setAdmin_email(email);
 
-			// code값 받기
-			String code = ccode;
-			System.out.println("pcode : " + code);
+			warningDao.insert(warning);
 
-			// 삭제를 위한 email값 받기
-			String writer_email = cemail;
-			System.out.println("cemail : " + writer_email);
+			// 경고 횟수 추가
+			String code = warning.getCode();
+			warningDao.updateNum(cemail, code);
 
 			// 댓글 삭제
-			commentDao.delete(code, writer_email);
-		}
+			commentDao.admindelete(ccode);
 
+			return "redirect:cmt";
+
+		} else if (roleName.equals("ROLE_USER")) {
+			response.setContentType(contentType);
+			PrintWriter out = response.getWriter();
+			out.println(alert);
+			out.flush();
+		}
 		return "admin.board.cmt";
 	}
 }

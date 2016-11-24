@@ -16,6 +16,7 @@ public interface CommentDao {
    
    int insert(Comment comment);
    int delete(String code, String writer_email);
+   int admindelete(String code);
    /*int delete(String code, String writer_email);*/
    
 }

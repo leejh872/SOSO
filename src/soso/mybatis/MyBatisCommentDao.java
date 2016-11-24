@@ -69,6 +69,14 @@ public class MyBatisCommentDao implements CommentDao {
 		return result;
 	}
 
+	@Override
+	public int admindelete(String code) {
+		CommentDao cmtDao = sqlSession.getMapper(CommentDao.class);
+
+		int result = cmtDao.admindelete(code);
+		return result;
+	}
+
 	/*
 	 * @Override public int delete(String code, String writer_email) {
 	 * SqlSession session = ssf.openSession(); CommentDao cmtDao =

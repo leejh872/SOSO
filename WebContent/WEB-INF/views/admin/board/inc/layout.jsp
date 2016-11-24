@@ -13,6 +13,16 @@
 <meta charset="UTF-8">
 <title>관리자</title>
 
+<!-- <script type="text/javascript">
+	window.onload = function() {
+		var cmtDel = document.getElementById("cmt-del");
+
+		cmtDel.onclick = function() {
+			newWin = open("cmt-warning.html", "_top", "width=500px height=300px");
+		};
+	}
+</script> -->
+
 <!-- css가져오기 -->
 <link href="${ctx}/resource/admin/css/layout.css" type="text/css" rel="stylesheet" />
 <link href="${ctx}/resource/admin/css/<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />

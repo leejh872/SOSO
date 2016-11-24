@@ -36,14 +36,10 @@
 			
 				 <security:authorize ifAnyGranted="ROLE_ADMIN">
 				 <li class="sub-menu">
-				 <a href="${ctx}/admin/member/admin" class="link">ADMIN</a>
+				 <a href="${ctx}/admin/member/user" class="link">ADMIN</a>
 				 <table class="submenu">
 						<tr>
-							<td><a href="${ctx}/admin/member/admin"
-								class="submenuLink link">ADMIN</a></td>
-						</tr>
-						<tr>
-							<td><a href=""
+							<td><a href="${ctx}/admin/member/user"
 								class="submenuLink link">USER</a></td>
 						</tr>
 						<tr>

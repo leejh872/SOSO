@@ -4,30 +4,29 @@
 /* 메인 */
 
 .table-style tbody > tr td:first-child{
-	width: 80px;
+	width: 100px;
 }
 .table-style tbody > tr td:NTH-CHILD(2){
 	width: 100px;
 }
 .table-style tbody > tr td:NTH-CHILD(3){
-	width: 300px;
-	display: block;
-	/* wrap = 다음칸으로 넘어간다 */
-	white-space: nowrap;
-	/* 넘치는 것은 안보이게 */
-	overflow: hidden;
-	/* 두 줄 이상에 줄임표시, 생략표시 */
-	text-overflow: ellipsis;
+	width: 100px;
 }
 .table-style tbody > tr td:NTH-CHILD(4){
-	width: 200px;
+	width: 40px;
 }
 .table-style tbody > tr td:NTH-CHILD(5){
-	width: 120px;
+	width: 100px;
 }
 .table-style tbody > tr td:NTH-CHILD(6){
-	width: 120px;
+	width: 60px;
+}
+.table-style tbody > tr td:NTH-CHILD(7){
+	width: 50px;
+}
+.table-style tbody > tr td:NTH-CHILD(8){
+	width: 70px;
 }
 .table-style tbody > tr td:last-child{
-	width: 100px;
+	width: 50px;
 }
